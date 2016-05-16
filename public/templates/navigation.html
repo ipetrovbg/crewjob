@@ -1,0 +1,26 @@
+<header class="header">
+    <div class="shell clearfix">
+        <a href="/" class="logo">
+            <img src="img/logo-main.png">
+        </a>
+
+        <ul>
+            <li ng-class="(activeUrl == '/') ? 'active' : ''">
+                <a href="/">Начало</a>
+            </li>
+            <li ng-class="(activeUrl == '/projects') ? 'active' : ''">
+                <a href="/projects">Проекти</a>
+            </li>
+            <li ng-class="(activeUrl == '/portfolio') ? 'active' : ''" ng-if="isAuthenticated">
+                <a href="/portfolio">Портфолио</a>
+            </li>
+            <li ng-if="isAuthenticated">
+                <a ng-click="logout()" href="">Изход</a>
+            </li>
+            <li class="accent-button" ng-if="isAuthenticated">
+                <a href="projects/create">Стартирай проект</a>
+            </li>
+            <li ng-class="(activeUrl == '/login') ? 'active' : ''" ng-if="!isAuthenticated"><a href="/login">Вход</a></li>
+        </ul>
+    </div>
+</header>

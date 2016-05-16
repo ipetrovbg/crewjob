@@ -13,23 +13,22 @@
             })
         };
 
-        var registration = function (email, password, name) {
+        var registration = function (email, password) {
             return $http({
                 url: 'http://localhost:8000/register',
                 method: 'POST',
                 params: {
                     email: email,
-                    password: password,
-                    name: name
+                    password: password
                 }
             }).then(function (response) {
                 return response.data
             });
-        }
+        };
         var isEmail = function (email) {
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
-        }
+        };
         var login = function (email, password) {
             return $http({
                 url: 'http://localhost:8000/login',
@@ -38,8 +37,10 @@
                     email: email,
                     password: password
                 }
-            }).then(function (response) {
+            }).success(function (response) {
                 return response.data;
+            }).error(function(promise) {
+                return promise;
             });
         };
         
