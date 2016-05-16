@@ -1,0 +1,37 @@
+  <!-- navigation -->
+     <navigation></navigation>    
+    <!-- /navigation -->
+<div class="form-top-heading">
+  <div class="shell">
+    <h5>Усети магията днес</h5>
+    <h3>Регистрирай се</h3>
+  </div>
+</div>
+
+<div class="form-main-content main-content">
+  <div class="shell">
+    <div class="form-holder">
+      <form ng-submit="register()">
+        <div style="margin-top: -40px; height: 40px">
+          <div id="no_user" class="alert alert-danger" style="display: none; color: red;"></div>
+        </div>
+        <div class="input-group">
+           <input required ng-model="email" type="email" placeholder="Вашият e-mail" class="input-main input-spacing" id="user">
+        </div>
+        <br/>
+        <div class="input-group">
+          <input required ng-model="password" type="password" placeholder="Вашата парола" class="input-main input-spacing">
+        </div>
+        <br/>
+        <div class="input-group">
+          <input required ng-model="repassword" type="password" placeholder="Вашата парола отново" class="input-main input-spacing">
+        </div>
+        <br/>
+       <button class="btn-main form-btn-main input-spacing" style="margin-right: 10px">РЕГИСТРИРАЙ СЕ</button>        
+      </form>
+      <span class="link-to-login"><a href="/login">Впишете се</a> ако вече имате регистриран акаунт.</span>
+    </div>
+
+    <img src="img/KVADRATI-02.png" class="box-element-1">
+  </div>
+</div>

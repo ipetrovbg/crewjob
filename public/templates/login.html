@@ -1,0 +1,44 @@
+    <!-- navigation -->
+     <navigation></navigation>    
+    <!-- /navigation -->
+<div>
+    <div class="form-top-heading">
+        <div class="shell">
+            <h5>
+                Усети магията днес
+            </h5>
+            <h3>
+                Впиши се в профила.
+            </h3>
+        </div>
+    </div>
+    <!-- <div ng-click="bool=true">click</div> -->
+    <div class="form-main-content main-content">
+        <div class="shell">
+            <div id="c-login" class="form-holder">
+                <form class="crewjob-fade" ng-submit="login()">
+                    <div style="margin-top: -40px; height: 40px">
+                        <div id="no_user" class="alert alert-danger" style="display: none; color: red;">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input ng-model="email" type="email" required placeholder="Вашият e-mail" class="input-main input-spacing" id="user" name="user"/>
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <input ng-model="password" type="password" required placeholder="Вашата парола" class="input-main input-spacing" name="pass"/>
+                    </div>
+                    <br/>
+                    <button class="btn-main form-btn-main input-spacing" style="margin-right: 10px">
+                        ВХОД
+                    </button>
+                    <a href="/account">
+                        Създай профил
+                    </a>
+                    <br/>
+                </form>
+            </div>
+            <img src="img/KVADRATI-02.png" class="box-element-1"/>
+        </div>
+    </div>
+</div>

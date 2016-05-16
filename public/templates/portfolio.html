@@ -1,0 +1,223 @@
+<!-- navigation -->
+<navigation></navigation>
+<!-- /navigation -->
+<div>
+    <div class="tabs-nav">
+        <nav class="shell">
+            <ul>
+                <li class="active"><a class="btn-main" href="#tab1">Лични данни</a></li>
+                <li><a class="btn-main" href="#tab2">Категории</a></li>
+                <li><a class="btn-main" href="#tab3">Линкове</a></li>
+                <li><a class="btn-main" href="#tab4">Файлове</a></li>
+                <li><a class="btn-main" href="#tab5">Смяна на парола</a></li>
+                <span>{{ userEmail }}</span>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="tabs-content">
+        <div class="shell">
+            <form id="tab1" ng-submit="update()" class="tab tab1 active">
+                <!--		<div id="tab1" class="tab tab1 active">  -->
+                <div class="shell">
+                    <h2 class="tab-heading">Лични данни</h2>
+
+                    <div class="tab-form-holder">
+                        <input type="text" value="" id="usr_name" ng-model="name" class="input-main input-spacing"
+                               placeholder="Име ">
+                        <div class="input-spacing">
+                            <span class="gender">Пол: </span>
+                            <label>
+                                <input type="radio" value="0" ng-model="gender"> <span></span>Мъж
+                            </label>
+                            <label>
+                                <input type="radio" checked="" value="1" ng-model="gender"> <span></span>Жена
+                            </label>
+                            <label>
+                                <input type="radio" value="2" ng-model="gender"> <span></span>Фирма
+                            </label>
+                        </div>
+                        <div class="input-spacing">
+                            <!-- all optional actions -->
+                            <adm-dtp options="{default: date}" ng-model='date'>
+                                <!-- fully access to 'date' and 'date_details' parameters -->
+
+                                <!-- input is optional too, but must use in this format -->
+                                <input autoClose="true" ng-model='date' dtp-input type="text" value="{{ date }}"
+                                       class="input-spacing input-main" id="birth_date">
+                                <!-- attributes name are important, not tags name -->
+                            </adm-dtp>
+                        </div>
+                        <textarea ng-model="description" id="user_note" placeholder="Описание "
+                                  class="input-main textarea-main input-spacing"></textarea>
+                        <div class="file input-spacing">
+                            <input type="file" id="id_media" nv-file-select uploader="uploader">
+                            <span ng-if="!profileImage" class="value">Избери снимка</span>
+                            <span ng-if="!profileImage" class="btn-value"></span>
+                            <img ng-if="profileImage" class="img-rounded img-rounded-profile" width="205"
+                                 ng-src="uploads/profiles/{{ profileImage }}" alt="">
+                            <div ng-if="progres && progres < 100" class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                     aria-valuemax="100" style="width:0%">
+                        <span class="sr-only">
+                            0%
+                        </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Обнови" class="btn-main form-btn-main input-spacing">
+                    </div>
+                </div>
+
+                <img class="box-element-5" src="img/KUB-003.png">
+                <img class="box-element-3" src="img/KUB-003.png">
+                <img class="box-element-4" src="img/KUB-004.png">
+                <!-- </div> -->
+            </form>
+
+            <div class="tab tab2" id="tab2">
+                <div class="shell">
+                    <h2 class="tab-heading">Категории</h2>
+
+
+                    <div class="categories-boxes">
+                        <div class="categories-row clearfix">
+                            <a ng-repeat="c in categories | limitTo : 4 : 0" data-id="{{ c.id }}"
+                               ng-class="(c.has) ? 'active' : ''" class="categories-box" href="#">
+                                <img src="img/001-g.png">
+                                <h4>{{ c.name }}</h4>
+                                <p>{{ c.description }}</p>
+                            </a>
+                        </div>
+
+                        <div class="categories-row clearfix">
+                            <a ng-repeat="c in categories | limitTo : 8 : 4" data-id="{{ c.id }}"
+                               ng-class="(c.has) ? 'active' : ''" class="categories-box" href="#">
+                                <img src="img/001-g.png">
+                                <h4>{{ c.name }}</h4>
+                                <p>{{ c.description }}</p>
+                            </a>
+                        </div>
+                        <button ng-click="updateCategory()" class="btn-main form-btn-main input-spacing" type="submit">
+                            Запази
+                        </button>
+                    </div>
+                </div>
+
+                <img class="box-element-1" src="img/KVADRATI-02.png">
+            </div>
+
+            <!-- Links -->
+            <div class="tab tab3" id="tab3">
+                <div class="shell">
+                    <h2 class="tab-heading">Линкове</h2>
+                    <form ng-submit="uploadLink()" class="form-add input-spacing">
+                        <div class="form-group">
+                            <textarea ng-model="linkDesciption" id="link_note" name="link_note" placeholder="Описание"
+                                      class="input-main textarea-main textarea-link input-spacing"></textarea>
+
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input ng-model="linkPath" type="text" id="link" name="link" placeholder="Линк*"
+                                   class="input-main input-spacing">
+                        </div>
+                        <br>
+                        <input type="submit" value="КАЧИ" class="btn-main form-btn-main input-spacing">
+                    </form>
+                    <div class="form-edit">
+                        <h4 class="sub-heading">Списък с линкове</h4>
+                        <table ng-if="links.length > 0" class="table table-condensed clearfix" id="list_link">
+                            <thead>
+                            <th>Линк</th>
+                            <th>Описание</th>
+                            <th>Изтриване</th>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="l in links | orderBy:l.link_id:true">
+                                <td><a target="_blank" ng-href="{{l.link}}">{{l.link}}</a></td>
+                                <td>{{l.link_note}}</td>
+                                <td>
+                                    <button ng-click="deleteLink(l.link_id)" class="btn btn-danger">Изтриване</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <img class="box-element-1" src="img/KVADRATI-01.png">
+            </div>
+            <!-- /Links -->
+
+            <!--Files-->
+            <div class="tab tab4" id="tab4">
+                <h2 class="tab-heading">Файлове</h2>
+
+                <div class="file-cnt-holder">
+                    <h4 class="sub-heading">Качи файлове: </h4>
+                    <div class="file input-spacing">
+                        <input type="file" name="file" nv-file-select uploader="uploader_files">
+                        <span class="value">Upload File</span>
+                        <span class="btn-value"></span>
+                    </div>
+                    <!--		<input type="submit" class="btn-main form-btn-main file-btn" value="ДОБАВИ"> -->
+                    <!--<form id="tab4a">
+                        <div class="input-group" id="browse1">
+                            <a style="" class="btn-main form-btn-main file-btn btn-file">ДОБАВИ</a>
+                        </div>
+
+                    </form>-->
+                    <br>
+                    <div ng-if="filesProgres && filesProgres < 100" class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                             aria-valuemax="100" style="width:0%">
+                        <span class="sr-only">
+                            0%
+                        </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="uploaded-files-cnt">
+                    <h4 class="sub-heading">Качени файлове: </h4>
+                    <div class="uploaded-files-boxes">
+                        <!--<div ng-if="newFile" class="uploaded-file-box">-->
+                            <!--&lt;!&ndash;<a target="_blank" ng-href="uploads/files/{{ newFile }}" class="file-box"></a>&ndash;&gt;-->
+                            <!--<h4>{{ orgFile }}</h4>-->
+                        <!--</div>-->
+                        <br>
+                        <div ng-if="allFiles" ng-repeat="af in allFiles | orderBy:af.file_id:true" class="uploaded-file-box">
+                            <a target="_blank" ng-href="uploads/files/{{ af.file_name }}" class="file-box"></a>
+                            <h4>{{ af.org_filename }} <br /><span ng-click="deleteFile(af.file_id)" class="option-delete-file"><i class="fa fa-trash"></i></span></h4>
+                        </div>
+                    </div>
+                <table class="" id="list_files">
+                </table>
+            </div>
+            <!--/Files-->
+        </div>
+            <div class="tab tab5" id="tab5">
+                <h2 class="tab-heading">Промени парола:</h2>
+
+                <form ng-submit="changePass()">
+                    <!--					<input type="password" class="input-main input-spacing" placeholder="Old password">   -->
+                    <div class="form-group">
+                        <input ng-model="old_pass" type="password" placeholder="Old password" class="input-main input-spacing">
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="new_pass" type="password" placeholder="New password" class="input-main input-spacing">
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="re_new_pass" type="password" placeholder="Repeat new password" class="input-main input-spacing" />
+                    </div>
+                    <br>
+                    <input type="submit" value="ПРОМЕНИ" class="btn-main form-btn-main input-spacing">
+                </form>
+            </div>
+    </div>
+
+
+</div>

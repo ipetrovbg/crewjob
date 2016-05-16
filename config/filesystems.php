@@ -48,6 +48,14 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'local_avatar' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/profiles'),
+        ],
+        'local_files' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/files'),
+        ],
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
