@@ -13,6 +13,7 @@
 Route::get('{all}', function () { 
     return View::make('index'); 
 });
+
 Route::get('/', 'homeController@index');
 Route::post('/getEmail', 'userController@getEmail');
 Route::post('/register', 'userController@register');
@@ -31,6 +32,7 @@ Route::post('/upload-files', 'FileController@upload_files');
 Route::post('/getAllFiles', 'FileController@getAllFiles');
 Route::post('/deleteFile', 'FileController@deleteFile');
 Route::post('/changePass', 'userController@changePass');
-//Route::get('/uploads/files/:file_name', function(){
-//
-//});
+
+Route::get('/user/:file_name', function(){
+    return View::make('index');
+});

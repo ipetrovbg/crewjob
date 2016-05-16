@@ -211,7 +211,7 @@
 			"file": "resources/views/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 5248,
+				"buffer_size": 5256,
 				"line_ending": "Windows"
 			}
 		},
@@ -602,15 +602,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5248,
+						"buffer_size": 5256,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								829,
-								829
+								0,
+								0
 							]
 						],
 						"settings":

@@ -8,6 +8,9 @@
             $routeProvider.when('/', {
                 templateUrl: 'templates/home.html',
                 controller: 'homeCtrl'
+            }).when('/user/:user_id', {
+                templateUrl: 'templates/user_details.html',
+                controller: 'userCtrl'
             }).when('/projects', {
                 templateUrl: 'templates/home.html',
                 controller: 'homeCtrl'
