@@ -114,6 +114,24 @@ class userController extends Controller {
         return response()->json(['userdetails' => $user, 'userCategories' => $categories]);
     }
 
+
+    public function changePass(Request $request)
+    {
+        if($request->session()->get('ID')){
+            $response = DB::table('users')
+                ->where('id', $request->session()->get('ID'))
+                ->update(['password' => $request['pass']]);
+
+            if($response){
+                return response()->json(['status' => true, 'auth' => true]);
+            }else{
+                return response()->json(['status' => false, 'auth' => true]);
+            }
+        }else{
+            return response()->json(['status' => false, 'auth' => false]);
+        }
+    }
+
 }
 
     
