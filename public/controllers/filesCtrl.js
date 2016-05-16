@@ -1,0 +1,1 @@
+(function(){    var app = angular.module('crewjob');    var filesCtrl = function($scope, $route, $routeParams, $location){        $scope.file = $routeParams.file_name;        document.location.reload(true);    };    app.controller('filesCtrl', filesCtrl);}());

@@ -14,3 +14,23 @@ Route::get('{all}', function () {
     return View::make('index'); 
 });
 Route::get('/', 'homeController@index');
+Route::post('/getEmail', 'userController@getEmail');
+Route::post('/register', 'userController@register');
+Route::post('/login', 'userController@login');
+Route::post('/isAuth', 'userController@isAuth');
+Route::post('/logout', 'userController@logout');
+Route::post('/updateProfile', 'userController@updateProfile');
+Route::post('/userDetails', 'userController@userDetails');
+Route::post('/upload-profile', 'FileController@upload_profile');
+Route::post('/updateUserCategory', 'PortfolioController@updateUserCategory');
+Route::post('/categories', 'CategoryController@getAll');
+Route::post('/insertLink', 'PortfolioController@insertLink');
+Route::post('/getLinks', 'PortfolioController@getLinks');
+Route::post('/deleteLink', 'PortfolioController@deleteLink');
+Route::post('/upload-files', 'FileController@upload_files');
+Route::post('/getAllFiles', 'FileController@getAllFiles');
+Route::post('/deleteFile', 'FileController@deleteFile');
+Route::post('/changePass', 'userController@changePass');
+//Route::get('/uploads/files/:file_name', function(){
+//
+//});
