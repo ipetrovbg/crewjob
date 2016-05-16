@@ -2,12 +2,12 @@
 		var app = angular.module('crewjob');
 
 		var portfolioCtrl = function($scope, $route, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
-			categoriesServices){
+			categoriesServices, sha1){
 
 			if(!$cookies.get('email')){
 				$location.path('/');
 			}
-
+            $scope.userEmail = $cookies.get('email');
 			if($cookies.get('lastTab')){
 				if($cookies.get('lastTab') == '#tab3'){
 					portfolioServices.getLinks()
@@ -22,7 +22,16 @@
 									}).error(function(promise) {
 										console.log(promise);
 									});
-				}
+				}else if($cookies.get('lastTab') == '#tab4'){
+                    portfolioServices.getAllFiles()
+                        .success(function (response) {
+                            console.log(response);
+                            $scope.allFiles = response.files;
+                        })
+                        .error(function(promise){
+                            console.log(promise);
+                        });
+                }
 
 				angular.element(document).find('.tabs-nav li').removeClass('active');
 				angular.element(document).find('.tab').removeClass('active');
@@ -48,7 +57,7 @@
 								$scope.uCategories;
 
 									portfolioServices.userDetail()
-									.then(function(response){
+									.success(function(response){
 										$scope.uCategories = response.userCategories;
 
 										angular.forEach($scope.uCategories, function(v, k){
@@ -83,7 +92,7 @@
 
 			$scope.profileImage = "";
 			portfolioServices.userDetail()
-							.then(function(response){
+							.success(function(response){
 								$scope.gender = response.userdetails.gender;
 								$scope.name = response.userdetails.name;
 								$scope.date = response.userdetails.date_of_birth;
@@ -168,7 +177,18 @@
 									}).error(function(promise) {
 										console.log(promise);
 									});
-				}
+				}else if(angular.element(document).find(this).find('a').attr('href') == '#tab4'){
+                    portfolioServices.getAllFiles()
+                        .success(function (response) {
+                            console.log(response);
+                            $scope.allFiles = response.files;
+                        })
+                        .error(function(promise){
+                            console.log(promise);
+                        });
+                }
+
+
 				if($cookies.get('lastTab')){
 					$cookies.remove('lastTab');
 				}
@@ -300,6 +320,103 @@
 			/*/delete link*/
 
 			/*/link section*/
+
+            /*upload files section*/
+            $scope.uploader_files = new FileUploader({
+                url: '/upload-files',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                autoUpload:true,
+                alias:"files",
+                removeAfterUpload:true
+                //filters: [{
+                //    fn: function(item) {
+                //        var allowedTypes = ['image/jpeg', 'image/png', ];
+                //        if(allowedTypes.contains(item.type)){
+                //            return true;
+                //        }else{
+                //            toastinoService.makeDangerToast('Грешка. Позволени формати: jpg и png!', 'long');
+                //            return false;
+                //        }
+                //        // console.log(item);
+                //    }
+                //}]
+            });
+            $scope.uploader_files.onProgressItem = function(item, progress){
+                $scope.filesProgres = progress;
+                $('.progress-bar').css({'width': progress + '%'});
+                $('.sr-only').text(progress + ' %');
+            };
+            /* on complete uploading */
+            $scope.uploader_files.onCompleteItem = function(fileItem, response, status, headers) {
+                toastinoService.makeSuccessToast('Успешно качихте файла!', 'long');
+                $scope.newFile = response.file;
+                $scope.orgFile = response.org;
+                 portfolioServices.getAllFiles()
+                     .success(function (response) {
+                         $scope.allFiles = response.files;
+                     })
+                     .error(function(promise){
+                         console.log(promise);
+                     });
+            };
+            /* /upload profile picture */
+            $scope.deleteFile = function(file_id){
+                portfolioServices.deleteFile(file_id)
+                    .success(function (response) {
+                        toastinoService.makeSuccessToast('Успешно изтихте файла!', 'long');
+                        portfolioServices.getAllFiles()
+                            .success(function (response) {
+                                $scope.allFiles = response.files;
+                            })
+                            .error(function(promise){
+                                console.log(promise);
+                            });
+                    })
+                    .error(function(promise){
+                        console.log(promise);
+                    });
+            };
+            /*/upload files section*/
+
+            /*change pass*/
+            $scope.changePass = function(){
+                if($scope.old_pass){
+                    portfolioServices.userDetail()
+                        .success(function(response){
+                           if(response.userdetails.password === sha1.encode($scope.old_pass)){
+                               if($scope.new_pass === $scope.re_new_pass){
+                                   portfolioServices.changePass(sha1.encode($scope.new_pass))
+                                       .success(function(response){
+                                           if(response.status){
+                                               toastinoService.makeSuccessToast('Успешно променихте паролата си!', 'long');
+                                               $scope.old_pass = null;
+                                               $scope.new_pass = null;
+                                               $scope.re_new_pass = null;
+                                           }else{
+                                               toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+                                           }
+                                       }).error(function(){
+                                       toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+                                   });
+                               }else{
+                                   toastinoService.makeDangerToast('Паролите не съвпадат!', 'long');
+                               }
+
+                           }else{
+                               toastinoService.makeDangerToast('Невалидна парола!', 'long');
+                           }
+                        }).error(function(){
+                        toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+                    });
+
+                }else{
+                    toastinoService.makeDangerToast('Моля, въведете парола!', 'long');
+                }
+
+            };
+            /*/change pass*/
 		};
 
 		app.controller('portfolioCtrl', portfolioCtrl);

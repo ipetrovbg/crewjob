@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"cha",
+				"changePass"
+			],
+			[
 				"delete",
 				"deleteLink"
 			],
@@ -188,59 +192,43 @@
 	"buffers":
 	[
 		{
-			"file": "public/controllers/portfolioCtrl.js",
+			"file": "public/services/auth.js",
 			"settings":
 			{
-				"buffer_size": 9791,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/templates/portfolio.html",
-			"settings":
-			{
-				"buffer_size": 8220,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/PortfolioController.php",
-			"settings":
-			{
-				"buffer_size": 2730,
+				"buffer_size": 2314,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/services/portfolioService.js",
+			"file": "public/app/app.js",
 			"settings":
 			{
-				"buffer_size": 2372,
+				"buffer_size": 1414,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/Http/routes.php",
+			"file": "resources/views/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 1260,
+				"buffer_size": 5248,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/controllers/navigationCtrl.js",
+			"file": "public/controllers/homeCtrl.js",
 			"settings":
 			{
-				"buffer_size": 1718,
-				"line_ending": "Windows"
+				"buffer_size": 160,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/controllers/loginCtrl.js",
+			"file": "public/controllers/filesCtrl.js",
 			"settings":
 			{
-				"buffer_size": 1187,
-				"line_ending": "Windows"
+				"buffer_size": 269,
+				"line_ending": "CR"
 			}
 		}
 	],
@@ -327,41 +315,43 @@
 		"/D/xampp/htdocs/crewjob/app",
 		"/D/xampp/htdocs/crewjob/app/Http",
 		"/D/xampp/htdocs/crewjob/app/Http/Controllers",
-		"/D/xampp/htdocs/crewjob/database/migrations",
 		"/D/xampp/htdocs/crewjob/public",
 		"/D/xampp/htdocs/crewjob/public/controllers",
-		"/D/xampp/htdocs/crewjob/public/services"
+		"/D/xampp/htdocs/crewjob/public/css",
+		"/D/xampp/htdocs/crewjob/public/services",
+		"/D/xampp/htdocs/crewjob/public/templates"
 	],
 	"file_history":
 	[
+		"/D/xampp/htdocs/crewjob/app/Http/routes.php",
+		"/D/xampp/htdocs/crewjob/public/controllers/navigationCtrl.js",
+		"/D/xampp/htdocs/crewjob/public/controllers/loginCtrl.js",
+		"/D/xampp/htdocs/crewjob/public/controllers/accountCtrl.js",
+		"/D/xampp/htdocs/crewjob/public/services/portfolioService.js",
+		"/D/xampp/htdocs/crewjob/public/templates/portfolio.html",
+		"/D/xampp/htdocs/crewjob/app/Http/Controllers/FileController.php",
+		"/D/xampp/htdocs/crewjob/app/Http/Controllers/userController.php",
+		"/D/xampp/htdocs/crewjob/public/controllers/portfolioCtrl.js",
+		"/D/xampp/htdocs/crewjob/public/css/style.css",
+		"/D/xampp/htdocs/crewjob/vendor/phpunit/phpunit/src/TextUI/Command.php",
+		"/D/xampp/htdocs/crewjob/app/Http/Controllers/PortfolioController.php",
 		"/D/xampp/htdocs/crewjob/database/migrations/2016_05_14_075621_create_users_categories.php",
 		"/D/xampp/htdocs/crewjob/database/migrations/2016_05_15_190014_create_link_table.php",
-		"/D/xampp/htdocs/crewjob/public/controllers/portfolioCtrl.js",
-		"/D/xampp/htdocs/crewjob/public/controllers/navigationCtrl.js",
-		"/D/xampp/htdocs/crewjob/public/css/style.css",
-		"/D/xampp/htdocs/crewjob/public/services/portfolioService.js",
-		"/D/xampp/htdocs/crewjob/app/Http/Controllers/PortfolioController.php",
-		"/D/xampp/htdocs/crewjob/app/Http/Controllers/userController.php",
 		"/D/xampp/htdocs/crewjob/public/services/categoriesServices.js",
 		"/D/xampp/htdocs/crewjob/app/Http/Controllers/CategoryController.php",
-		"/D/xampp/htdocs/crewjob/app/Http/routes.php",
-		"/D/xampp/htdocs/crewjob/public/templates/portfolio.html",
 		"/D/xampp/htdocs/crewjob/resources/views/index.blade.php",
 		"/D/xampp/htdocs/crewjob/public/templates/account.html",
 		"/D/xampp/htdocs/crewjob/public/templates/home.html",
 		"/D/xampp/htdocs/crewjob/public/templates/login.html",
 		"/D/xampp/htdocs/crewjob/public/templates/navigation.html",
-		"/D/xampp/htdocs/crewjob/public/controllers/loginCtrl.js",
 		"/D/xampp/htdocs/crewjob/public/directives/navigation.js",
 		"/D/xampp/htdocs/crewjob/app/User.php",
 		"/D/xampp/htdocs/crewjob/public/app/app.js",
 		"/D/xampp/htdocs/crewjob/app/Category.php",
-		"/D/xampp/htdocs/crewjob/app/Http/Controllers/FileController.php",
 		"/D/xampp/htdocs/crewjob/config/filesystems.php",
 		"/D/xampp/htdocs/crewjob/database/migrations/2016_05_14_075136_create_category.php",
 		"/D/xampp/htdocs/crewjob/public/css/toastino.css",
 		"/D/xampp/htdocs/crewjob/public/app/angular-animate.min.js",
-		"/D/xampp/htdocs/crewjob/public/controllers/accountCtrl.js",
 		"/D/xampp/htdocs/crewjob/public/services/auth.js",
 		"/D/xampp/htdocs/crewjob/vendor/symfony/http-kernel/DependencyInjection/AddClassesToCachePass.php",
 		"/D/xampp/htdocs/crewjob/public/css/bootstrap.min.css",
@@ -460,12 +450,11 @@
 		"/home/petar/Desktop/AngularJS/sorting.js",
 		"/var/www/html/info.php",
 		"/var/www/projects/vrachovski/public_html/vrachovski/forum/config.php",
-		"/var/www/projects/vrachovski/public_html/vrachovski/forum/app.php",
-		"/home/petar/Desktop/AngularJS/search.html"
+		"/var/www/projects/vrachovski/public_html/vrachovski/forum/app.php"
 	],
 	"find":
 	{
-		"height": 86.0
+		"height": 70.0
 	},
 	"find_in_files":
 	{
@@ -484,6 +473,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"userDe",
 			"toastinoService",
 			"Линкове",
 			".close",
@@ -543,167 +533,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/controllers/portfolioCtrl.js",
+					"file": "public/services/auth.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9791,
+						"buffer_size": 2314,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4358,
-								4366
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2624.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "public/templates/portfolio.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8220,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5350,
-								5350
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2353.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/Http/Controllers/PortfolioController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2730,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2573,
-								2573
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1099.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/services/portfolioService.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2372,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1822,
-								1832
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1122.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/Http/routes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1260,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1257,
-								1257
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "public/controllers/navigationCtrl.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1718,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1002,
-								1002
+								0,
+								0
 							]
 						],
 						"settings":
@@ -713,39 +560,126 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": -0.0,
-						"translation.y": 66.0,
+						"translation.y": 648.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "public/controllers/loginCtrl.js",
+					"buffer": 1,
+					"file": "public/app/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1187,
+						"buffer_size": 1414,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								458,
-								461
+								1210,
+								1210
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 132.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								829,
+								829
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/controllers/homeCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 160,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								97
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/controllers/filesCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 269,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -808,6 +742,18 @@
 		"selected_items":
 		[
 			[
+				"inde",
+				"resources\\views\\index.blade.php"
+			],
+			[
+				"user",
+				"app\\Http\\Controllers\\userController.php"
+			],
+			[
+				"app",
+				"public\\app\\app.js"
+			],
+			[
 				"route",
 				"app\\Http\\routes.php"
 			],
@@ -844,10 +790,6 @@
 				"public\\controllers\\navigationCtrl.js"
 			],
 			[
-				"inde",
-				"resources\\views\\index.blade.php"
-			],
-			[
 				"naviga",
 				"public\\directives\\navigation.js"
 			],
@@ -870,14 +812,6 @@
 			[
 				"toast",
 				"public\\css\\toastino.css"
-			],
-			[
-				"app",
-				"public\\app\\app.js"
-			],
-			[
-				"user",
-				"app\\Http\\Controllers\\userController.php"
 			],
 			[
 				"index.b",
@@ -990,7 +924,7 @@
 		[
 			[
 				"",
-				"D:\\xampp\\htdocs\\laravel-angularjs\\L-A\\L-A.sublime-project"
+				"D:\\xampp\\htdocs\\C-J\\crewJob-CI.sublime-project"
 			]
 		],
 		"width": 380.0

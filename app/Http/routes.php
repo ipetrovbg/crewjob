@@ -27,3 +27,10 @@ Route::post('/categories', 'CategoryController@getAll');
 Route::post('/insertLink', 'PortfolioController@insertLink');
 Route::post('/getLinks', 'PortfolioController@getLinks');
 Route::post('/deleteLink', 'PortfolioController@deleteLink');
+Route::post('/upload-files', 'FileController@upload_files');
+Route::post('/getAllFiles', 'FileController@getAllFiles');
+Route::post('/deleteFile', 'FileController@deleteFile');
+Route::post('/changePass', 'userController@changePass');
+//Route::get('/uploads/files/:file_name', function(){
+//
+//});

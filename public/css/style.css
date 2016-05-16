@@ -660,8 +660,26 @@ input.tiny {
    transform: translateY(0px);
 }
 
+.uploaded-file-box.ng-enter{
+    transition: 0.3s linear all;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.uploaded-file-box.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.uploaded-file-box.ng-leave{
+    transition: 0.3s linear all;
+    opacity: 1;
+    transform: translateY(0px);
+}
+.uploaded-file-box.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateY(50px);
+}
 /**/
-./*crewjob-fade.ng-leave{
+/*crewjob-fade.ng-leave{
   transition: 0.8s linear all;
    opacity:1;
    transform: translateX(0px);
@@ -673,4 +691,10 @@ input.tiny {
 .img-rounded-profile{
   border-radius: 5px;
   z-index: 10;
+}
+.option-delete-file{
+    padding: 5px 10px 5px 10px;
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
 }

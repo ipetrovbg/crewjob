@@ -15,7 +15,8 @@
         <link href="css/crewjob.css" rel="stylesheet">
         
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all"/>
-        <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all"/>
+        {{--<link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="all"/>--}}
+        <!-- <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all"/> -->
         <link href="css/angular-carousel.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="css/jquery.fs.selecter.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
@@ -89,6 +90,7 @@
         <script src="controllers/loginCtrl.js"></script>
         <script src="controllers/accountCtrl.js"></script>
         <script src="controllers/portfolioCtrl.js"></script>
+        <script src="controllers/filesCtrl.js"></script>
         <!-- /controllers -->
         <!-- services -->
         <script src="services/sha1.js"></script>

@@ -22,10 +22,12 @@
 			return $http({
 				url: 'http://localhost:8000/userDetails',
                 method: 'POST'
-			}).then(function(response){
+			}).success(function(response){
 				return response.data;
-			});
-		}
+			}).error(function(promise){
+                return promise;
+            });
+		};
 
 		var updateCategory = function(categories){
 			// console.log(categories);
@@ -78,13 +80,53 @@
 				return promise;
 			});
 		};
+        var getAllFiles = function(){
+            return $http({
+                url: 'http://localhost:8000/getAllFiles',
+                method: 'POST'
+            }).success(function(response){
+                return response.data;
+            }).error(function (promise) {
+                return promise;
+            })
+        };
+        var deleteFile = function(file_id){
+            return $http({
+                url: 'http://localhost:8000/deleteFile',
+                method: 'POST',
+                params: {
+                    file_id: file_id
+                }
+            }).success(function(response){
+                return response.data;
+            }).error(function(promise){
+                return promise;
+            });
+        };
+        var changePass = function(pass){
+            return $http({
+                url: 'http://localhost:8000/changePass',
+                method: 'POST',
+                params: {
+                    pass: pass
+                }
+            }).success(function(response){
+                return response.data;
+            }).error(function(promise){
+                return promise;
+            });
+        };
+
 		return{
 			updateProfile: 	updateProfile,
 			userDetail: 	userDetail,
 			updateCategory: updateCategory,
 			putLink: putLink,
 			getLinks: getLinks,
-			deleteLink: deleteLink
+			deleteLink: deleteLink,
+			getAllFiles: getAllFiles,
+            deleteFile: deleteFile,
+            changePass: changePass
         };
 
 	}
