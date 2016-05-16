@@ -1,5 +1,6 @@
 (function(){
-	var app = angular.module('crewjob', ["ngRoute", "ui.router", "angular-loading-bar", "ngCookies", "uiGmapgoogle-maps"]);
+	var app = angular.module('crewjob', ["ngRoute", "ui.router", "angular-loading-bar", "ngCookies", 
+		"uiGmapgoogle-maps", "angular-carousel", "ADM-dateTimePicker", "mexassi.toastino", "ngAnimate", "angularFileUpload"]);
 
 app.config(['$routeProvider', '$urlRouterProvider', '$locationProvider', 'cfpLoadingBarProvider',
 	function($routeProvider, $urlRouterProvider, $locationProvider, cfpLoadingBarProvider) {
@@ -9,6 +10,22 @@ app.config(['$routeProvider', '$urlRouterProvider', '$locationProvider', 'cfpLoa
 	      when('/', {
 	        templateUrl: 	'templates/home.html',
 	        controller: 	'homeCtrl'
+	      }).
+	      when('/projects', {
+	        templateUrl: 	'templates/home.html',
+	        controller: 	'homeCtrl'
+	      }).
+	      when('/login', {
+	        templateUrl: 	'templates/login.html',
+	        controller: 	'loginCtrl'
+	      }).
+	      when('/account', {
+	        templateUrl: 	'templates/account.html',
+	        controller: 	'accountCtrl'
+	      }).
+	       when('/portfolio', {
+	        templateUrl: 	'templates/portfolio.html',
+	        controller: 	'portfolioCtrl'
 	      }).
 	        otherwise({        redirectTo: '/'      });  
 	      $locationProvider.html5Mode(true);
