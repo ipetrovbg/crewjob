@@ -92,6 +92,7 @@
         <script src="controllers/portfolioCtrl.js"></script>
         <script src="controllers/filesCtrl.js"></script>
         <script src="controllers/userCtrl.js"></script>
+        <script src="controllers/projectCreateCtrl.js"></script>
         <!-- /controllers -->
         <!-- services -->
         <script src="services/sha1.js"></script>

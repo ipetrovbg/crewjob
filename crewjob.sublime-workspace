@@ -4,128 +4,24 @@
 		"selected_items":
 		[
 			[
-				"cha",
-				"changePass"
-			],
-			[
-				"delete",
-				"deleteLink"
-			],
-			[
-				"link",
-				"link_id"
-			],
-			[
 				"ng-re",
 				"ng-repeat	AngularJS"
 			],
 			[
-				"resp",
-				"response"
-			],
-			[
-				"su",
-				"success"
-			],
-			[
-				"ta",
-				"tab"
-			],
-			[
-				"portf",
-				"portfolioServices"
-			],
-			[
-				"last",
-				"lastTab"
-			],
-			[
-				"attr",
-				"attr	.attr() - single"
-			],
-			[
-				"$sc",
-				"$scope	AngularJS"
-			],
-			[
-				"has",
-				"hasClass	.hasClass()"
-			],
-			[
-				"$lo",
-				"$location	AngularJS"
-			],
-			[
 				"for",
-				"forEach"
-			],
-			[
-				"con",
-				"console"
-			],
-			[
-				"$s",
-				"$scope	AngularJS"
-			],
-			[
-				"in",
-				"inarray	$.inArray()"
-			],
-			[
-				"bord",
-				"border-radius"
-			],
-			[
-				"ba",
-				"background-color"
-			],
-			[
-				"res",
-				"resp"
-			],
-			[
-				"remove",
-				"removeClass	.removeClass()"
-			],
-			[
-				"pre",
-				"preventDefault"
-			],
-			[
-				"remo",
-				"removeClass	.removeClass()"
-			],
-			[
-				"add",
-				"addClass	.addClass()"
-			],
-			[
-				"re",
-				"required	Attr"
-			],
-			[
-				"el",
-				"else"
-			],
-			[
-				"cont",
-				"controller	AngularJS"
-			],
-			[
-				"wid",
-				"width"
+				"for	for (…) {…}"
 			],
 			[
 				"cons",
-				"console"
-			],
-			[
-				"class",
-				"class ~phpCodeGen	@class ~phpCodeGen"
+				"console.log()"
 			],
 			[
 				"wi",
 				"width	Style CSS"
+			],
+			[
+				"con",
+				"justify-content"
 			],
 			[
 				"getE",
@@ -160,6 +56,10 @@
 				"inline-block"
 			],
 			[
+				"re",
+				"reverse"
+			],
+			[
 				"dislike",
 				"dislikes"
 			],
@@ -191,46 +91,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "public/services/auth.js",
-			"settings":
-			{
-				"buffer_size": 2314,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/app/app.js",
-			"settings":
-			{
-				"buffer_size": 1414,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 5256,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/controllers/homeCtrl.js",
-			"settings":
-			{
-				"buffer_size": 160,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/controllers/filesCtrl.js",
-			"settings":
-			{
-				"buffer_size": 269,
-				"line_ending": "CR"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -240,32 +100,12 @@
 	"command_palette":
 	{
 		"height": 354.0,
-		"last_filter": "inst",
+		"last_filter": "Emmet",
 		"selected_items":
 		[
 			[
-				"inst",
-				"Package Control: Install Package"
-			],
-			[
-				"Fin",
-				"Find: In..."
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
-				"ins",
-				"Package Control: Install Package"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
 				"Emmet",
-				"Emmet: Balance (inward)"
+				"Emmet: Increment Number by 10"
 			],
 			[
 				"",
@@ -288,15 +128,13 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 454.0
+		"width": 512.0
 	},
 	"console":
 	{
 		"height": 139.0,
 		"history":
 		[
-			"__DIR__",
-			"df",
 			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
 		]
 	},
@@ -311,106 +149,17 @@
 	},
 	"expanded_folders":
 	[
-		"/D/xampp/htdocs/crewjob",
-		"/D/xampp/htdocs/crewjob/app",
-		"/D/xampp/htdocs/crewjob/app/Http",
-		"/D/xampp/htdocs/crewjob/app/Http/Controllers",
-		"/D/xampp/htdocs/crewjob/public",
-		"/D/xampp/htdocs/crewjob/public/controllers",
-		"/D/xampp/htdocs/crewjob/public/css",
-		"/D/xampp/htdocs/crewjob/public/services",
-		"/D/xampp/htdocs/crewjob/public/templates"
+		"/var/www/html/crewjob"
 	],
 	"file_history":
 	[
-		"/D/xampp/htdocs/crewjob/app/Http/routes.php",
-		"/D/xampp/htdocs/crewjob/public/controllers/navigationCtrl.js",
-		"/D/xampp/htdocs/crewjob/public/controllers/loginCtrl.js",
-		"/D/xampp/htdocs/crewjob/public/controllers/accountCtrl.js",
-		"/D/xampp/htdocs/crewjob/public/services/portfolioService.js",
-		"/D/xampp/htdocs/crewjob/public/templates/portfolio.html",
-		"/D/xampp/htdocs/crewjob/app/Http/Controllers/FileController.php",
-		"/D/xampp/htdocs/crewjob/app/Http/Controllers/userController.php",
-		"/D/xampp/htdocs/crewjob/public/controllers/portfolioCtrl.js",
-		"/D/xampp/htdocs/crewjob/public/css/style.css",
-		"/D/xampp/htdocs/crewjob/vendor/phpunit/phpunit/src/TextUI/Command.php",
-		"/D/xampp/htdocs/crewjob/app/Http/Controllers/PortfolioController.php",
-		"/D/xampp/htdocs/crewjob/database/migrations/2016_05_14_075621_create_users_categories.php",
-		"/D/xampp/htdocs/crewjob/database/migrations/2016_05_15_190014_create_link_table.php",
-		"/D/xampp/htdocs/crewjob/public/services/categoriesServices.js",
-		"/D/xampp/htdocs/crewjob/app/Http/Controllers/CategoryController.php",
-		"/D/xampp/htdocs/crewjob/resources/views/index.blade.php",
-		"/D/xampp/htdocs/crewjob/public/templates/account.html",
-		"/D/xampp/htdocs/crewjob/public/templates/home.html",
-		"/D/xampp/htdocs/crewjob/public/templates/login.html",
-		"/D/xampp/htdocs/crewjob/public/templates/navigation.html",
-		"/D/xampp/htdocs/crewjob/public/directives/navigation.js",
-		"/D/xampp/htdocs/crewjob/app/User.php",
-		"/D/xampp/htdocs/crewjob/public/app/app.js",
-		"/D/xampp/htdocs/crewjob/app/Category.php",
-		"/D/xampp/htdocs/crewjob/config/filesystems.php",
-		"/D/xampp/htdocs/crewjob/database/migrations/2016_05_14_075136_create_category.php",
-		"/D/xampp/htdocs/crewjob/public/css/toastino.css",
-		"/D/xampp/htdocs/crewjob/public/app/angular-animate.min.js",
-		"/D/xampp/htdocs/crewjob/public/services/auth.js",
-		"/D/xampp/htdocs/crewjob/vendor/symfony/http-kernel/DependencyInjection/AddClassesToCachePass.php",
-		"/D/xampp/htdocs/crewjob/public/css/bootstrap.min.css",
-		"/D/xampp/htdocs/crewjob/database/migrations/2016_05_13_134904_users_info.php",
-		"/D/xampp/htdocs/crewjob/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/D/xampp/htdocs/crewjob/config/database.php",
-		"/D/xampp/htdocs/crewjob/public/services/sha1.js",
-		"/D/xampp/htdocs/crewjob/.env.example",
-		"/D/xampp/htdocs/crewjob/.env",
-		"/D/xampp/htdocs/crewjob/config/session.php",
-		"/D/xampp/htdocs/crewjob/public/app/angular-carousel.js",
-		"/D/xampp/htdocs/crewjob/public/directives/rn-carousel.js",
-		"/D/xampp/htdocs/crewjob/public/app/angular-touch.min.js",
-		"/D/xampp/htdocs/crewjob/public/css/angular-carousel.css",
-		"/D/xampp/htdocs/crewjob/public/directives/navigationCtrl.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/app.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/directives/ngDraggable.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/resources/views/welcome.blade.php",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/ngDraggable.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/bootstrap/autoload.php",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/css/style.css",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/resources/assets/sass/app.scss",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/vendor/nikic/php-parser/lib/PhpParser/Autoloader.php",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/SmartNewWindow/README.md",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/SmartNewWindow/Default (Windows).sublime-keymap",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/vendor/laravel/framework/src/Illuminate/View/ViewFinderInterface.php",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/AngularJS/AngularJS-completions.sublime-settings",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/Search in Project/README.md",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/Search in Project/Default (Windows).sublime-keymap",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/Search in Project/SearchInProject.sublime-settings",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/User/SearchInProject.sublime-settings",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/CodeSearch/Default (Windows).sublime-keymap",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/bootstrap/app.php",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/vendor/phpunit/phpunit-mock-objects/tests/_fixture/GoogleSearch.wsdl",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/User/google_search.sublime-settings",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/google-search/google_search.sublime-settings",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/Laravel-AngularJS.sublime-project",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/app/Http/Controllers/userController.php",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/controllers/jsTimelineCtrl.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/app/Http/Controllers/Controller.php",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/templates/js-timeline.html",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/templates/timeline.html",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/controllers/timelineCtrl.js",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/CodeSearch/CodeSearch.sublime-settings",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/PhpCodeGen/phpcodegen.sublime-settings",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/User/phpcodegen.sublime-settings",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/vendor/symfony/http-kernel/Tests/HttpKernelTest.php",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/app/Providers/AppServiceProvider.php",
-		"/C/Users/User-02/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/app/Http/Controllers/FileUpload.php",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/timeline.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/directives/navigation.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/directives/googleTimeline.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/directives/angular-simple-logger.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/templates/navigation.html",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/public/controllers/navCtrl.js",
-		"/D/xampp/htdocs/laravel-angularjs/L-A/.gitignore",
+		"/var/www/html/laravel-angularjs/L-A/public/css/style.css",
+		"/var/www/html/laravel-angularjs/L-A/public/templates/timeline.html",
+		"/var/www/html/laravel-angularjs/L-A/public/controllers/timelineCtrl.js",
+		"/var/www/html/laravel-angularjs/L-A/.gitignore",
+		"/var/www/html/laravel-angularjs/L-A/resources/views/welcome.blade.php",
+		"/var/www/html/laravel-angularjs/L-A/public/moment.min.js",
+		"/var/www/html/laravel-angularjs/L-A/database/migrations/2016_05_10_084650_create_custom_location.php",
 		"/home/petar/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/var/www/html/laravel-angularjs/public/controllers/mainCtrl.js",
 		"/var/www/html/laravel-angularjs/public/css/style.css",
@@ -450,22 +199,70 @@
 		"/home/petar/Desktop/AngularJS/sorting.js",
 		"/var/www/html/info.php",
 		"/var/www/projects/vrachovski/public_html/vrachovski/forum/config.php",
-		"/var/www/projects/vrachovski/public_html/vrachovski/forum/app.php"
+		"/var/www/projects/vrachovski/public_html/vrachovski/forum/app.php",
+		"/home/petar/Desktop/AngularJS/search.html",
+		"/home/petar/Desktop/AngularJS/scripts/searching.js",
+		"/home/petar/Desktop/AngularJS/sorting.html",
+		"/home/petar/Desktop/AngularJS/scripts/script.js",
+		"/home/petar/Desktop/AngularJS/index.html",
+		"/home/petar/Desktop/AngularJS/angular.js",
+		"/home/petar/Desktop/AngularJS/script.js",
+		"/var/www/projects/lift-hr/wp-content/plugins/visual-form-builder/includes/class-export.php",
+		"/home/petar/Desktop/html2pdf-4.5.1/examples/exemple02.php",
+		"/home/petar/Desktop/tcpdf/examples/example_001.php",
+		"/home/petar/Desktop/tcpdf/examples/tcpdf_include.php",
+		"/var/www/projects/lift-hr/wp-content/plugins/visual-form-builder/uninstall.php",
+		"/var/www/projects/lift-hr/wp-content/plugins/visual-form-builder/includes/form-output.php",
+		"/home/petar/Desktop/html2pdf-4.5.1/examples/exemple11.php",
+		"/home/petar/Desktop/html2pdf-4.5.1/examples/bookmark.php",
+		"/home/petar/Desktop/html2pdf-4.5.1/examples/exemple03.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/DB_driver.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/drivers/mysqli/mysqli_driver.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/application/controllers/Welcome.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/helpers/form_helper.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/DB.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/application/config/database.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/drivers/mysqli/mysqli_utility.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/Config.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/Hooks.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/helpers/array_helper.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/language/english/calendar_lang.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/index.html",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/DB_result.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/application/config/autoload.php",
+		"/var/www/projects/ipetrovdev/wp-content/themes/ipetrovtheme/framework/confiq/db.php",
+		"/var/www/html/slider.php",
+		"/var/www/html/default.js",
+		"/var/www/html/index.html",
+		"/var/www/html/testphp.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/CodeIgniter.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/Controller.php",
+		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/Loader.php",
+		"/var/www/projects/ipetrovdev/wp-content/themes/ipetrovtheme/framework/Test.php",
+		"/var/www/html/style.css",
+		"/var/www/test.php",
+		"/var/www/info.php",
+		"/home/petar/Desktop/meks-smart-author-widget/inc/meks-smart-author-widget-template.php",
+		"/home/petar/Desktop/meks-smart-author-widget/inc/class-author-widget.php",
+		"/home/petar/Desktop/meks-smart-author-widget/meks-smart-author-widget.php",
+		"/home/petar/NetBeansProjects/autoreader dev/home/nikivr/public_html/autoreader/wp-content/themes/autoreader_v3/theme-options/class_theme_options.php",
+		"/home/petar/NetBeansProjects/autoreader dev/home/nikivr/public_html/autoreader/wp-content/themes/autoreader_v3/theme-options/generalThemeOptions.php",
+		"/home/petar/NetBeansProjects/autoreader dev/home/nikivr/public_html/autoreader/wp-content/themes/autoreader_v3/theme-options/edit_theme_options.php",
+		"/var/www/html/tree.php",
+		"/home/petar/Desktop/default.js",
+		"/var/www/html/task.php",
+		"/var/www/html/new.php",
+		"/etc/php5/apache2/php.ini"
 	],
 	"find":
 	{
-		"height": 70.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
 		"height": 158.0,
 		"where_history":
 		[
-			"D:\\xampp\\htdocs\\laravel-angularjs\\L-A\\public",
-			"D:\\xampp\\htdocs\\laravel-angularjs\\L-A\\storage",
-			"D:\\xampp\\htdocs\\laravel-angularjs\\L-A\\vendor\\laravel",
-			"D:\\xampp\\htdocs\\laravel-angularjs\\L-A\\bootstrap\\autoload.php",
-			"<open files>,<open folders>"
 		]
 	},
 	"find_state":
@@ -473,38 +270,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"userDe",
-			"toastinoService",
-			"Линкове",
-			".close",
-			"ts-dismiss",
-			"ts-toastino",
-			"timestamp",
-			".tabs-content",
-			"assets/",
-			"pwd",
-			"while",
-			".js",
-			"__DIR",
-			"findstr",
-			"DB",
-			"userController",
-			"Storage",
-			"Controllers",
-			"Controller",
-			"Controllers",
-			"navigate_to_definition",
-			"navigate_to_definition\\",
-			"}\n",
-			"getEmail",
-			"request",
-			"Request",
-			"response",
-			"json",
-			"session",
-			"table",
-			"upload",
-			"Controller",
 			"\n			",
 			"-->\n",
 			"Form",
@@ -533,161 +298,14 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "public/services/auth.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2314,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "public/app/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1414,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1210,
-								1210
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/index.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5256,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/controllers/homeCtrl.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 160,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97,
-								97
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/controllers/filesCtrl.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 269,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 32.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -729,10 +347,10 @@
 		"height": 120.0
 	},
 	"pinned_build_system": "",
-	"project": "crewjob.sublime-project",
+	"project": "crewjob.sublime-workspace",
 	"replace":
 	{
-		"height": 60.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -742,140 +360,20 @@
 		"selected_items":
 		[
 			[
-				"inde",
-				"resources\\views\\index.blade.php"
-			],
-			[
-				"user",
-				"app\\Http\\Controllers\\userController.php"
-			],
-			[
-				"app",
-				"public\\app\\app.js"
-			],
-			[
-				"route",
-				"app\\Http\\routes.php"
-			],
-			[
-				"navi",
-				"public\\controllers\\navigationCtrl.js"
-			],
-			[
-				"loginctr",
-				"public\\controllers\\loginCtrl.js"
-			],
-			[
-				"portf",
-				"public\\templates\\portfolio.html"
-			],
-			[
 				"style",
-				"public\\css\\style.css"
+				"L-A/public/css/style.css"
 			],
 			[
-				"navigat",
-				"public\\controllers\\navigationCtrl.js"
-			],
-			[
-				"index",
-				"resources\\views\\index.blade.php"
-			],
-			[
-				"port",
-				"public\\templates\\portfolio.html"
-			],
-			[
-				"nav",
-				"public\\controllers\\navigationCtrl.js"
-			],
-			[
-				"naviga",
-				"public\\directives\\navigation.js"
-			],
-			[
-				"app.js",
-				"public\\app\\app.js"
-			],
-			[
-				"login",
-				"public\\templates\\login.html"
-			],
-			[
-				"loginc",
-				"public\\controllers\\loginCtrl.js"
-			],
-			[
-				"acc",
-				"public\\controllers\\accountCtrl.js"
-			],
-			[
-				"toast",
-				"public\\css\\toastino.css"
-			],
-			[
-				"index.b",
-				"resources\\views\\index.blade.php"
-			],
-			[
-				"login.ht",
-				"public\\templates\\login.html"
-			],
-			[
-				"navigation",
-				"public\\controllers\\navigationCtrl.js"
-			],
-			[
-				"routes.php",
-				"app\\Http\\routes.php"
+				"time.ht",
+				"L-A/public/templates/timeline.html"
 			],
 			[
 				"welcome",
-				"resources\\views\\welcome.blade.php"
-			],
-			[
-				"timelinctr",
-				"public\\controllers\\timelineCtrl.js"
-			],
-			[
-				"tim",
-				"public\\templates\\timeline.html"
-			],
-			[
-				".scss",
-				"resources\\assets\\sass\\app.scss"
-			],
-			[
-				".css",
-				"public\\css\\style.css"
-			],
-			[
-				"findin",
-				"vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewFinderInterface.php"
-			],
-			[
-				"",
-				"bootstrap\\autoload.php"
-			],
-			[
-				"goo",
-				"vendor\\phpunit\\phpunit-mock-objects\\tests\\_fixture\\GoogleSearch.wsdl"
+				"L-A/resources/views/welcome.blade.php"
 			],
 			[
 				"timelinectr",
-				"public\\controllers\\timelineCtrl.js"
-			],
-			[
-				"timeline",
-				"public\\timeline.js"
-			],
-			[
-				"navigation.ht",
-				"public\\templates\\navigation.html"
-			],
-			[
-				"ctrl",
-				"public\\controllers\\navCtrl.js"
+				"L-A/public/controllers/timelineCtrl.js"
 			],
 			[
 				"main.html",
@@ -886,6 +384,10 @@
 				"public/controllers/mainCtrl.js"
 			],
 			[
+				"loginctr",
+				"public/controllers/loginCtrl.js"
+			],
+			[
 				"aut",
 				"public/services/auth.js"
 			],
@@ -894,8 +396,16 @@
 				"app/Http/routes.php"
 			],
 			[
+				"user",
+				"app/Http/Controllers/userController.php"
+			],
+			[
 				"lo",
 				"app/Http/Controllers/locationController.php"
+			],
+			[
+				"route",
+				"app/Http/routes.php"
 			],
 			[
 				"auth.j",
@@ -910,24 +420,28 @@
 				"public/services/locations.js"
 			],
 			[
+				"login.ht",
+				"public/templates/login.html"
+			],
+			[
 				"welc",
 				"resources/views/welcome.blade.php"
+			],
+			[
+				"",
+				"public/templates/about.html"
 			]
 		],
 		"width": 0.0
 	},
 	"select_project":
 	{
-		"height": 500.0,
+		"height": 0.0,
 		"last_filter": "",
 		"selected_items":
 		[
-			[
-				"",
-				"D:\\xampp\\htdocs\\C-J\\crewJob-CI.sublime-project"
-			]
 		],
-		"width": 380.0
+		"width": 0.0
 	},
 	"select_symbol":
 	{
@@ -946,7 +460,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 410.0,
+	"side_bar_width": 427.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

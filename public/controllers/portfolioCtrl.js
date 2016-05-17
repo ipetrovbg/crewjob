@@ -1,7 +1,7 @@
 (function(){
 		var app = angular.module('crewjob');
 
-		var portfolioCtrl = function($scope, $route, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
+		var portfolioCtrl = function($scope, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
 			categoriesServices, sha1, auth){
 
 			if(!$cookies.get('email') || $cookies.get('email') === 'undefined'){

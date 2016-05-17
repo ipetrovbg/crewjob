@@ -55,6 +55,11 @@
             }).when('/uploads/files/:file_name', {
                 templateUrl: 'templates/files.html',
                 controller: 'filesCtrl'
+            }).when('/projects/create', {
+                templateUrl: 'templates/project-create.html',
+                controller: 'projectCreateCtrl',
+                resolve: { loginRequired: loginRequired },
+                title: 'Стартирай проект - CrewJob'
             }).otherwise({redirectTo: '/'});
 
             $locationProvider.html5Mode(true);
