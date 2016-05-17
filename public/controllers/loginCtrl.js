@@ -22,7 +22,7 @@
                                                 
 						//$timeout(function(){
 						//	document.location.reload(true);
-						//}, 500);
+						//}, 200);
 
 						// $scope.bool = true;	
 

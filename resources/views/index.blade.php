@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/ADM-dateTimePicker.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/toastino.css" type="text/css" media="all"/>
-        <meta name="csrf-token" content="{{ csrf_token() }}" />     
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
     </head>
 
     <body>

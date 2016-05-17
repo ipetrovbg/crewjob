@@ -8,10 +8,12 @@
             if($route.current.params.user_id){
                 userServices.getUser($route.current.params.user_id)
                     .success(function(response){
-                        if(response.user.name){
-                            document.title = $route.current.title + ' - ' + response.user.name + '  - CrewJob';
-                        }else{
-                            document.title = $route.current.title + ' - ' + response.user.email + '  - CrewJob';
+                        if(response.status){
+                            if(response.user.name){
+                                document.title = $route.current.title + ' - ' + response.user.name + '  - CrewJob';
+                            }else{
+                                document.title = $route.current.title + ' - ' + response.user.email + '  - CrewJob';
+                            }
                         }
 
                     });

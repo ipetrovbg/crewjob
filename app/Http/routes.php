@@ -21,6 +21,7 @@ Route::post('/login', 'userController@login');
 Route::post('/isAuth', 'userController@isAuth');
 Route::post('/logout', 'userController@logout');
 Route::post('/updateProfile', 'userController@updateProfile');
+Route::post('/forseLogin', 'userController@forseLogin');
 Route::post('/userDetails', 'userController@userDetails');
 Route::post('/upload-profile', 'FileController@upload_profile');
 Route::post('/updateUserCategory', 'PortfolioController@updateUserCategory');

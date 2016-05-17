@@ -67,6 +67,11 @@ class userController extends Controller
 
     }
 
+    public function forseLogin(Request $request)
+    {
+        $request->session()->put('email', $request['email']);
+        $request->session()->put('ID', $request['ID']);
+    }
     public function isAuth(Request $request)
     {
 
@@ -91,11 +96,10 @@ class userController extends Controller
         if ($request->session()->get('ID')) {
             $response = DB::table('users')
                 ->where('id', $request->session()->get('ID'))
-                ->update(['name' => $request['name'],
+                ->update(['name' => htmlspecialchars($request['name']),
                     'gender' => $request['gender'],
                     'date_of_birth' => $request['date'],
-                    'description' => $request['description'],
-                    'updated_at' =>$request['updated_at']]);
+                    'description' => htmlspecialchars($request['description'])]);
 
 
             if ($response) {
@@ -152,7 +156,8 @@ class userController extends Controller
         $userCategories = DB::table('users_categories')
             ->leftJoin('category', 'users_categories.category_id', '=', 'category.id')
             ->where('user_id', $request['userId'])->get();
-        if ($user) {
+
+        if (count($user) == 1) {
             if (count($userCategories) > 0) {
                 return response()->json(['status' => true, 'user' => $user, 'cat' => $userCategories]);
             } else {

@@ -1,16 +1,18 @@
 (function(){
 	var portfolioServices = function ($http) {
 
-		var updateProfile = function(gender, name, date, description, updated_at){
+		var updateProfile = function(gender, name, date, description){
 			return $http({
 				url: 'http://localhost:8000/updateProfile/',
                 method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 params: {
                     gender: gender,
                     name: name,
                     date: date,
-                    description: description,
-                    updated_at: updated_at
+                    description: description
                 }
 			}).success(function(response){
 				return response.data;

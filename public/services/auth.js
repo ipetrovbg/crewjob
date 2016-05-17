@@ -43,6 +43,24 @@
                 return promise;
             });
         };
+
+        var forseLogin = function (email, id) {
+            return $http({
+                url: 'http://localhost:8000/forseLogin',
+                method: 'POST',
+                params: {
+                    email: email,
+                    id: id
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }).success(function (response) {
+                return response.data;
+            }).error(function(promise) {
+                return promise;
+            });
+        };
         
         var isAuth = function(){
           return $http({
@@ -50,7 +68,7 @@
               method: 'POST'
           }).then(function(response){
               return response.data;
-          });  
+          });
         };
         
         var logout = function(){
@@ -68,7 +86,8 @@
             isEmail: isEmail,
             login: login,
             isAuth: isAuth,
-            logout: logout
+            logout: logout,
+            forseLogin: forseLogin
         };
     };
 
