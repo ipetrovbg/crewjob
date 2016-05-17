@@ -101,6 +101,7 @@
 							});
 
 			$scope.profileImage = "";
+			$scope.date = new Date();
 			portfolioServices.userDetail()
 							.success(function(response){
 								$scope.gender = response.userdetails.gender;
@@ -110,13 +111,18 @@
 								$scope.profileImage = response.userdetails.avatar;
 							});
 
-
+            //console.log(updated_at);
 			$scope.update = function(){
-
-				portfolioServices.updateProfile($scope.gender, $scope.name, $scope.date, $scope.description)
+                var d = new Date();
+                var updated_at = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" +
+                    ("0" + d.getDate()).slice(-2)+ " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + ':'+d.getSeconds();
+				portfolioServices.updateProfile($scope.gender, $scope.name, $scope.date, $scope.description, updated_at)
 								.success(function(resp){
-									toastinoService.makeSuccessToast('Успешно обновихте профила си!', 'long');
-									$("html, body").animate({scrollTop: 0}, "fast");
+                                    if(resp.status){
+                                        toastinoService.makeSuccessToast('Успешно обновихте профила си!', 'long');
+                                        $("html, body").animate({scrollTop: 0}, "fast");
+                                    }
+
 								})
 								.error(function(promise){
 									toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');

@@ -9,9 +9,9 @@
                 userServices.getUser($route.current.params.user_id)
                     .success(function(response){
                         if(response.user.name){
-                            document.title = $route.current.title + ' - ' + response.user.name;
+                            document.title = $route.current.title + ' - ' + response.user.name + '  - CrewJob';
                         }else{
-                            document.title = $route.current.title + ' - ' + response.user.email;
+                            document.title = $route.current.title + ' - ' + response.user.email + '  - CrewJob';
                         }
 
                     });
@@ -27,7 +27,7 @@
             $routeProvider.when('/', {
                 templateUrl: 'templates/home.html',
                 controller: 'homeCtrl',
-                title: 'Начало'
+                title: 'Начало - CrewJob'
             }).when('/user/:user_id', {
                 templateUrl: 'templates/user_details.html',
                 controller: 'userCtrl',
@@ -36,20 +36,20 @@
             }).when('/projects', {
                 templateUrl: 'templates/home.html',
                 controller: 'homeCtrl',
-                title: 'Проекти'
+                title: 'Проекти - CrewJob'
             }).when('/login', {
                 templateUrl: 'templates/login.html',
                 controller: 'loginCtrl',
-                title: 'Вход'
+                title: 'Вход - CrewJob'
             }).when('/account', {
                 templateUrl: 'templates/account.html',
                 controller: 'accountCtrl',
-                title: 'Регистрация'
+                title: 'Регистрация - CrewJob'
             }).when('/portfolio', {
                 templateUrl: 'templates/portfolio.html',
                 controller: 'portfolioCtrl',
                 resolve: { loginRequired: loginRequired },
-                title: 'Портфолио'
+                title: 'Портфолио - CrewJob'
             }).when('/uploads/files/:file_name', {
                 templateUrl: 'templates/files.html',
                 controller: 'filesCtrl'

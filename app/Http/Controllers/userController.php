@@ -88,20 +88,20 @@ class userController extends Controller
 
     public function updateProfile(Request $request)
     {
-
         if ($request->session()->get('ID')) {
             $response = DB::table('users')
                 ->where('id', $request->session()->get('ID'))
                 ->update(['name' => $request['name'],
                     'gender' => $request['gender'],
                     'date_of_birth' => $request['date'],
-                    'description' => $request['description']]);
+                    'description' => $request['description'],
+                    'updated_at' =>$request['updated_at']]);
 
 
             if ($response) {
-                return response()->json(['status' => true]);
+                return response()->json(['status' => true, 'auth' => true]);
             } else {
-                return response()->json(['status' => false]);
+                return response()->json(['status' => false, 'auth' => true]);
             }
         } else {
             return response()->json(['auth' => false]);

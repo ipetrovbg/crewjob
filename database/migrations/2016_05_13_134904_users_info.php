@@ -16,7 +16,7 @@ class UsersInfo extends Migration
             $table->tinyInteger('gender');
             $table->string('date_of_birth');
             $table->string('avatar');
-            $table->text('description');
+            $table->longText('description');
         });
     }
 
@@ -31,7 +31,7 @@ class UsersInfo extends Migration
             $table->tinyInteger('gender');
             $table->string('date_of_birth');
             $table->string('avatar');
-            $table->text('description');
+            $table->longText('description');
         });
     }
 }

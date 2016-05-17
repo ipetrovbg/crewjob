@@ -38,6 +38,8 @@
                             </label>
                         </div>
                         <div class="input-spacing">
+                            <label>
+                                <span class="gender">Дата на раждане</span>
                             <!-- all optional actions -->
                             <adm-dtp options="{default: date}" ng-model='date'>
                                 <!-- fully access to 'date' and 'date_details' parameters -->
@@ -47,6 +49,7 @@
                                        class="input-spacing input-main" id="birth_date">
                                 <!-- attributes name are important, not tags name -->
                             </adm-dtp>
+                            </label>
                         </div>
                         <textarea ng-model="description" id="user_note" placeholder="Описание "
                                   class="input-main textarea-main input-spacing"></textarea>
