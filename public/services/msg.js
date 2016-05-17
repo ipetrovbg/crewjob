@@ -1,0 +1,1 @@
+(function () {    var app = angular.module('crewjob');    app.factory("messageService", function ($q) {        return {            getMessage: function () {                return $q.when("Hello World!");            }        };    });}());

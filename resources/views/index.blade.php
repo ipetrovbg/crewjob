@@ -98,6 +98,8 @@
         <script src="services/auth.js"></script>
         <script src="services/portfolioService.js"></script>
         <script src="services/categoriesServices.js"></script>
+        <script src="services/userServices.js"></script>
+        <script src="services/msg.js"></script>
         <!-- /services -->
         <!-- directives -->
         <script src="directives/angular-simple-logger.js"></script>

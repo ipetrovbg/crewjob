@@ -207,7 +207,7 @@ textarea:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#
 .main-content .project-box .image-holder:after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 12px; background: url('../img/triygalnik.png') center center; }
 .main-content .project-box .image-holder img { border-radius: 6px; width: 100%; }
 
-.main-content .project-box .box-description { padding: 10px 14px; min-height: 130px; }
+.main-content .project-box .box-description { padding: 10px 14px; min-height: 150px; }
 .main-content .project-box .box-description a.project-title { font-size: 18px; line-height: 21px; color: #444; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 10px; text-decoration: none; transition: color .3s ease; }
 .main-content .project-box .box-description a.project-title:hover { color:  #73bd36; }
 .main-content .project-box .box-description p { font-size: 13px; line-height: 18px; color: #777; }
@@ -215,7 +215,7 @@ textarea:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#
 .main-content .project-box .user-uploaded-image { position: absolute; width: 40px; height: 40px; bottom: -20px; left: 30px; border-radius: 50%; border: 3px solid #f1f1f1; }
 .main-content .project-box .user-uploaded-image img { border-radius: 50%; }
 
-.main-content .project-box p.project-category { font-size: 12px; color: #777; position: absolute; right: 20px; bottom: 10px; }
+.main-content .project-box p.project-category { font-size: 12px; color: #777; position: absolute; right: 76px;  bottom: -3px;}
 .main-content .project-box p.project-category a { font-weight: bold; color: #73bd36; }
 
 .main-content a.load-more-btn { text-decoration: none; display: block; margin: 0 auto; width: 180px; height: 40px; border-radius: 6px; text-align: center; color: #fff; font-size: 16px; font-weight: bold; line-height: 40px; text-transform: uppercase; }
@@ -315,7 +315,7 @@ img.box-element-5 { position: absolute; top: 40px; right: 60px; width: 140px;}
 /* TAB3 */
 .form-add { border-bottom: 3px solid #73bd36; padding-bottom: 40px; }
 .form-edit { padding-top: 40px; }
-.sub-heading { font-size: 16px; color: #777; font-weight: bold; padding-bottom: 20px; }
+.sub-heading { font-size: 16px; color: #777; font-weight: bold; padding-bottom: 20px;width:100%;text-align: center;}
 .form-edit .input-link { display: inline-block; width: 350px; height: 33px; margin-right: 10px; }
 .form-edit .delete-btn { display: inline-block;  }
 .preview-links { background: #c3c3c3; }
@@ -395,13 +395,13 @@ img.box-element-5 { position: absolute; top: 40px; right: 60px; width: 140px;}
 /* User options */
 
 .user-avatar { text-align: center; background: #75bf37; text-align: center; padding: 40px 0;}
-.user-avatar .main-image { width: 140px; height: 140px; border-radius: 50%; display: inline-block; position: relative;  }
-.user-avatar .main-image img { border-radius: 50%; }
+.user-avatar .main-image { width: 250px; height: 140px; border-radius: 50%; display: inline-block; position: relative;  }
+.user-avatar .main-image img { border-radius: 50%;max-width:100px;}
 .main-img { margin-bottom: 20px; }
 
-.user-avatar .project-rate { position: absolute; top: -10px; right: -20px; width: 65px; height: 65px; background: #fff; border-radius: 50%; }
+.user-avatar .project-rate { position: absolute; top: -15px; right: 30px; width: 65px; height: 65px; background: #fff; border-radius: 50%; }
 .user-avatar .project-rate p { line-height: 66px; font-size: 32px; color: #777; }
-.user-avatar .project-done { position: absolute; top: -20px; right: -30px; background: #75bf37; width: 30px; height: 30px; border-radius: 50%; color: #fff; font-size: 13px; line-height: 30px; border: 3px solid #fff; }
+.user-avatar .project-done { position: absolute; top: -25px; right: 25px; background: #75bf37; width: 30px; height: 30px; border-radius: 50%; color: #fff; font-size: 13px; line-height: 30px; border: 3px solid #fff; }
 .user-details-name { font-weight: bold; font-size: 24px;  color: #fff; }
 
 .user-main-content { padding-top: 40px; }
@@ -413,8 +413,9 @@ img.box-element-5 { position: absolute; top: 40px; right: 60px; width: 140px;}
 .user-description { text-align: center; width: 700px; display: block; margin: 0 auto; padding-bottom: 30px; }
 .user-description p { font-size: 14px; line-height: 20px; color: #777; }
 
-.user-categories { text-align: center; padding-bottom: 30px; }
-.user-categories img { width: 50px;  text-align: center;}
+.user-categories { text-align: center; padding-bottom: 30px;
+    display: flex; align-items: center; justify-content: center;}
+.user-categories img { width: auto;  text-align: center;}
 .user-categories img + img { margin-left: -20px; }
 
 .user-portfolio { text-align: center; width: 700px; display: block; margin: 0 auto; padding-bottom: 30px; }
@@ -697,4 +698,8 @@ input.tiny {
     font-size: 20px;
     color: red;
     cursor: pointer;
+}
+.categories-box-row{
+    width: 12%;
+    float: left;
 }

@@ -13,15 +13,16 @@
 			
 			auth.login($scope.email, sha1.encode($scope.password))
 				.success(function(response){
-					
+
 					if(response.user != 0){
+                        $location.path('/portfolio');
 						toastinoService.makeSuccessToast('Вписахте се успешно!', 'long');
 						$cookies.put('email', response.user.email);
 						$cookies.put('ID', response.user.id);
                                                 
-						$timeout(function(){
-							document.location.reload(true);
-						}, 500);
+						//$timeout(function(){
+						//	document.location.reload(true);
+						//}, 500);
 
 						// $scope.bool = true;	
 

@@ -15,18 +15,17 @@
         // toastinoService.makeDangerToast('Неуспешен вход, моля опитайте отново!', 'long');
         $scope.activeUrl = $location.$$url;
         $scope.logout = function () {
-            
-            
+
             auth.logout().then(function(response){
-                console.log(response);
                 if(response.logout){
+                    $location.path('/');
                     $cookies.remove('email');
                     $cookies.remove('ID');
                     $cookies.remove('lastTab');                    
                         toastinoService.makeSuccessToast('Излязохте успешно. Благодарим Ви, че използвате сайта ни!', 'long');
-                    $timeout(function () {
-                     document.location.reload(true);
-                    }, 1000);
+                    //$timeout(function () {
+                    // document.location.reload(true);
+                    //}, 1000);
                 }else{
                     toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
                 }

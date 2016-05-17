@@ -2,11 +2,21 @@
 		var app = angular.module('crewjob');
 
 		var portfolioCtrl = function($scope, $route, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
-			categoriesServices, sha1){
+			categoriesServices, sha1, auth){
 
-			if(!$cookies.get('email')){
+			if(!$cookies.get('email') || $cookies.get('email') === 'undefined'){
 				$location.path('/');
 			}
+            //alert($cookies.get('email'));
+            auth.isAuth().then(function(response){
+                if(!response.auth){
+                    $cookies.remove('email');
+                    $cookies.remove('ID');
+                    $cookies.remove('lastTab');
+                    $location.path('/');
+                }
+            });
+
             $scope.userEmail = $cookies.get('email');
 			if($cookies.get('lastTab')){
 				if($cookies.get('lastTab') == '#tab3'){
@@ -36,10 +46,10 @@
 				angular.element(document).find('.tabs-nav li').removeClass('active');
 				angular.element(document).find('.tab').removeClass('active');
 
-				
+
 				angular.forEach(angular.element(document).find('.tabs-nav li'), function(v,k){
 					if(angular.element(document).find(v).find('a').attr('href') == $cookies.get('lastTab')){
-						angular.element(document).find(v).addClass('active');						
+						angular.element(document).find(v).addClass('active');
 					}
 				});
 				angular.element(document).find($cookies.get('lastTab')).addClass('active');
@@ -61,11 +71,11 @@
 										$scope.uCategories = response.userCategories;
 
 										angular.forEach($scope.uCategories, function(v, k){
-											
+
 
 
 											if($scope.category.contains(v.id)){
-												
+
 											}else{
 												$scope.category.push(v.id);
 											}
@@ -73,7 +83,7 @@
 
 										});
 
-										
+
 										angular.forEach($scope.categories, function(value, ckey){
 											angular.forEach($scope.uCategories, function(val, ukey){
 												// console.log(value.id + 'cat' + ' -- ' + val.category_id + 'ucat');
@@ -84,7 +94,7 @@
 
 										});
 									});
-								
+
 							})
 							.error(function(promise){
 								console.log("Categories Error" + promise);
@@ -99,7 +109,7 @@
 								$scope.description = response.userdetails.description;
 								$scope.profileImage = response.userdetails.avatar;
 							});
-							
+
 
 			$scope.update = function(){
 
@@ -135,7 +145,7 @@
 							// console.log(item);
 				        }
 	                }]
-			    }); 
+			    });
 
 	     $scope.uploader.onProgressItem = function(item, progress){
 	     	$scope.progres = progress;
@@ -143,14 +153,14 @@
 	     	$('.sr-only').text(progress + ' %');
 	     };
 
-		
+
 
 		 // $scope.uploader.onBeforeUploadItem = function(item){
-		 	
-			
+
+
 		 // };
 		 $scope.fileItem = "Choose file";
-		 
+
 	    /* on complete uploading */
 	    $scope.uploader.onCompleteItem = function(fileItem, response, status, headers) {
 	         toastinoService.makeSuccessToast('Успешно обновихте профилната си снимка!', 'long');
@@ -192,19 +202,19 @@
 				if($cookies.get('lastTab')){
 					$cookies.remove('lastTab');
 				}
-				$cookies.put('lastTab', angular.element(document).find(this).find('a').attr('href'));	
+				$cookies.put('lastTab', angular.element(document).find(this).find('a').attr('href'));
 
 				angular.element(document).find('.tabs-nav li').removeClass('active');
 				angular.element(document).find('.tab').removeClass('active');
 
-				
+
 				angular.element(document).find(this).addClass('active');
 				angular.element(document).find(angular.element(document).find(this)[0].firstChild.hash).addClass('active');
 			});
 		/*/tabs*/
 
 			/*category*/
-			
+
 
 			angular.forEach(angular.element('.categories-row .categories-box'), function(val, key){
 					if($(val).hasClass('active')){
@@ -212,7 +222,7 @@
 					}
 				});
 			// console.log($scope.category);
-			$('body').on('click', '.categories-box', function(){				
+			$('body').on('click', '.categories-box', function(){
 
 				if($scope.category.contains($(this).data('id'))){
 					var index = $scope.category.indexOf($(this).data('id'));
@@ -225,7 +235,7 @@
 					$(this).addClass('active');
 				}
 
-				console.log($scope.category);			
+				console.log($scope.category);
 			});
 			/*/category*/
 
@@ -245,7 +255,7 @@
 				// if($scope.category.length > 0){
 				// 	// send data to remote
 				// 	// console.log($scope.category);
-					
+
 				// }
 			};
 			/*/update category*/
@@ -254,7 +264,7 @@
 			/*link section*/
 			$scope.uploadLink = function(){
 				if($scope.linkPath.length > 0){
-					
+
 					portfolioServices.putLink($scope.linkPath, $scope.linkDesciption)
 									.success(function(response){
 										if(response.status){
@@ -276,7 +286,7 @@
 										}else{
 											toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
 										}
-										
+
 									})
 									.error(function(promise) {
 										toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
@@ -330,19 +340,8 @@
                 autoUpload:true,
                 alias:"files",
                 removeAfterUpload:true
-                //filters: [{
-                //    fn: function(item) {
-                //        var allowedTypes = ['image/jpeg', 'image/png', ];
-                //        if(allowedTypes.contains(item.type)){
-                //            return true;
-                //        }else{
-                //            toastinoService.makeDangerToast('Грешка. Позволени формати: jpg и png!', 'long');
-                //            return false;
-                //        }
-                //        // console.log(item);
-                //    }
-                //}]
             });
+
             $scope.uploader_files.onProgressItem = function(item, progress){
                 $scope.filesProgres = progress;
                 $('.progress-bar').css({'width': progress + '%'});

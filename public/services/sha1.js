@@ -171,7 +171,7 @@
 	return {
 		encode : encode		
 	};
-}
+};
 
 	var module = angular.module("crewjob");
 	module.factory("sha1", sha1);

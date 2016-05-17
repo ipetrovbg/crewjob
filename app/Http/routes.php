@@ -10,9 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('{all}', function () { 
-    return View::make('index'); 
-});
+//Route::get('{all}', function () {
+//    return View::make('index');
+//});
 
 Route::get('/', 'homeController@index');
 Route::post('/getEmail', 'userController@getEmail');
@@ -32,7 +32,12 @@ Route::post('/upload-files', 'FileController@upload_files');
 Route::post('/getAllFiles', 'FileController@getAllFiles');
 Route::post('/deleteFile', 'FileController@deleteFile');
 Route::post('/changePass', 'userController@changePass');
+Route::post('/getUser', 'userController@getUser');
 
-Route::get('/user/:file_name', function(){
-    return View::make('index');
-});
+//Route::get('/user/:file_name', function(){
+//    return View::make('index');
+//});
+Route::any('{path?}', function()
+{
+    return view("index");
+})->where("path", ".+");

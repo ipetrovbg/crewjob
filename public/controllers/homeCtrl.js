@@ -3,5 +3,6 @@
 	var homeCtrl = function($scope){
 		$scope.message = "Home";
 	};
+
 	app.controller('homeCtrl', homeCtrl);
 }());
