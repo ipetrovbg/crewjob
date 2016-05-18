@@ -59,9 +59,9 @@ class projectController extends Controller
 
     public function getproject(Request $request)
     {
-        if ($request->session()->get('ID')) {
+//        if ($request->session()->get('ID')) {
             $project = DB::table('projects')
-                ->where('user_id', $request->session()->get('ID'))
+//                ->where('user_id', $request->session()->get('ID'))
                 ->where('id', $request['pr_ID'])
                 ->first();
             if($project){
@@ -69,9 +69,9 @@ class projectController extends Controller
             }else{
                 return response()->json(array('auth' => true, 'status' => false), 200);
             }
-        }else{
-            return response()->json(array('auth' => false, 'status' => false), 200);
-        }
+//        }else{
+//            return response()->json(array('auth' => false, 'status' => false), 200);
+//        }
     }
 
     public function deleteProject(Request $request)
@@ -88,6 +88,19 @@ class projectController extends Controller
             }
         }else{
             return response()->json(array('auth' => false, 'status' => false), 200);
+        }
+    }
+
+    public function getProjectCat(Request $request)
+    {
+        $categories = DB::table('project_category_relation')
+            ->leftJoin('category', 'project_category_relation.category_ID', '=', 'category.id')
+            ->where('project_category_relation.project_ID', $request['project'])
+            ->get();
+        if($categories){
+            return response()->json(array('status' => true, 'categories'=>$categories), 200);
+        }else{
+            return response()->json(array('status' => false), 200);
         }
     }
 }

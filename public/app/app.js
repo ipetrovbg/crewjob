@@ -2,7 +2,7 @@
     var app = angular.module('crewjob', ["ngRoute", "ui.router", "angular-loading-bar", "ngCookies",
         "uiGmapgoogle-maps", "angular-carousel", "ADM-dateTimePicker", "mexassi.toastino", "ngAnimate", "angularFileUpload"]);
 
-    app.run(['$rootScope', '$route', 'userServices', function($rootScope, $route, userServices) {
+    app.run(['$rootScope', '$route', 'userServices', 'projectServices', '$location', function($rootScope, $route, userServices, projectServices, $location) {
         $rootScope.$on('$routeChangeSuccess', function() {
 
             if($route.current.params.user_id){
@@ -17,6 +17,17 @@
                         }
 
                     });
+            }else if($route.current.params.project_id){
+                projectServices.getProject($route.current.params.project_id)
+                    .success(function(response){
+                       if(response.status){
+                           document.title = $route.current.title + ' - ' + response.project.name + '  - CrewJob';
+                       }else{
+                           $location.path('/projects');
+                       }
+                    }).error(function(reason){
+                    console.log(reason);
+                });
             }else{
                 document.title = $route.current.title;
             }
@@ -60,6 +71,10 @@
                 controller: 'projectCreateCtrl',
                 resolve: { loginRequired: loginRequired },
                 title: 'Стартирай проект - CrewJob'
+            }).when('/projects/:project_id', {
+                templateUrl: 'templates/project-view.html',
+                controller: 'projectViewCtrl',
+                title: 'Проект'
             }).otherwise({redirectTo: '/'});
 
             $locationProvider.html5Mode(true);

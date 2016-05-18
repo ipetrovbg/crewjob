@@ -1,7 +1,7 @@
 (function () {
     var app = angular.module('crewjob');
     var projectCreateCtrl = function ($scope, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
-                                      categoriesServices, projectServices, $q) {
+                                      categoriesServices, projectServices, $rootScope) {
 
         $scope.prcategory = [];
         $scope.showForm = false;
@@ -9,6 +9,7 @@
             .success(function(response){
                 if(response.auth){
                     if(response.status){
+                        $rootScope.projectDone = false;
                         $scope.showForm = true;
                         $scope.projectID = response.project;
                         /* upload profile picture */
@@ -77,11 +78,9 @@
                         item.upload();
                     });
 
-
-
                     if(response.status){
                         $scope.projectFile.onCompleteAll = function(){
-
+                            $rootScope.projectDone = true;
                             toastinoService.makeSuccessToast('Успешно създадохте проект!', 'long');
                             $scope.prcategory = [];
                             $scope.title = '';
@@ -123,26 +122,30 @@
         /*/category*/
 
         $scope.$on('$locationChangeStart', function (event, next, current) {
-            var answer = confirm("Проектът ви е недовършен. Ще бъде изтрит ако излезете сега. Наистина ли искате да излезете?");
-            if (!answer) {
-                event.preventDefault();
-            }else{
-                projectServices.getProject($scope.projectID)
-                    .success(function(response){
-                        if(response.status){
-                            if(response.project){
-                                    projectServices.deleteProject($scope.projectID)
-                                        .success(function(response){
-                                            console.log(response);
-                                        }).error(function(reason){
-                                        console.log(reason);
-                                    });
-                            }
-                        }
-                    }).error(function(reason){
-                    console.log(reason);
-                });
+            if(!$rootScope.projectDone){
+                var answer = confirm("Проектът ви е недовършен. Ще бъде изтрит ако излезете сега. Наистина ли искате да излезете?");
+                if (!answer) {
+                    event.preventDefault();
+                }else{
+                    //projectServices.getProject($scope.projectID)
+                    //    .success(function(response){
+                    //        if(response.status){
+                    //            if(response.project){
+                    //
+                    //            }
+                    //        }
+                    //    }).error(function(reason){
+                    //    console.log(reason);
+                    //});
+                    projectServices.deleteProject($scope.projectID)
+                        .success(function(response){
+                            console.log(response);
+                        }).error(function(reason){
+                        console.log(reason);
+                    });
+                }
             }
+
         });
 
     };

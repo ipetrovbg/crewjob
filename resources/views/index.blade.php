@@ -93,6 +93,7 @@
         <script src="controllers/filesCtrl.js"></script>
         <script src="controllers/userCtrl.js"></script>
         <script src="controllers/projectCreateCtrl.js"></script>
+        <script src="controllers/projectViewCtrl.js"></script>
         <!-- /controllers -->
         <!-- services -->
         <script src="services/sha1.js"></script>

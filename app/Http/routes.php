@@ -39,6 +39,7 @@ Route::post('/create-empty-project', 'projectController@createEmptyProject');
 Route::post('/create-project', 'projectController@createProject');
 Route::post('/get-project', 'projectController@getproject');
 Route::post('/delete-project', 'projectController@deleteProject');
+Route::post('/get-project-cat', 'projectController@getProjectCat');
 
 //Route::get('/user/:file_name', function(){
 //    return View::make('index');

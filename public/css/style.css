@@ -377,7 +377,7 @@ img.box-element-5 { position: absolute; top: 40px; right: 60px; width: 140px;}
 
 /* Banner*/
 .project-slider .item { height: 450px; background-size: cover; background-position: center center; background-repeat: no-repeat; border-bottom: 5px solid #75bf37;  border-top: 2px solid #75bf37; }
-.avatar-project { display: inline-block; padding-right: 10px; }
+.avatar-project { display: inline-block; padding-right: 10px; max-width: 75px;}
 .avatar-project img { border-radius: 50%; border: 2px solid #75bf37; }
 .person-name { font-size: 16px; display: inline-block; color: #777; font-weight: bold; padding-bottom: 40px; }
 .project-description { font-size: 12px; color: #777; width: 700px; padding-bottom: 40px; }
@@ -728,6 +728,16 @@ input.tiny {
 }
 .categories-box-row-create-project{
      background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2);
+    float: left;
+    margin: 5px;
+    width: 30%;
+    min-height: 155px;
+}
+.categories-box-row-view-project{
+    background-color: #fff;
     border: 2px solid #fff;
     border-radius: 5px;
     box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2);
