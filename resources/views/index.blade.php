@@ -100,7 +100,7 @@
         <script src="services/portfolioService.js"></script>
         <script src="services/categoriesServices.js"></script>
         <script src="services/userServices.js"></script>
-        <script src="services/msg.js"></script>
+        <script src="services/projectServices.js"></script>
         <!-- /services -->
         <!-- directives -->
         <script src="directives/angular-simple-logger.js"></script>

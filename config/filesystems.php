@@ -52,6 +52,10 @@ return [
             'driver' => 'local',
             'root' => public_path('uploads/profiles'),
         ],
+        'local_project_files' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/project'),
+        ],
         'local_files' => [
             'driver' => 'local',
             'root' => public_path('uploads/files'),

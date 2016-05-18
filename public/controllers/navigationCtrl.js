@@ -1,6 +1,6 @@
 (function () {
     var app = angular.module('crewjob');
-    var navigationCtrl = function ($scope, $cookies, $location, $timeout, auth, toastinoService) { 
+    var navigationCtrl = function ($scope, $cookies, $location, $timeout, auth, toastinoService, $route) {
         /*if ($cookies.get('email')) {
             $scope.user = $cookies.get('name');
             $scope.user_img = $cookies.get('img');
@@ -18,6 +18,7 @@
 
             auth.logout().then(function(response){
                 if(response.logout){
+                    $route.reload();
                     $location.path('/');
                     $cookies.remove('email');
                     $cookies.remove('ID');

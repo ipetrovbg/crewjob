@@ -71,7 +71,9 @@ class FileController extends Controller
     {
        if($request->session()->get('ID')){
            $files = DB::table('files')
-               ->where('user_id', $request->session()->get('ID'))->get();
+               ->where('user_id', $request->session()->get('ID'))
+               ->where('project_id', 0)
+               ->get();
            if($files){
                return response()->json(array('auth' => true, 'status' => true, 'files' => $files), 200);
            }else{
@@ -102,6 +104,33 @@ class FileController extends Controller
                 return response()->json(array('auth' => true, 'status' => false), 200);
             }
         }else{
+            return response()->json(array('auth' => false, 'status' => false), 200);
+        }
+    }
+
+    public function upload_project_file(Request $request)
+    {
+        if ($request->session()->get('ID')) {
+
+            $realfiles = Input::file('pfile');
+            $ext = $realfiles->getClientOriginalExtension();
+            $resp = Storage::disk('local_project_files')->put(time() . '-user-' . $request->session()->get('ID') . '.' . $ext, File::get($realfiles));
+
+            if ($resp) {
+                $dbResp = DB::table('files')
+                    ->insert(['user_id' => $request->session()->get('ID'), 'file_key' => 0, 'file_name' => time() . '-user-' . $request->session()->get('ID') . '.' . $ext,
+                        'org_filename' => $realfiles->getClientOriginalName(), 'crop_file' => '', 'file_type' => $ext, 'project_id'=> $request->header('projectID'), 'created_at' => date('Y-m-d H:m:s'), 'updated_at' => date('Y-m-d H:m:s')]);
+                if ($dbResp) {
+                    return response()->json(array('status' => true, 'file' => time() . '-user-' . $request->session()->get('ID') . '.' . $ext, 'auth' => true, 'org' =>$realfiles->getClientOriginalName(), 'pr'=>$request->header('projectID')), 200);
+//                    print_r($realfiles);
+                }else{
+                    return response()->json(array('status' => false, 'auth' => true), 200);
+                }
+
+            } else {
+                return response()->json(array('status' => false, 'auth' => true), 200);
+            }
+        } else {
             return response()->json(array('auth' => false, 'status' => false), 200);
         }
     }

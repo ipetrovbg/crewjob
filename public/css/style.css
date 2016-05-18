@@ -1,3 +1,4 @@
+
 /* ================================================================================
     #Reset
 ================================================================================ */
@@ -552,7 +553,28 @@ border-radius: 6px;
 cursor: pointer;
 background: #fff url('../img/upload-icon.png') no-repeat center 16px;
 }
+.project-item{
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: grey;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #fff url('../img/upload-icon.png') no-repeat center 16px;
+    margin-right: 5px;
+}
 
+.project-item .value {
+    bottom: 8px;
+    color: #777;
+    cursor: pointer;
+    font: 14px ProximaNovaRegular,Helvetica,Arial,sans-serif;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+}
 .file input {
 position: absolute;
 bottom: 0;
@@ -712,6 +734,7 @@ input.tiny {
     float: left;
     margin: 5px;
     width: 30%;
+    min-height: 155px;
 }
 .categories-box-row-create-project:hover{border:2px solid #73bd36;}
 .categories-box-row-create-project.active{border:2px solid #73bd36;}
