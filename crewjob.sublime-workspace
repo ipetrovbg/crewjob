@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"back",
+				"background-color"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"$sc",
+				"$scope	AngularJS"
+			],
+			[
 				"ng-re",
 				"ng-repeat	AngularJS"
 			],
@@ -82,10 +102,6 @@
 			[
 				"ali",
 				"align-items"
-			],
-			[
-				"back",
-				"background-color"
 			]
 		]
 	},
@@ -147,12 +163,14 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/var/www/html/crewjob"
-	],
 	"file_history":
 	[
+		"/var/www/html/crewjob/public/templates/project-create.html",
+		"/var/www/html/crewjob/public/controllers/projectCreateCtrl.js",
+		"/var/www/html/crewjob/public/css/style.css",
+		"/var/www/html/crewjob/public/controllers/portfolioCtrl.js",
+		"/var/www/html/crewjob/public/app/app.js",
+		"/var/www/html/crewjob/resources/views/index.blade.php",
 		"/var/www/html/laravel-angularjs/L-A/public/css/style.css",
 		"/var/www/html/laravel-angularjs/L-A/public/templates/timeline.html",
 		"/var/www/html/laravel-angularjs/L-A/public/controllers/timelineCtrl.js",
@@ -270,6 +288,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"controllers",
 			"\n			",
 			"-->\n",
 			"Form",
@@ -361,7 +380,11 @@
 		[
 			[
 				"style",
-				"L-A/public/css/style.css"
+				"public/css/style.css"
+			],
+			[
+				"index.b",
+				"resources/views/index.blade.php"
 			],
 			[
 				"time.ht",
@@ -436,12 +459,16 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"/var/www/html/crewjob/crewjob.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
@@ -460,7 +487,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 427.0,
+	"side_bar_width": 369.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

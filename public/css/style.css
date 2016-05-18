@@ -417,6 +417,7 @@ img.box-element-5 { position: absolute; top: 40px; right: 60px; width: 140px;}
 .user-categories { text-align: center; padding-bottom: 30px;
     display: flex; align-items: center; justify-content: center;}
 .user-categories-create-project{display: table;padding-bottom: 30px;text-align: center;cursor: pointer;}
+.user-categories-view-project{display: block;padding-bottom: 30px;text-align: center;}
 .user-categories img { width: auto;  text-align: center;}
 .user-categories img + img { margin-left: -20px; }
 
@@ -743,7 +744,7 @@ input.tiny {
     box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2);
     float: left;
     margin: 5px;
-    width: 30%;
+    width: 15%;
     min-height: 155px;
 }
 .categories-box-row-create-project:hover{border:2px solid #73bd36;}

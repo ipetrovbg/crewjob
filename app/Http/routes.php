@@ -40,6 +40,7 @@ Route::post('/create-project', 'projectController@createProject');
 Route::post('/get-project', 'projectController@getproject');
 Route::post('/delete-project', 'projectController@deleteProject');
 Route::post('/get-project-cat', 'projectController@getProjectCat');
+Route::post('/get-last-projects', 'projectController@getLastProjects');
 
 //Route::get('/user/:file_name', function(){
 //    return View::make('index');

@@ -3,20 +3,7 @@
 
 		var portfolioCtrl = function($scope, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
 			categoriesServices, sha1, auth){
-
-			if(!$cookies.get('email') || $cookies.get('email') === 'undefined'){
-				$location.path('/');
-			}
-            //alert($cookies.get('email'));
-            auth.isAuth().then(function(response){
-                if(!response.auth){
-                    $cookies.remove('email');
-                    $cookies.remove('ID');
-                    $cookies.remove('lastTab');
-                    $location.path('/');
-                }
-            });
-
+			
             $scope.userEmail = $cookies.get('email');
 			if($cookies.get('lastTab')){
 				if($cookies.get('lastTab') == '#tab3'){
@@ -74,15 +61,15 @@
 
 
 
-											if($scope.category.contains(v.id)){
-
-											}else{
+											if(!$scope.category.contains(v.id)){
 												$scope.category.push(v.id);
+												console.log(v.id);
 											}
 
 
 										});
 
+										console.log($scope.category);
 
 										angular.forEach($scope.categories, function(value, ckey){
 											angular.forEach($scope.uCategories, function(val, ukey){
@@ -233,6 +220,7 @@
 				});
 			// console.log($scope.category);
 			$('body').on('click', '.categories-box', function(){
+				console.log($(this).data('id'));
 
 				if($scope.category.contains($(this).data('id'))){
 					var index = $scope.category.indexOf($(this).data('id'));
@@ -244,10 +232,11 @@
 					$scope.category.push($(this).data('id'));
 					$(this).addClass('active');
 				}
-
-				console.log($scope.category);
+console.log($scope.category);
+				
 			});
 			/*/category*/
+
 
 			/*update category*/
 			$scope.updateCategory = function(){

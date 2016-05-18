@@ -103,4 +103,14 @@ class projectController extends Controller
             return response()->json(array('status' => false), 200);
         }
     }
+    public function getLastProjects(Request $request)
+    {
+        $lastProjects = DB::table('projects')->skip(0)->take(6)->orderBy('id', 'desc')->get();
+
+        if($lastProjects){            
+            return response()->json(array('status' => true, 'last' => $lastProjects), 200);
+        }else{
+            return response()->json(array('status' => false), 200);
+        }
+    }
 }

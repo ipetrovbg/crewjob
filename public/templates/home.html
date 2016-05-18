@@ -54,16 +54,16 @@
 		</div>
 
 		<div class="project-box-holder clearfix">
-			<div class="project-box">
-					<a href="" class="image-holder">
+			<div ng-repeat="project in lastProjects" class="project-box">
+					<a href="/projects/{{ project.id }}" class="image-holder">
 						<img src="">
 					</a>
 
 					<div class="box-description">
-						<a href=""
-						   class="project-title">wsdfv</a>
-						<p>szdvzfdv</p>
-						<a href="user/7" class="user-uploaded-image">
+						<a href="/projects/{{ project.id }}"
+						   class="project-title">{{ project.name }}</a>
+						<p>{{ project.description }}</p>
+						<a href="/user/{{ project.user_id }}" class="user-uploaded-image">
 							<img src="img/person1.jpg">
 						</a>
 						<p class="project-category">Category: 
