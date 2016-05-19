@@ -758,3 +758,7 @@ input.tiny {
 }
 .categories-box-row-create-project:hover{border:2px solid #73bd36;}
 .categories-box-row-create-project.active{border:2px solid #73bd36;}
+.fs-dropdown.fs-light .fs-dropdown-item_selected, .no-touchevents .fs-dropdown.fs-light .fs-dropdown-item_selected:hover {
+    background: #73BD36 none repeat scroll 0 0!important;
+    color: #fff!important;
+}
