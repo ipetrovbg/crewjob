@@ -89,7 +89,7 @@
 
                             $("html, body").animate({scrollTop: 0}, "fast");
                             $timeout(function(){
-                                $location.path('/projects');
+                                $location.path('projects/' + $scope.projectID);
                             }, 1000);
                         };
                         //}

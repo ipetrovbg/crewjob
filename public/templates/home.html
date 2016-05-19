@@ -56,18 +56,20 @@
 		<div class="project-box-holder clearfix">
 			<div ng-repeat="project in lastProjects" class="project-box">
 					<a href="/projects/{{ project.id }}" class="image-holder">
-						<img src="">
+						<img ng-if="project.files[0].file_name" ng-src="uploads/project/{{ project.files[0].file_name }}">
+						<img ng-if="!project.files[0].file_name" src="img/bill-last.jpg">
 					</a>
 
 					<div class="box-description">
 						<a href="/projects/{{ project.id }}"
 						   class="project-title">{{ project.name }}</a>
-						<p>{{ project.description }}</p>
+						<p>{{ project.description | limitText:200:' ...' }}</p>
 						<a href="/user/{{ project.user_id }}" class="user-uploaded-image">
-							<img src="img/person1.jpg">
+							<img ng-if="project.author.avatar" ng-src="uploads/profiles/{{ project.author.avatar }}">
+							<img ng-if="!project.author.avatar" src="img/upload-icon.png">
 						</a>
-						<p class="project-category">Category: 
-							
+						<p class="project-category"><strong>Категории: </strong>
+							<span ng-repeat="category in project.categories">{{ category.name }} </span>
 						</p>
 					</div>
 				</div>			
@@ -82,7 +84,7 @@
 		<div class="cta-holder">
 			<h2>Вземи <span>участие</span> сега</h2>
 			<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat.</p>
-			<a href="#" class="btn-main">Присъедини се</a>
+			<a href="/account" class="btn-main">Присъедини се</a>
 		</div>
 	</div>
 </div>

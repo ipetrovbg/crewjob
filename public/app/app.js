@@ -1,6 +1,6 @@
 (function () {
     var app = angular.module('crewjob', ["ngRoute", "ui.router", "angular-loading-bar", "ngCookies",
-        "uiGmapgoogle-maps", "angular-carousel", "ADM-dateTimePicker", "mexassi.toastino", "ngAnimate", "angularFileUpload"]);
+        "uiGmapgoogle-maps", "angular-carousel", "ADM-dateTimePicker", "mexassi.toastino", "ngAnimate", "angularFileUpload", "infinite-scroll"]);
 
     app.run(['$rootScope', '$route', 'userServices', 'projectServices', '$location', function($rootScope, $route, userServices, projectServices, $location) {
         $rootScope.$on('$routeChangeSuccess', function() {
@@ -47,8 +47,8 @@
                 title: 'Потребител',
                 name: ':user_id'
             }).when('/projects', {
-                templateUrl: 'templates/home.html',
-                controller: 'homeCtrl',
+                templateUrl: 'templates/projects.html',
+                controller: 'projectsCtrl',
                 title: 'Проекти - CrewJob'
             }).when('/login', {
                 templateUrl: 'templates/login.html',
@@ -64,6 +64,9 @@
                 resolve: { loginRequired: loginRequired },
                 title: 'Портфолио - CrewJob'
             }).when('/uploads/files/:file_name', {
+                templateUrl: 'templates/files.html',
+                controller: 'filesCtrl'
+            }).when('/uploads/project/:file_name', {
                 templateUrl: 'templates/files.html',
                 controller: 'filesCtrl'
             }).when('/projects/create', {

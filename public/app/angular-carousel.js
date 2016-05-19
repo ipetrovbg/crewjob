@@ -63,7 +63,7 @@ angular.module('angular-carousel')
     link: function(scope, iElement, iAttributes) {
       var indexModel = $parse(iAttributes.rnCarouselIndex);
       scope.goToSlide = function(index) {
-        indexModel.assign(scope.$parent.$parent, index);
+          indexModel.assign(scope.$parent.$parent, index);
       };
     }
   };

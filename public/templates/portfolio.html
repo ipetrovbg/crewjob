@@ -193,7 +193,7 @@
                         <!--</div>-->
                         <br>
                         <div ng-if="allFiles" ng-repeat="af in allFiles | orderBy:af.file_id:true" class="uploaded-file-box">
-                            <a target="_blank" ng-href="uploads/files/{{ af.file_name }}" class="file-box"></a>
+                            <a target="_blank" ng-href="uploads/project/{{ af.file_name }}" class="file-box"></a>
                             <h4>{{ af.org_filename }} <br /><span ng-click="deleteFile(af.file_id)" class="option-delete-file"><i class="fa fa-trash"></i></span></h4>
                         </div>
                     </div>
