@@ -78,6 +78,11 @@
                 templateUrl: 'templates/project-view.html',
                 controller: 'projectViewCtrl',
                 title: 'Проект'
+            }).when('/projects/:project_edit_id/edit', {
+                templateUrl: 'templates/project-edit.html',
+                controller: 'projectEditCtrl',
+                resolve: { loginRequired: loginRequired },
+                title: 'Редактиране на проект - CrewJob'
             }).otherwise({redirectTo: '/'});
 
             $locationProvider.html5Mode(true);

@@ -19,7 +19,7 @@ class projectController extends Controller
                 ['user_id'=> $request->session()->get('ID'), 'created_at' => date('Y-m-d H:m:s'), 'updated_at' => date('Y-m-d H:m:s')]
             );
             if($project){
-                return response()->json(array('project' => $project, 'status' => true, 'auth' => true), 200);
+                return response()->json(array('project' => $project, 'status' => true, 'auth' => true, 'token'=>csrf_token()), 200);
             }else{
                 return response()->json(array('auth' => true, 'status' => false), 200);
             }
@@ -31,16 +31,18 @@ class projectController extends Controller
     public function createProject(Request $request)
     {
         if ($request->session()->get('ID')) {
-            if($request['projectID']){
-                $categories = json_decode($request['categories']);	/**/
-                if(count($categories) > 0){
-                    $updateProject = DB::table('projects')
-                        ->where('id', $request['projectID'])
-                        ->update(['name' => $request['title'], 'description'=> $request['description'], 'status' => '1', 'created_at' => date('Y-m-d H:m:s'), 'updated_at' => date('Y-m-d H:m:s')]);
 
-                    foreach ($categories->category as $category) {
+            if($request->input('projectID')){
+                $categories = $request->input('categories');	/**/
+                if(count($categories['category']) > 0){
+                    $updateProject = DB::table('projects')
+                        ->where('id', $request->input('projectID'))
+                        ->update(['name' => $request->input('title'), 'description'=> htmlspecialchars($request->input('description')), 'status' => '1',
+                            'latitude' => $request->input('la'), 'longitude' => $request->input('lo'), 'location'=>$request->input('adress'), 'updated_at' => date('Y-m-d H:m:s')]);
+
+                    foreach ($categories['category'] as $category) {
                         $pcat = DB::table('project_category_relation')
-                            ->insert(['category_ID' => $category, 'project_ID'=>$request['projectID'], 'created_at' => date('Y-m-d H:m:s'), 'updated_at' => date('Y-m-d H:m:s')]);
+                            ->insert(['category_ID' => $category, 'project_ID'=>$request['projectID'], 'updated_at' => date('Y-m-d H:m:s')]);
                     }
 
                     if($updateProject){
@@ -55,6 +57,7 @@ class projectController extends Controller
         }else{
             return response()->json(array('auth' => false, 'status' => false), 200);
         }
+//        print_r($request->input('categories'));
     }
 
     public function getproject(Request $request)

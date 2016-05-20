@@ -59,8 +59,8 @@
 <script>
     var base_url = "{{ url('/') }}";
 </script>
-{{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3LPNwbfVuv8eO0oqNNjpskerGBudoytE"--}}
-        {{--async defer></script>--}}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3LPNwbfVuv8eO0oqNNjpskerGBudoytE"
+        async defer></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.11.2/lodash.js"></script>
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -71,6 +71,7 @@
 <!-- <script type="text/javascript" src="js/owl.carousel.js"></script> -->
 
 <script type="text/javascript" src="app/angularjs.js"></script>
+<script type="text/javascript" src="app/angular-simple-logger.js"></script>
 <script src="app/angular-file-upload.min.js"></script>
 <script src="app/ng-infinite-scroll.min.js"></script>
 <script type="text/javascript" src="app/ADM-dateTimePicker.js"></script>
@@ -98,6 +99,7 @@
 <script src="controllers/projectCreateCtrl.js"></script>
 <script src="controllers/projectViewCtrl.js"></script>
 <script src="controllers/projectsCtrl.js"></script>
+<script src="controllers/projectEditCtrl.js"></script>
 <!-- /controllers -->
 <!-- services -->
 <script src="services/sha1.js"></script>

@@ -8,26 +8,34 @@
 		<h3>Създай нов проект</h3>
 	</div>
 </div>
+<div ng-if="map">
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+        <ui-gmap-marker idKey="0" coords="markersCoords">
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
+</div>
 
 <div class="form-main-content">
 	<div class="shell">
 		<div class="form-holder">
             <form ng-submit="createProject()">
-                <input ng-model="title" type="text" placeholder="Заглавие" class="input-main input-spacing">
-                <textarea ng-model="description" class="input-main textarea-main textarea-link input-spacing" placeholder="Описание " ></textarea>
+                <input ng-model="title" type="text" placeholder="Заглавие*" class="input-main input-spacing">
+                <input id="on-typing" ng-model="locations" type="text" placeholder="Местоположение" class="input-main input-spacing" ng-change="inputChanged()">
+                <!--<button ng-click="loadGmap()">Зареди картата</button>-->
+                <textarea ng-model="description" class="input-main textarea-main textarea-link input-spacing" placeholder="Описание*" ></textarea>
             </form>
 			<form ng-if="showForm" ng-submit="createProject()">
-				<h4 class="sub-heading input-spacing">Категории:</h4>
+				<h4 class="sub-heading input-spacing">Категории*:</h4>
 				<div ng-if="categories" class="user-categories-create-project clearfix">
 		            <div ng-click="getCat(c.id)" ng-repeat="c in categories" data-cat_id="{{ c.id }}" class="categories-box-row-create-project">
 		                <img ng-src="img/{{ c.icon }}">
 		                <p><small>{{ c.name }}</small></p>
 		            </div>
 		        </div>
-				<div class="checkbox-holder">
-					<div class="checkbox-col">
-					</div>
-				</div>
+				<!--<div class="checkbox-holder">-->
+					<!--<div class="checkbox-col">-->
+					<!--</div>-->
+				<!--</div>-->
 
 				<div  class="file-cnt-holder create-project-file">
 					<h4 class="sub-heading">Качи файлове: </h4>

@@ -1,22 +1,74 @@
 (function () {
     var app = angular.module('crewjob');
     var projectCreateCtrl = function ($scope, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
-                                      categoriesServices, projectServices, $rootScope) {
+                                      categoriesServices, projectServices, $rootScope, $route) {
 
         $scope.prcategory = [];
         $scope.showForm = false;
+        //$scope.loadingLocation = false;
+        $scope.la = null;
+        $scope.lo = null;
+        $scope.adressess = null;
+        $scope.hasFile = false;
+        /* on stop typing */
+        var inputChangedPromise;
+
+        $scope.inputChanged = function () {
+            //$scope.loadingLocation = true;
+            if (inputChangedPromise) {
+                $timeout.cancel(inputChangedPromise);
+            }
+            inputChangedPromise = $timeout(taskToDo, 500);
+
+        };
+
+        function taskToDo() {
+            //console.log($scope.locations);
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                'address': $scope.locations
+            }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    $scope.adressess = results[0].formatted_address;
+                    $scope.la = results[0].geometry.location.lat();
+                    $scope.lo = results[0].geometry.location.lng();
+                    $scope.map = {
+                        center: {
+                            latitude: results[0].geometry.location.lat(),
+                            longitude: results[0].geometry.location.lng()
+                        }, zoom: 9
+                    };
+                    $scope.markersCoords = {
+                        latitude: $scope.la,
+                        longitude: $scope.lo
+                    };
+                }
+            });
+        }
+
+        /* /on stop typing */
+        //$scope.loadGmap = function(){
+        //    $scope.map = { center: { latitude: $scope.la,  longitude: $scope.lo }, zoom: 8 };
+        //    $scope.markersCoords = {
+        //            latitude: $scope.la,
+        //            longitude: $scope.lo
+        //    };
+        //    $scope.loadingLocation = true;
+        //};
+
         projectServices.createEmptyProject()
-            .success(function(response){
-                if(response.auth){
-                    if(response.status){
+            .success(function (response) {
+                if (response.auth) {
+                    if (response.status) {
                         $rootScope.projectDone = false;
                         $scope.showForm = true;
                         $scope.projectID = response.project;
+                        $scope.token = response.token;
                         /* upload profile picture */
                         $scope.projectFile = new FileUploader({
                             url: '/upload-project-file',
                             headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                                'X-CSRF-TOKEN': $scope.token,
                                 'projectID': $scope.projectID
                             },
                             // autoUpload:true,
@@ -26,33 +78,35 @@
 
 
                         $scope.projectFile.onProgressItem = function (item, progress) {
-                            console.log(progress);
                             $scope.progres = progress;
                             $('.progress-bar').css({'width': progress + '%'});
                             $('.sr-only').text(progress + '%');
                         };
 
-                        $scope.projectFile.onAfterAddingFile = function(item){
-                            console.log(item);
+                        $scope.projectFile.onAfterAddingFile = function (item) {
+                            $scope.hasFile = true;
                         };
                         $scope.projectFile.onBeforeUploadItem = function () {
                             console.log('start');
                         };
                         /* on complete uploading */
                         $scope.projectFile.onCompleteItem = function (fileItem, response, status, headers) {
-                            console.log(response);
+                            console.log(status);
+                            if (status == '500') {
+                                $location.path('/');
+                            }
                         };
                         /* /upload profile picture */
 
 
-                    }else{
+                    } else {
                         $scope.showForm = false;
                     }
-                }else{
+                } else {
                     $scope.showForm = false;
                 }
 
-            }).error(function(reason){
+            }).error(function (reason) {
             console.log(reason);
         });
 
@@ -60,9 +114,9 @@
             .success(function (response) {
                 $scope.categories = response.categories;
 
-                // angular.forEach(angular.element('.categories-box-row-create-project'), function(val, key){
-                // 	console.log(key);
-                // });
+                //angular.forEach(angular.element('.categories-box-row-create-project'), function(val, key){
+                //	console.log(key);
+                //});
 
             })
             .error(function (promise) {
@@ -70,38 +124,87 @@
             });
         $scope.btnCreate = true;
         $scope.createProject = function () {
-            $scope.btnCreate = false;
-            projectServices.createProject({'category': $scope.prcategory}, $scope.title ,$scope.description, $scope.projectID)
-                .success(function(response){
+            if (!$scope.title) {
+                toastinoService.makeDangerToast('Моля напишете заглавие!', 'long');
+                return false;
+            }
+            if ($scope.prcategory.length < 1) {
+                toastinoService.makeDangerToast('Моля изберете категория!', 'long');
+                return false;
 
-                    angular.forEach($scope.projectFile.queue, function(item){
-                        item.upload();
-                    });
+            }
 
-                    if(response.status){
-                        $scope.projectFile.onCompleteAll = function(){
-                            $rootScope.projectDone = true;
-                            toastinoService.makeSuccessToast('Успешно създадохте проект!', 'long');
-                            $scope.prcategory = [];
-                            $scope.title = '';
-                            $scope.description = '';
-                            angular.element(document).find('.categories-box-row-create-project').removeClass('active');
+            if (!$scope.description) {
+                toastinoService.makeDangerToast('Моля напишете описание!', 'long');
+                return false;
+            }
 
-                            $("html, body").animate({scrollTop: 0}, "fast");
-                            $timeout(function(){
-                                $location.path('projects/' + $scope.projectID);
-                            }, 1000);
-                        };
-                        //}
-                    }else{
-                        $scope.btnCreate = true;
-                        toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
-                    }
+            if (($scope.description.length) <= 50000) {
+                $scope.btnCreate = false;
+                projectServices.createProject({'category': $scope.prcategory}, $scope.title, $scope.description, $scope.projectID, $scope.la, $scope.lo, $scope.adressess, $scope.token)
+                    .success(function (response) {
+                        console.log(response);
+                        if (response.status) {
 
-                }).error(function(reason){
+                            angular.forEach($scope.projectFile.queue, function (item) {
+                                item.upload();
+                            });
+                            if ($scope.hasFile) {
+                                $scope.projectFile.onCompleteAll = function () {
+                                    $rootScope.projectDone = true;
+                                    toastinoService.makeSuccessToast('Успешно създадохте проект!', 'long');
+                                    $scope.prcategory = [];
+                                    $scope.title = '';
+                                    $scope.description = '';
+                                    angular.element(document).find('.categories-box-row-create-project').removeClass('active');
+                                    $("html, body").animate({scrollTop: 0}, "fast");
+                                    $timeout(function () {
+                                        $location.path('projects/' + $scope.projectID);
+                                    }, 1000);
+                                };
+                            } else {
+                                $rootScope.projectDone = true;
+                                toastinoService.makeSuccessToast('Успешно създадохте проект!', 'long');
+                                $scope.prcategory = [];
+                                $scope.title = '';
+                                $scope.description = '';
+                                angular.element(document).find('.categories-box-row-create-project').removeClass('active');
+                                $("html, body").animate({scrollTop: 0}, "fast");
+                                $timeout(function () {
+                                    $location.path('projects/' + $scope.projectID);
+                                }, 1000);
+                            }
+
+                        } else {
+                            $scope.btnCreate = true;
+                            toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+                        }
+                    }).error(function (reason) {
+                    $route.reload();
                     $scope.btnCreate = true;
-                    toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
-            });
+                    toastinoService.makeDangerToast('Нещо генерално се обърка. Изход!', 'long');
+                    projectServices.deleteProject($scope.projectID)
+                        .success(function (response) {
+                            if (response.status) {
+                                auth.logout().then(function (response) {
+                                    if (response.logout) {
+
+                                        $location.path('/login');
+                                        $cookies.remove('email');
+                                        $cookies.remove('ID');
+                                        $cookies.remove('lastTab');
+                                    } else {
+                                        toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+                                    }
+                                });
+                            }
+                        }).error(function (reason) {
+                        console.log(reason);
+                    });
+                });
+            } else {
+                toastinoService.makeDangerToast('Прекалено дълго описание на проекта!', 'long');
+            }
         };
 
         $('body').on('click', '.categories-box-row-create-project', function () {
@@ -122,11 +225,11 @@
         /*/category*/
 
         $scope.$on('$locationChangeStart', function (event, next, current) {
-            if(!$rootScope.projectDone){
+            if (!$rootScope.projectDone) {
                 var answer = confirm("Проектът ви е недовършен. Ще бъде изтрит ако излезете сега. Наистина ли искате да излезете?");
                 if (!answer) {
                     event.preventDefault();
-                }else{
+                } else {
                     //projectServices.getProject($scope.projectID)
                     //    .success(function(response){
                     //        if(response.status){
@@ -138,9 +241,9 @@
                     //    console.log(reason);
                     //});
                     projectServices.deleteProject($scope.projectID)
-                        .success(function(response){
+                        .success(function (response) {
                             console.log(response);
-                        }).error(function(reason){
+                        }).error(function (reason) {
                         console.log(reason);
                     });
                 }

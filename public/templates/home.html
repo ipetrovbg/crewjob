@@ -63,7 +63,7 @@
 					<div class="box-description">
 						<a href="/projects/{{ project.id }}"
 						   class="project-title">{{ project.name }}</a>
-						<p>{{ project.description | limitText:200:' ...' }}</p>
+						<p>{{ project.description | limitText:110:' ...' }}</p>
 						<a href="/user/{{ project.user_id }}" class="user-uploaded-image">
 							<img ng-if="project.author.avatar" ng-src="uploads/profiles/{{ project.author.avatar }}">
 							<img ng-if="!project.author.avatar" src="img/upload-icon.png">

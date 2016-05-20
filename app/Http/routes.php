@@ -51,3 +51,7 @@ Route::any('{path?}', function()
 {
     return view("index");
 })->where("path", ".+");
+
+//Route::group(['middleware' => 'web'], function () {
+//
+//});
