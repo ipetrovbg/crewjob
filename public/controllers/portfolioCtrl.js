@@ -2,7 +2,7 @@
 		var app = angular.module('crewjob');
 
 		var portfolioCtrl = function($scope, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
-			categoriesServices, sha1, auth){
+			categoriesServices, sha1, auth, projectServices){
 			
             $scope.userEmail = $cookies.get('email');
 			if($cookies.get('lastTab')){
@@ -28,7 +28,18 @@
                         .error(function(promise){
                             console.log(promise);
                         });
-                }
+                }else if($cookies.get('lastTab') == '#tab6'){
+					projectServices.getAllMyProjects()
+						.success(function(response){
+							if(response.status){
+								$scope.myProjects = response.myProjects;
+							}else{
+								toastinoService.makeDangerToast('Не бяха намерени проекти!', 'long');
+							}
+						}).error(function(){
+						toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+					});
+				}
 
 				angular.element(document).find('.tabs-nav li').removeClass('active');
 				angular.element(document).find('.tab').removeClass('active');
@@ -193,7 +204,18 @@
                         .error(function(promise){
                             console.log(promise);
                         });
-                }
+                }else if(angular.element(document).find(this).find('a').attr('href') == '#tab6'){
+					projectServices.getAllMyProjects()
+						.success(function(response){
+							if(response.status){
+								$scope.myProjects = response.myProjects;
+							}else{
+								toastinoService.makeDangerToast('Не бяха намерени проекти!', 'long');
+							}
+						}).error(function(){
+						toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+					});
+				}
 
 
 				if($cookies.get('lastTab')){
@@ -415,6 +437,20 @@ console.log($scope.category);
 
             };
             /*/change pass*/
+
+			$scope.sorting = 'id';
+			$scope.reverse = false;
+
+			$scope.sortData = function(column){
+				$scope.reverse = ($scope.sorting == column) ? !$scope.reverse : false;
+				$scope.sorting = column;
+			}
+			$scope.getClass = function(column){
+				if($scope.sorting == column){
+					return $scope.reverse ? 'arrow-down' : 'arrow-up';
+				}
+				return '';
+			}
 		};
 
 		app.controller('portfolioCtrl', portfolioCtrl);

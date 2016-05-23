@@ -17,7 +17,9 @@
         //console.log($location);
        if($routeParams.project_id){
            $scope.activeUrl = '/projects';
-       }
+       }else if($routeParams.project_edit_id){
+            $scope.activeUrl = '/projects';
+        }
         //if($location.search('id').$$search.id === true){
         //    console.log(1);
         //}

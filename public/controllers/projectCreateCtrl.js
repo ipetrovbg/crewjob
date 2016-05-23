@@ -45,17 +45,8 @@
                 }
             });
         }
-
         /* /on stop typing */
-        //$scope.loadGmap = function(){
-        //    $scope.map = { center: { latitude: $scope.la,  longitude: $scope.lo }, zoom: 8 };
-        //    $scope.markersCoords = {
-        //            latitude: $scope.la,
-        //            longitude: $scope.lo
-        //    };
-        //    $scope.loadingLocation = true;
-        //};
-
+        
         projectServices.createEmptyProject()
             .success(function (response) {
                 if (response.auth) {
