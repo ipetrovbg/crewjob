@@ -93,6 +93,7 @@
 <!-- /angular -->
 <!-- app -->
 <script src="app/app.js"></script>
+<script src="app/ng-rating.js"></script>
 <!-- /app -->
 <!-- controllers -->
 <script src="controllers/homeCtrl.js"></script>

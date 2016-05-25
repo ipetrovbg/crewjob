@@ -161,12 +161,12 @@ class projectController extends Controller
                         ->orWhere('file_type', '=', 'png')
                         ->orWhere('file_type', '=', 'gif');
                 })
-                ->get();
+                ->first();
             $lastProjects[$i]->files = [];
-            for ($j = 0; $j < count($files); $j++) {
-                array_push($lastProjects[$i]->files, $files[$j]);
-            }
-
+//            for ($j = 0; $j < count($files); $j++) {
+//                array_push($lastProjects[$i]->files, $files[$j]);
+//            }
+            array_push($lastProjects[$i]->files, $files);
             $user = DB::table('users')
                 ->select('name', 'email', 'id', 'avatar')
                 ->where('id', '=', $lastProjects[$i]->user_id)
@@ -203,12 +203,12 @@ class projectController extends Controller
                             ->orWhere('file_type', '=', 'png')
                             ->orWhere('file_type', '=', 'gif');
                     })
-                    ->get();
+                    ->first();
                 $allProjects[$i]->images = [];
-                for ($j = 0; $j < count($files); $j++) {
-                    array_push($allProjects[$i]->images, $files[$j]);
-                }
-
+//                for ($j = 0; $j < count($files); $j++) {
+//                    array_push($allProjects[$i]->images, $files[$j]);
+//                }
+                array_push($allProjects[$i]->images, $files);
                 $user = DB::table('users')
                     ->select('name', 'email', 'id', 'avatar')
                     ->where('id', '=', $allProjects[$i]->user_id)
@@ -240,11 +240,10 @@ class projectController extends Controller
                             ->orWhere('file_type', '=', 'png')
                             ->orWhere('file_type', '=', 'gif');
                     })
-                    ->get();
+                    ->first();
                 $limitedProjects[$i]->images = [];
-                for ($j = 0; $j < count($files); $j++) {
-                    array_push($limitedProjects[$i]->images, $files[$j]);
-                }
+
+                array_push($limitedProjects[$i]->images, $files);
 
                 $user = DB::table('users')
                     ->select('name', 'email', 'id', 'avatar')

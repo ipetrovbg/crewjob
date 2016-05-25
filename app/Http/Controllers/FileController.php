@@ -116,11 +116,11 @@ class FileController extends Controller
             $realfiles = Input::file('pfile');
            $explodeFileType = explode('.', $realfiles->getClientOriginalName());
             $ext = $realfiles->getClientOriginalExtension();
-            $resp = Storage::disk('local_project_files')->put($time . '-' . $explodeFileType[0] . '-user-' . $request->session()->get('ID') . '.' . $ext, File::get($realfiles));
+            $resp = Storage::disk('local_project_files')->put($time . '-' . preg_replace('/\s+/', '', $explodeFileType[0]) . '-user-' . $request->session()->get('ID') . '.' . $ext, File::get($realfiles));
 
             if ($resp) {
                 $dbResp = DB::table('files')
-                    ->insert(['user_id' => $request->session()->get('ID'), 'file_key' => 0, 'file_name' => $time . '-' .  $explodeFileType[0] . '-user-' . $request->session()->get('ID') . '.' . $ext,
+                    ->insert(['user_id' => $request->session()->get('ID'), 'file_key' => 0, 'file_name' => $time . '-' .  preg_replace('/\s+/', '', $explodeFileType[0]) . '-user-' . $request->session()->get('ID') . '.' . $ext,
                         'org_filename' => $realfiles->getClientOriginalName(), 'crop_file' => '', 'file_type' => $ext, 'project_id'=> $request->header('projectID'), 'created_at' => date('Y-m-d H:m:s'), 'updated_at' => date('Y-m-d H:m:s')]);
                 if ($dbResp) {
                     return response()->json(array('status' => true, 'file' => $time . '-user-' . $request->session()->get('ID') . '.' . $ext, 'auth' => true, 'org' =>$realfiles->getClientOriginalName(), 'pr'=>$request->header('projectID')), 200);
