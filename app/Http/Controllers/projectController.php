@@ -16,14 +16,14 @@ class projectController extends Controller
     {
         if ($request->session()->get('ID')) {
             $project = DB::table('projects')->insertGetId(
-                ['user_id'=> $request->session()->get('ID'), 'created_at' => date('Y-m-d H:m:s'), 'updated_at' => date('Y-m-d H:m:s')]
+                ['user_id' => $request->session()->get('ID'), 'created_at' => date('Y-m-d H:m:s'), 'updated_at' => date('Y-m-d H:m:s')]
             );
-            if($project){
-                return response()->json(array('project' => $project, 'status' => true, 'auth' => true, 'token'=>csrf_token()), 200);
-            }else{
+            if ($project) {
+                return response()->json(array('project' => $project, 'status' => true, 'auth' => true, 'token' => csrf_token()), 200);
+            } else {
                 return response()->json(array('auth' => true, 'status' => false), 200);
             }
-        }else{
+        } else {
             return response()->json(array('auth' => false, 'status' => false), 200);
         }
     }
@@ -32,29 +32,29 @@ class projectController extends Controller
     {
         if ($request->session()->get('ID')) {
 
-            if($request->input('projectID')){
-                $categories = $request->input('categories');	/**/
-                if(count($categories['category']) > 0){
+            if ($request->input('projectID')) {
+                $categories = $request->input('categories');    /**/
+                if (count($categories['category']) > 0) {
                     $updateProject = DB::table('projects')
                         ->where('id', $request->input('projectID'))
-                        ->update(['name' => $request->input('title'), 'description'=> htmlspecialchars($request->input('description')), 'status' => '1',
-                            'latitude' => $request->input('la'), 'longitude' => $request->input('lo'), 'location'=>$request->input('adress'), 'updated_at' => date('Y-m-d H:m:s')]);
+                        ->update(['name' => $request->input('title'), 'description' => htmlspecialchars(addslashes($request->input('description'))), 'status' => '1',
+                            'latitude' => $request->input('la'), 'longitude' => $request->input('lo'), 'location' => $request->input('adress'), 'updated_at' => date('Y-m-d H:m:s')]);
 
                     foreach ($categories['category'] as $category) {
                         $pcat = DB::table('project_category_relation')
-                            ->insert(['category_ID' => $category, 'project_ID'=>$request['projectID'], 'updated_at' => date('Y-m-d H:m:s')]);
+                            ->insert(['category_ID' => $category, 'project_ID' => $request['projectID'], 'updated_at' => date('Y-m-d H:m:s')]);
                     }
 
-                    if($updateProject){
+                    if ($updateProject) {
                         return response()->json(array('auth' => true, 'status' => true), 200);
                     }
-                }else{
+                } else {
                     return response()->json(array('auth' => true, 'status' => false), 200);
                 }
-            }else{
+            } else {
                 return response()->json(array('auth' => true, 'status' => false), 200);
             }
-        }else{
+        } else {
             return response()->json(array('auth' => false, 'status' => false), 200);
         }
 //        print_r($request->input('categories'));
@@ -63,34 +63,38 @@ class projectController extends Controller
     public function getproject(Request $request)
     {
 //        if ($request->session()->get('ID')) {
-            $project = DB::table('projects')
+        $project = DB::table('projects')
 //                ->where('user_id', $request->session()->get('ID'))
-                ->where('id', $request['pr_ID'])
-                ->where('status', '>', '0')
-                ->first();
+            ->where('id', $request['pr_ID'])
+//            ->where('status', '>', '0')
+            ->first();
 
+        $categories = DB::table('project_category_relation')
+            ->leftJoin('category', 'project_category_relation.category_ID', '=', 'category.id')
+            ->where('project_category_relation.project_ID', $project->id)
+            ->get();
 
+        if ($project) {
+            $files = DB::table('files')
+                ->where('project_id', '=', $project->id)
+                ->get();
+            $project->files = $files;
 
-            if($project){
-                $files = DB::table('files')
-                    ->where('project_id', '=', $project->id)
-                    ->get();
-                $project->files = $files;
+            $images = DB::table('files')
+                ->where('project_id', '=', $project->id)
+                ->where(function ($query) {
+                    $query->where('file_type', '=', 'jpg')
+                        ->orWhere('file_type', '=', 'png')
+                        ->orWhere('file_type', '=', 'gif');
+                })
+                ->get();
+            $project->categories = $categories;
+            $project->images = $images;
+            return response()->json(array('auth' => true, 'status' => true, 'project' => $project), 200);
 
-                $images = DB::table('files')
-                    ->where('project_id', '=', $project->id)
-                    ->where(function ($query) {
-                        $query->where('file_type', '=', 'jpg')
-                            ->orWhere('file_type', '=', 'png')
-                            ->orWhere('file_type', '=', 'gif');
-                    })
-                    ->get();
-
-                $project->images = $images;
-                return response()->json(array('auth' => true, 'status' => true, 'project'=>$project), 200);
-            }else{
-                return response()->json(array('auth' => true, 'status' => false), 200);
-            }
+        } else {
+            return response()->json(array('auth' => true, 'status' => false), 200);
+        }
 //        }else{
 //            return response()->json(array('auth' => false, 'status' => false), 200);
 //        }
@@ -98,17 +102,17 @@ class projectController extends Controller
 
     public function deleteProject(Request $request)
     {
-        if($request->session()->get('ID')) {
+        if ($request->session()->get('ID')) {
             $result = DB::table('projects')
                 ->where('user_id', '=', $request->session()->get('ID'))
                 ->where('id', '=', $request['project_ID'])
                 ->delete();
-            if($result){
+            if ($result) {
                 return response()->json(array('auth' => true, 'status' => true), 200);
-            }else{
+            } else {
                 return response()->json(array('auth' => true, 'status' => false), 200);
             }
-        }else{
+        } else {
             return response()->json(array('auth' => false, 'status' => false), 200);
         }
     }
@@ -119,16 +123,17 @@ class projectController extends Controller
             ->leftJoin('category', 'project_category_relation.category_ID', '=', 'category.id')
             ->where('project_category_relation.project_ID', $request['project'])
             ->get();
-        if($categories){
-            return response()->json(array('status' => true, 'categories'=>$categories), 200);
-        }else{
+        if ($categories) {
+            return response()->json(array('status' => true, 'categories' => $categories), 200);
+        } else {
             return response()->json(array('status' => false), 200);
         }
     }
+
     public function getLastProjects(Request $request)
     {
         $lastProjects = DB::table('projects')->where('status', '>', '0')->skip(0)->take(6)->orderBy('id', 'desc')->get();
-        for($i = 0; $i < count($lastProjects); $i++){
+        for ($i = 0; $i < count($lastProjects); $i++) {
 
             $files = DB::table('files')
                 ->where('project_id', '=', $lastProjects[$i]->id)
@@ -139,8 +144,8 @@ class projectController extends Controller
                 })
                 ->get();
             $lastProjects[$i]->files = [];
-            for($j = 0; $j < count($files); $j++){
-                 array_push($lastProjects[$i]->files, $files[$j]);
+            for ($j = 0; $j < count($files); $j++) {
+                array_push($lastProjects[$i]->files, $files[$j]);
             }
 
             $user = DB::table('users')
@@ -158,9 +163,9 @@ class projectController extends Controller
         }
 
 
-        if($lastProjects){            
+        if ($lastProjects) {
             return response()->json(array('status' => true, 'last' => $lastProjects), 200);
-        }else{
+        } else {
             return response()->json(array('status' => false), 200);
         }
     }
@@ -168,9 +173,9 @@ class projectController extends Controller
     public function getAllProjects()
     {
         $allProjects = DB::table('projects')->where('status', '>', '0')->take(6)->orderBy('id', 'desc')->get();
-        if(count($allProjects) > 0){
+        if (count($allProjects) > 0) {
 
-            for($i = 0; $i < count($allProjects); $i++){
+            for ($i = 0; $i < count($allProjects); $i++) {
 
                 $files = DB::table('files')
                     ->where('project_id', '=', $allProjects[$i]->id)
@@ -181,7 +186,7 @@ class projectController extends Controller
                     })
                     ->get();
                 $allProjects[$i]->images = [];
-                for($j = 0; $j < count($files); $j++){
+                for ($j = 0; $j < count($files); $j++) {
                     array_push($allProjects[$i]->images, $files[$j]);
                 }
 
@@ -202,11 +207,12 @@ class projectController extends Controller
             return response()->json(array('status' => true, 'all_projects' => $allProjects), 200);
         }
     }
+
     public function getLimitProjects(Request $request)
     {
         $limitedProjects = DB::table('projects')->where('id', '<', $request['lastId'])->where('status', '>', '0')->take(3)->orderBy('id', 'desc')->get();
-        if(count($limitedProjects) > 0){
-            for($i = 0; $i < count($limitedProjects); $i++){
+        if (count($limitedProjects) > 0) {
+            for ($i = 0; $i < count($limitedProjects); $i++) {
 
                 $files = DB::table('files')
                     ->where('project_id', '=', $limitedProjects[$i]->id)
@@ -217,7 +223,7 @@ class projectController extends Controller
                     })
                     ->get();
                 $limitedProjects[$i]->images = [];
-                for($j = 0; $j < count($files); $j++){
+                for ($j = 0; $j < count($files); $j++) {
                     array_push($limitedProjects[$i]->images, $files[$j]);
                 }
 
@@ -236,5 +242,109 @@ class projectController extends Controller
             }
             return response()->json(array('status' => true, 'limited_projects' => $limitedProjects), 200);
         }
+    }
+
+    public function applying(Request $request)
+    {
+        if ($request->session()->get('ID')) {
+
+            $isApply = DB::table('project_application')
+                ->where('project_id', '=', $request['id'])
+                ->where('user_id', '=', $request->session()->get('ID'))
+                ->count();
+            if ($isApply == 0) {
+                $apply = DB::table('project_application')
+                    ->insert([
+                        'project_id' => $request['id'],
+                        'user_id' => $request->session()->get('ID'),
+                        'created_at' => date('Y-m-d H:m:s'),
+                        'updated_at' => date('Y-m-d H:m:s')
+                    ]);
+                if ($apply) {
+                    return response()->json(array('auth' => true, 'status' => true, 'isApplying' => false), 200);
+                } else {
+                    return response()->json(array('auth' => true, 'status' => false, 'isApplying' => false), 200);
+                }
+            } else {
+                return response()->json(array('auth' => true, 'status' => false, 'isApplying' => true), 200);
+            }
+
+        } else {
+            return response()->json(array('auth' => false, 'status' => false), 200);
+        }
+    }
+
+    public function getMyAll(Request $request)
+    {
+        if ($request->session()->get('ID')) {
+            $myAll = DB::table('projects')
+                ->where('user_id', '=', $request->session()->get('ID'))->get();
+            if ($myAll) {
+                return response()->json(array('auth' => true, 'status' => true, 'myProjects' => $myAll), 200);
+            } else {
+                return response()->json(array('auth' => true, 'status' => false), 200);
+            }
+        } else {
+            return response()->json(array('auth' => false, 'status' => false), 200);
+        }
+    }
+
+    public function edit(Request $request)
+    {
+        if ($request->session()->get('ID')) {
+            $deleteProjectCategories = DB::table('project_category_relation')
+                ->where('project_ID', '=', $request->input('id'))
+                ->delete();
+            foreach ($request->input('categories') as $item) {
+                DB::table('project_category_relation')
+                    ->insert(['category_ID'=>$item, 'project_ID' => $request->input('id'), 'created_at' => date('Y-m-d H:m:s'), 'updated_at' => date('Y-m-d H:m:s')]);
+            }
+//            $data = [$request->input('id'), $request->input('title'), $request->input('description'), $request->input('categories'), $request->input('address'),
+//                $request->input('la'), $request->input('lo')];
+            $updateProject = DB::table('projects')
+                ->where('id', '=', $request->input('id'))
+                ->where('user_id', '=', $request->session()->get('ID'))
+                ->update(['name' => $request->input('title'), 'description'=>$request->input('description'),
+                'updated_at' => date('Y-m-d H:m:s'), 'latitude'=>$request->input('la'),
+                'longitude' => $request->input('lo'), 'location'=>$request->input('address'),
+                'status'=> $request->input('status')]);
+            if($updateProject){
+                return response()->json(array('auth' => true, 'status' => true), 200);
+            }else{
+                return response()->json(array('auth' => true, 'status' => false), 200);
+            }
+        }else{
+            return response()->json(array('auth' => false, 'status' => false), 200);
+        }
+
+    }
+
+    public function deleteFile(Request $request)
+    {
+        if($request->session()->get('ID')){
+
+            $fileToDelete = DB::table('files')
+                ->where('user_id', $request->session()->get('ID'))
+                ->where('file_id', $request['id'])
+                ->first();
+            $realDeleting = File::delete('uploads/project/' . $fileToDelete->file_name);
+            if($realDeleting){
+                $delete = DB::table('files')
+                    ->where('file_id', '=', $request['id'])
+                    ->where('user_id', '=', $request->session()->get('ID'))
+                    ->delete();
+                if($delete){
+                    return response()->json(array('auth' => true, 'status' => true), 200);
+                }else{
+                    return response()->json(array('auth' => true, 'status' => false), 200);
+                }
+            }else{
+                return response()->json(array('auth' => true, 'status' => false), 200);
+            }
+
+        }else{
+            return response()->json(array('auth' => false, 'status' => false), 200);
+        }
+
     }
 }

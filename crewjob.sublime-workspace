@@ -4,109 +4,577 @@
 		"selected_items":
 		[
 			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"matr",
+				"margin-bottom"
+			],
+			[
 				"back",
-				"background-color"
+				"background"
 			],
 			[
-				"border-c",
-				"border-color"
+				"pa",
+				"padding-bottom"
 			],
 			[
-				"bord",
-				"border"
+				"im",
+				"important"
 			],
 			[
-				"bor",
-				"border-radius"
+				"paddin",
+				"padding-right"
 			],
 			[
-				"$sc",
-				"$scope	AngularJS"
-			],
-			[
-				"ng-re",
-				"ng-repeat	AngularJS"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
-			],
-			[
-				"cons",
-				"console.log()"
-			],
-			[
-				"wi",
-				"width	Style CSS"
-			],
-			[
-				"con",
-				"justify-content"
-			],
-			[
-				"getE",
-				"getElementById(id)	Element"
-			],
-			[
-				"if",
-				"if()"
-			],
-			[
-				"loc",
-				"$location	AngularJS"
-			],
-			[
-				"sc",
-				"$scope	AngularJS"
+				"m",
+				"margin-bottom"
 			],
 			[
 				"ma",
-				"margin"
+				"margin-top"
 			],
 			[
-				"html",
-				"htmlspecialchars"
+				"marg",
+				"margin-left"
 			],
 			[
-				"ge",
-				"get"
+				"mar",
+				"margin-top"
 			],
 			[
-				"inli",
-				"inline-block"
+				"P",
+				"preventDefault"
 			],
 			[
-				"re",
-				"reverse"
+				"pad",
+				"padding-bottom"
 			],
 			[
-				"dislike",
-				"dislikes"
+				"tran",
+				"translateX()"
 			],
 			[
-				"border-col",
-				"border-collapse"
+				"tra",
+				"transform"
 			],
 			[
-				"border",
-				"border-color"
+				"bac",
+				"background"
 			],
 			[
-				"my",
-				"myController"
+				"abs",
+				"absolute"
 			],
 			[
-				"text",
+				"c",
+				"color"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"ta",
 				"text-align"
 			],
 			[
-				"ali",
-				"align-items"
+				"lstyp",
+				"list-style-type"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"count",
+				"count_cat"
+			],
+			[
+				"coun",
+				"count_cat"
+			],
+			[
+				"Work",
+				"Works"
+			],
+			[
+				"size",
+				"size_key"
+			],
+			[
+				"h",
+				"highlighted_works"
+			],
+			[
+				"arra",
+				"array	$… = array (…)"
+			],
+			[
+				"is_in",
+				"is_int"
+			],
+			[
+				"F",
+				"FALSE"
+			],
+			[
+				"con",
+				"config"
+			],
+			[
+				"big",
+				"big_pic"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"border",
+				"border-spacing"
+			],
+			[
+				"das",
+				"dashboard"
+			],
+			[
+				"dashboard_",
+				"dashboard_footer"
+			],
+			[
+				"dash",
+				"dashboard_header"
+			],
+			[
+				"change",
+				"change_password"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"t",
+				"this"
+			],
+			[
+				"REQ",
+				"REQUEST_URI"
+			],
+			[
+				"pos",
+				"post"
+			],
+			[
+				"rec",
+				"receiver"
+			],
+			[
+				"templ",
+				"templates"
+			],
+			[
+				"main",
+				"main_template"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"da",
+				"data"
+			],
+			[
+				"sess",
+				"session_unset"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"login",
+				"login_view"
+			],
+			[
+				"date",
+				"date_add"
+			],
+			[
+				"reg",
+				"registration_view"
+			],
+			[
+				"em",
+				"email"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"Pass",
+				"password"
+			],
+			[
+				"dlop",
+				"dlops_model"
+			],
+			[
+				"file_",
+				"files_model"
+			],
+			[
+				"top",
+				"topH"
+			],
+			[
+				"cal",
+				"calcHeight"
+			],
+			[
+				"get",
+				"getHeight"
+			],
+			[
+				"wor",
+				"work_out"
+			],
+			[
+				"ab",
+				"abilities"
+			],
+			[
+				"co",
+				"Coatch"
+			],
+			[
+				"add",
+				"add_barman"
+			],
+			[
+				"cafe",
+				"cafe_style"
+			],
+			[
+				"ca",
+				"cafe_obj"
+			],
+			[
+				"M",
+				"MusicStyle"
+			],
+			[
+				"B",
+				"Barman"
+			],
+			[
+				"pho",
+				"phone_number"
+			],
+			[
+				"mus",
+				"music_style"
+			],
+			[
+				"caf",
+				"cafe"
+			],
+			[
+				"count_",
+				"count_rating"
+			],
+			[
+				"cur",
+				"curent_tmp"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"v",
+				"value"
+			],
+			[
+				"as",
+				"assessment"
+			],
+			[
+				"stat",
+				"static"
+			],
+			[
+				"get_count",
+				"get_count_teachers"
+			],
+			[
+				"is_a",
+				"is_array"
+			],
+			[
+				"sub",
+				"subject"
+			],
+			[
+				"array_p",
+				"array_push"
+			],
+			[
+				"S",
+				"Subject"
+			],
+			[
+				"cou",
+				"count_hour"
+			],
+			[
+				"p",
+				"public"
+			],
+			[
+				"ph",
+				"phone"
+			],
+			[
+				"n",
+				"nomber_in_class"
+			],
+			[
+				"ext",
+				"extends"
+			],
+			[
+				"s",
+				"subject"
+			],
+			[
+				"impl",
+				"implements"
+			],
+			[
+				"displ",
+				"display_size"
+			],
+			[
+				"batt",
+				"battery_name"
+			],
+			[
+				"b",
+				"battery"
+			],
+			[
+				"disp",
+				"display_class"
+			],
+			[
+				"bat",
+				"battery_class"
+			],
+			[
+				"dat",
+				"date"
+			],
+			[
+				"book",
+				"book_model"
+			],
+			[
+				"arr",
+				"arr2"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"edit",
+				"edit_product"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"total",
+				"total_available_money"
+			],
+			[
+				"__",
+				"__construct"
+			],
+			[
+				"ava",
+				"Avarage"
+			],
+			[
+				"to",
+				"total_money"
+			],
+			[
+				"pro",
+				"products"
+			],
+			[
+				"qu",
+				"quantity"
+			],
+			[
+				"ed",
+				"edit_product"
+			],
+			[
+				"session_de",
+				"session_destroy"
+			],
+			[
+				"_",
+				"_FILES"
+			],
+			[
+				"ne",
+				"new_password"
+			],
+			[
+				"ac",
+				"action	Attr"
+			],
+			[
+				"hed",
+				"header"
+			],
+			[
+				"session",
+				"session_start"
+			],
+			[
+				"loca",
+				"location"
+			],
+			[
+				"sel",
+				"sel_user_info"
+			],
+			[
+				"pr",
+				"products2"
+			],
+			[
+				"q",
+				"quantity"
+			],
+			[
+				"Pr",
+				"Products"
+			],
+			[
+				"pri",
+				"price"
+			],
+			[
+				"margin-",
+				"margin-top"
+			],
+			[
+				"str",
+				"strong	Tag"
+			],
+			[
+				"def",
+				"default"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "resources/views/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 5239,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/header.php",
+			"settings":
+			{
+				"buffer_size": 2649,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/footer.php",
+			"settings":
+			{
+				"buffer_size": 890,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/functions.php",
+			"settings":
+			{
+				"buffer_size": 516,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/index.php",
+			"settings":
+			{
+				"buffer_size": 3770,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/style.css",
+			"settings":
+			{
+				"buffer_size": 31993,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/app/app.js",
+			"settings":
+			{
+				"buffer_size": 4723,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -116,42 +584,60 @@
 	"command_palette":
 	{
 		"height": 354.0,
-		"last_filter": "Emmet",
+		"last_filter": "insta",
 		"selected_items":
 		[
 			[
-				"Emmet",
-				"Emmet: Increment Number by 10"
+				"insta",
+				"Package Control: Install Package"
 			],
 			[
-				"",
-				"AngularJS: Look Up Definition"
+				"table",
+				"Snippet: bs3-table"
 			],
 			[
-				"sni",
-				"SublimeLint: Next Error"
+				"off",
+				"Code Folding: Unfold All"
+			],
+			[
+				"col",
+				"Snippet: bs3-col-5"
+			],
+			[
+				"html",
+				"Snippet: bs3-html5-template"
+			],
+			[
+				"html5",
+				"Snippet: bs3-html5-template"
+			],
+			[
+				"scss",
+				"Set Syntax: CSS"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
 			],
 			[
 				"Snippet: ",
-				"Snippet: Blade @can"
+				"Snippet: Lorem ipsum"
 			],
 			[
-				"Snippet: eme",
-				"Snippet: Blade comments"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
+				"syn php",
+				"Set Syntax: PHP"
 			]
 		],
-		"width": 512.0
+		"width": 382.0
 	},
 	"console":
 	{
-		"height": 139.0,
+		"height": 320.0,
 		"history":
 		[
-			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			"import urllib2,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation') ",
+			"de"
 		]
 	},
 	"distraction_free":
@@ -163,124 +649,177 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/app",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/app/Http",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/app/Http/Controllers",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/public",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/public/controllers"
+	],
 	"file_history":
 	[
-		"/var/www/html/crewjob/public/templates/project-create.html",
-		"/var/www/html/crewjob/public/controllers/projectCreateCtrl.js",
-		"/var/www/html/crewjob/public/css/style.css",
-		"/var/www/html/crewjob/public/controllers/portfolioCtrl.js",
-		"/var/www/html/crewjob/public/app/app.js",
-		"/var/www/html/crewjob/resources/views/index.blade.php",
-		"/var/www/html/laravel-angularjs/L-A/public/css/style.css",
-		"/var/www/html/laravel-angularjs/L-A/public/templates/timeline.html",
-		"/var/www/html/laravel-angularjs/L-A/public/controllers/timelineCtrl.js",
-		"/var/www/html/laravel-angularjs/L-A/.gitignore",
-		"/var/www/html/laravel-angularjs/L-A/resources/views/welcome.blade.php",
-		"/var/www/html/laravel-angularjs/L-A/public/moment.min.js",
-		"/var/www/html/laravel-angularjs/L-A/database/migrations/2016_05_10_084650_create_custom_location.php",
-		"/home/petar/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/var/www/html/laravel-angularjs/public/controllers/mainCtrl.js",
-		"/var/www/html/laravel-angularjs/public/css/style.css",
-		"/var/www/html/laravel-angularjs/public/templates/main.html",
-		"/var/www/html/laravel-angularjs/public/jquery.ba-throttle-debounce.js",
-		"/var/www/html/laravel-angularjs/public/controllers/loginCtrl.js",
-		"/var/www/html/laravel-angularjs/public/services/locations.js",
-		"/var/www/html/laravel-angularjs/public/services/auth.js",
-		"/var/www/html/laravel-angularjs/app/Http/Controllers/locationController.php",
-		"/var/www/html/laravel-angularjs/app/Http/routes.php",
-		"/var/www/html/laravel-angularjs/app/Http/Controllers/userController.php",
-		"/var/www/html/laravel-angularjs/resources/views/welcome.blade.php",
-		"/home/petar/.config/sublime-text-3/Packages/Emmet/Default (Linux).sublime-keymap",
-		"/var/www/html/laravel-angularjs/public/templates/searchbox.tpl.html",
-		"/home/petar/Desktop/laravel-angularjs/public/templates/main.html",
-		"/home/petar/Desktop/main.html",
-		"/var/www/html/laravel-angularjs/public/templates/login.html",
-		"/var/www/html/laravel-angularjs/config/auth.php",
-		"/var/www/html/laravel-angularjs/app/Http/Kernel.php",
-		"/var/www/html/laravel-angularjs/app/Http/Controllers/firstController.php",
-		"/var/www/html/laravel-angularjs/public/templates/about.html",
-		"/home/petar/.config/sublime-text-3/Packages/CodeFormatter/CodeFormatter.sublime-settings",
-		"/home/petar/.config/sublime-text-3/Packages/CodeFormatter/Default (Linux).sublime-keymap",
-		"/home/petar/.config/sublime-text-3/Packages/User/CodeFormatter.sublime-settings",
-		"/home/petar/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
-		"/home/petar/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
-		"/home/petar/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-		"/var/www/html/laravel-angularjs/.gitignore",
-		"/var/www/html/laravel-angularjs/.env",
-		"/var/www/html/laravel-angularjs/.env.example",
-		"/var/www/Untitled Folder/projects/lift-hr/wp-content/themes/lift-hr/functions/themeSetup.php",
-		"/var/www/Untitled Folder/projects/lift-hr/wp-content/themes/lift-hr/functions.php",
-		"/var/www/projects/vrachovski/public_html/vrachovski/forum/index.php",
-		"/var/www/Untitled Folder/projects/lift-hr/wp-content/themes/lift-hr/blog.php",
-		"/var/www/Untitled Folder/projects/lift-hr/wp-content/themes/lift-hr/functions/liftHR.php",
-		"/home/petar/Desktop/custom_post_type.php",
-		"/home/petar/Desktop/AngularJS/sorting.js",
-		"/var/www/html/info.php",
-		"/var/www/projects/vrachovski/public_html/vrachovski/forum/config.php",
-		"/var/www/projects/vrachovski/public_html/vrachovski/forum/app.php",
-		"/home/petar/Desktop/AngularJS/search.html",
-		"/home/petar/Desktop/AngularJS/scripts/searching.js",
-		"/home/petar/Desktop/AngularJS/sorting.html",
-		"/home/petar/Desktop/AngularJS/scripts/script.js",
-		"/home/petar/Desktop/AngularJS/index.html",
-		"/home/petar/Desktop/AngularJS/angular.js",
-		"/home/petar/Desktop/AngularJS/script.js",
-		"/var/www/projects/lift-hr/wp-content/plugins/visual-form-builder/includes/class-export.php",
-		"/home/petar/Desktop/html2pdf-4.5.1/examples/exemple02.php",
-		"/home/petar/Desktop/tcpdf/examples/example_001.php",
-		"/home/petar/Desktop/tcpdf/examples/tcpdf_include.php",
-		"/var/www/projects/lift-hr/wp-content/plugins/visual-form-builder/uninstall.php",
-		"/var/www/projects/lift-hr/wp-content/plugins/visual-form-builder/includes/form-output.php",
-		"/home/petar/Desktop/html2pdf-4.5.1/examples/exemple11.php",
-		"/home/petar/Desktop/html2pdf-4.5.1/examples/bookmark.php",
-		"/home/petar/Desktop/html2pdf-4.5.1/examples/exemple03.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/DB_driver.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/drivers/mysqli/mysqli_driver.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/application/controllers/Welcome.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/helpers/form_helper.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/DB.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/application/config/database.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/drivers/mysqli/mysqli_utility.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/Config.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/Hooks.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/helpers/array_helper.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/language/english/calendar_lang.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/index.html",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/database/DB_result.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/application/config/autoload.php",
-		"/var/www/projects/ipetrovdev/wp-content/themes/ipetrovtheme/framework/confiq/db.php",
-		"/var/www/html/slider.php",
-		"/var/www/html/default.js",
-		"/var/www/html/index.html",
-		"/var/www/html/testphp.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/CodeIgniter.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/Controller.php",
-		"/home/petar/Desktop/CodeIgniter-3.0.4/system/core/Loader.php",
-		"/var/www/projects/ipetrovdev/wp-content/themes/ipetrovtheme/framework/Test.php",
-		"/var/www/html/style.css",
-		"/var/www/test.php",
-		"/var/www/info.php",
-		"/home/petar/Desktop/meks-smart-author-widget/inc/meks-smart-author-widget-template.php",
-		"/home/petar/Desktop/meks-smart-author-widget/inc/class-author-widget.php",
-		"/home/petar/Desktop/meks-smart-author-widget/meks-smart-author-widget.php",
-		"/home/petar/NetBeansProjects/autoreader dev/home/nikivr/public_html/autoreader/wp-content/themes/autoreader_v3/theme-options/class_theme_options.php",
-		"/home/petar/NetBeansProjects/autoreader dev/home/nikivr/public_html/autoreader/wp-content/themes/autoreader_v3/theme-options/generalThemeOptions.php",
-		"/home/petar/NetBeansProjects/autoreader dev/home/nikivr/public_html/autoreader/wp-content/themes/autoreader_v3/theme-options/edit_theme_options.php",
-		"/var/www/html/tree.php",
-		"/home/petar/Desktop/default.js",
-		"/var/www/html/task.php",
-		"/var/www/html/new.php",
-		"/etc/php5/apache2/php.ini"
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/public/templates/home.html",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/app/Http/routes.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/public/controllers/homeCtrl.js",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/public/services/locations.js",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/public/services/sha1.js",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/public/services/auth.js",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/app/Http/Controllers/homeController.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewjob/.env",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/L-A/L-A/.gitignore",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/laravel/laravel/.env",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/application/views/user-details.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/application/views/home_view.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/assets/css/style.css",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/controllers/test.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/views/home_view.php",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/application/controllers/test.php",
+		"/C/Users/User/AppData/Local/Temp/fz3temp-1/home_view 2.php",
+		"/C/Users/User/AppData/Local/Temp/fz3temp-1/home_view.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/application/views/header.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/application/views/project-details.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/assets/js/functions.js",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/.htaccess",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/application/config/config.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/application/config/routes.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/application/config/database.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/views/user-settings.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/views/create-project.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/assets/css/style.css",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/.gitignore",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob-new/application/views/create-project.php",
+		"/C/Users/User/OTHER/Desktop/GitHubLog.txt",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/views/log-in.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/config/database.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/assets/js/functions.js",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/views/header.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/views/project-details.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/K2/home.html",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/K2/js/functions.js",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/K2/css/style.css",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/views/sign-up.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/assets/css/owl.carousel.css",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/views/footer.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/agency/ssi-header.shtml",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/controllers/UserController.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/.htaccess",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/config/routes.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/crewJob/application/controllers/Projects.php",
+		"/C/Users/User/OTHER/Desktop/sample-code/header.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/agency/css/style.css",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/rateit/application/controllers/Upload.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/rateit/application/models/Upload_picture.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/rateit/application/controllers/Pub.php",
+		"/C/Users/User/OTHER/Desktop/CI_image_manipulation_methods.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/admin/pages/forms/general.html",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/new_rateit/application/controllers/upload.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/new_rateit/application/models/user.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/new_rateit/application/models/upload_picture.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/admin/documentation/docs.js",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/WP-FRAME-master/class/App.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/nutrisys/application/controllers/User.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/admin/pages/charts/morris.html",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/admin/index.html",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/admin/pages/calendar.html",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/admin/pages/widgets.html",
+		"/C/Users/User/AppData/Local/Temp/ci_sessions-data-1.bin",
+		"/C/Users/User/AppData/Local/Temp/ci_sessions-data.bin",
+		"/C/Users/User/OTHER/Desktop/ci_sessions-data.bin",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/admin/plugins/morris/morris.js",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/CI8000/application/.htaccess",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/nutrisys/application/controllers/Activities.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/nutrisys/application/views/template/Main.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/controllers/Welcome.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/css/default.scss",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/views/login.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/codeigniter/application/controllers/article.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/application/config/config.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/config/config.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/.htaccess",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/css/default.css",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/assets/css/default.css.map",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/application/controllers/dashboard.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/application/config/autoload.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/config/autoload.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/application/views/dashboard_template.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/application/views/index_template.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/application/config/constants.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/config/constants.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/application/controllers/verifylogin.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/application/controllers/login.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/controllers/Auth_Controller.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/controllers/Dashboard.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/views/dashboard/index.view.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/controllers/MY_Controller.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/views/user/login_view.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/controllers/User.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/views/templates/public_master_footer_view.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/views/templates/auth_master_view.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/config/ion_auth.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/views/templates/public_master_view.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/views/templates/public_master_header_view.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/composer.json",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/controllers/NewFile.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/index.html",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/config/database.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/language/english/auth_lang.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/libraries/Ion_auth.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/libraries/Bcrypt.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/libraries/Ion_auth_model.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/index.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/application/config/foreign_chars.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/.htaccess",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/codeigniter/.htaccess",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/vendor/autoload.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/vendor/composer/autoload_real.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/composer-setup.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/readme.rst",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/license.txt",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/vendor/kriswallsmith/buzz/examples/CookieListener.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/vendor/kriswallsmith/buzz/lib/Buzz/Browser.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/vendor/kriswallsmith/buzz/composer.json",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/vendor/kriswallsmith/buzz/test/Buzz/Test/BrowserTest.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/hack2/vendor/kriswallsmith/buzz/test/server.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/nutrisys/application/config/database.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/zipArchive/zip.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fHolder/dashboard.php",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fHolder/archivedwl-28/dd/.env",
+		"/C/Users/User/Downloads/SERVER/SERVER/htdocs/fileHolder/css/custom.css"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
-		"height": 158.0,
+		"height": 373.0,
 		"where_history":
 		[
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\crewJob-new",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\rateit",
+			"C:\\Users\\User\\OTHER\\Desktop\\templates\\web",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\VSS\\codeigniter",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\projectquots\\wp-content\\themes\\pinkrio.free",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\projectquots\\pinkrio.free",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\projectquots\\pinkrio.free\\",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\projectquots",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\projectquots\\wp-content\\themes\\pinkrio.free",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\projectquots",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\projectquots\\wp-content\\themes\\pinkrio.free",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\projectquots",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\wp_project",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\VSS\\wc",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\VSS\\wc\\WCM010013",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\VSS\\PHP\\",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\VSS\\PHP\\test\\bit",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\VSS\\PHP\\recepti",
+			"",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\VSS\\PHP\\php-for",
+			"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\VSS\\PHP\\homeworks\\php-loops",
+			""
 		]
 	},
 	"find_state":
@@ -288,18 +827,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"controllers",
-			"\n			",
-			"-->\n",
-			"Form",
-			"side",
-			"togle_",
-			"toggle_",
-			"side",
-			"comment",
+			" 4px 4px",
+			"4px 4px 16px -3px rgba(0,0,0,50",
+			"0.31",
+			"13",
+			"    ",
+			"<a href=\"#\" class=\"user-uploaded-image\">\n							<img src=\"assets/img/person1.jpg\">\n						</a>",
+			"500px",
+			"user-categories",
+			";}",
+			"75px",
+			"0;",
+			"75",
+			"125px",
+			"100",
+			"60",
+			"ПРОЕКТ",
+			"images/",
+			"lightbox",
+			"jpg",
+			"crewJob",
+			" </label>",
+			"<label>\n",
+			".checkbox-holder ",
+			".checkbox-col",
+			".checkbox-holder .checkbox-col",
+			".tabs-content ",
+			"project",
+			".tabs-content ",
+			"spacing",
+			".tab4 ",
+			"sign",
+			" ",
+			".tabs-content",
+			" .textarea-main { height: 160px; padding: 10px; }\n",
+			".tabs-content",
+			"BANNER",
+			"    ",
+			"   ",
+			"h2",
+			"97de5c",
+			"yellow",
+			"active",
+			"    ",
+			"lor sit amet, consectetur adipisicing elit, sed do eiusmod\n								tempor incididunt ut.</p>\n							</div>",
+			"							<div class=\"categories",
+			"div",
+			"\">\n",
+			"btn",
+			"120",
+			"100px",
+			"140px",
+			"  ",
+			"Мъж",
+			"holder",
+			".tabs ",
+			"tabs",
+			"    ",
+			"box-shadow: 3px 0px 13px -3px rgba(0,0,0,0.31);",
+			"box-shadow: 3px 13px 13px -12px rgba(0,0,0,0.40);",
+			" {",
+			"spacing",
+			"input-main",
+			".main-btn",
+			"menu-btn",
+			"menu",
+			".menu-btn",
+			"menu",
+			"0px 13p",
+			"0px",
+			"-3px",
+			"31",
+			"h2",
 			">\n",
+			"text",
+			" 13px",
+			" -2px",
+			"10px 10px",
+			"10",
+			"home_view",
+			"h5",
+			"jpg\">\n					</div>",
+			"<div class=\"image-holder\">",
+			"0%,",
+			"0%",
+			"action",
+			".call-to-action",
+			"jpg\">\n						</div>",
+			"div class=\"user-u",
+			"Sport",
+			"heading",
+			"h4",
+			"div",
+			".4s",
+			".4",
+			"  ",
+			"asssets",
+			"main",
+			"font-family: 'Open Sans', arial, helvetica, sans-serif; ",
+			"Roboto",
+			"js/",
 			"js",
-			"query"
+			"js/",
+			"css/",
+			"Toggle Right Sidebar Slide",
+			"Dashboard Control panel",
+			">\n",
+			"bar-chart",
+			"Line Chart",
+			">\n",
+			" </",
+			"php",
+			"$config[‘identity’]",
+			"_margin-none",
+			"Thin",
+			"BlackItalic",
+			"Raleway",
+			"\");",
+			"del_comment",
+			"first_url",
+			"ftp",
+			"']; ",
+			"$this->user->",
+			"http://print-decor.eu/rateit/Users/",
+			"$this->user",
+			"change_password",
+			"dashboard",
+			"dashboard_header",
+			"login"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -307,9 +962,33 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$this->User->",
+			"http://print-decor.eu/rateit/index.php/Users/",
+			"$this->User",
+			"Change_password",
+			"Dashboard",
+			"Dashboard_header",
+			"Login",
+			"template/Main",
+			"Register",
+			"template/Main",
+			"Upload_form",
+			"Dashboard",
+			"h5",
+			"h3",
+			"public",
+			"echo '<img class=\"imgj\" ",
+			"<img title=\"'.$r['file_name'].'\" src",
+			"alt=\"$r[file_name]\"",
+			"$r[file_name]",
+			"assets/fonts",
+			"src=\"<?php echo get_template_directory_uri(); ?>/images/",
+			"src=\"<?php echo get_template_directory_uri(); ?>/images",
+			"src=\"<?php echo get_template_directory_uri(); ?>/",
+			"images"
 		],
 		"reverse": false,
-		"show_context": true,
+		"show_context": false,
 		"use_buffer2": true,
 		"whole_word": false,
 		"wrap": true
@@ -317,18 +996,230 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "resources/views/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 384.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/header.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2649,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								380,
+								380
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/footer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 96.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/functions.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								396,
+								396
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 144.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3770,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								300,
+								300
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Users/User/Downloads/SERVER/SERVER/htdocs/wp_organic/wp-content/themes/OrganicTheme/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 31993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								353,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/app/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+							"spell_check": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 44.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 31.0
 	},
 	"input":
 	{
-		"height": 63.0
+		"height": 170.0
 	},
 	"layout":
 	{
@@ -357,21 +1248,13 @@
 	{
 		"height": 0.0
 	},
-	"output.sftp":
-	{
-		"height": 0.0
-	},
-	"output.unsaved_changes":
-	{
-		"height": 120.0
-	},
 	"pinned_build_system": "",
-	"project": "crewjob.sublime-workspace",
+	"project": "crewjob.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 58.0
 	},
-	"save_all_on_build": true,
+	"save_all_on_build": false,
 	"select_file":
 	{
 		"height": 0.0,
@@ -379,80 +1262,16 @@
 		"selected_items":
 		[
 			[
-				"style",
-				"public/css/style.css"
-			],
-			[
-				"index.b",
-				"resources/views/index.blade.php"
-			],
-			[
-				"time.ht",
-				"L-A/public/templates/timeline.html"
-			],
-			[
-				"welcome",
-				"L-A/resources/views/welcome.blade.php"
-			],
-			[
-				"timelinectr",
-				"L-A/public/controllers/timelineCtrl.js"
-			],
-			[
-				"main.html",
-				"public/templates/main.html"
-			],
-			[
-				"mainctr",
-				"public/controllers/mainCtrl.js"
-			],
-			[
-				"loginctr",
-				"public/controllers/loginCtrl.js"
-			],
-			[
-				"aut",
-				"public/services/auth.js"
-			],
-			[
-				"routes",
-				"app/Http/routes.php"
-			],
-			[
-				"user",
-				"app/Http/Controllers/userController.php"
-			],
-			[
-				"lo",
-				"app/Http/Controllers/locationController.php"
-			],
-			[
 				"route",
-				"app/Http/routes.php"
-			],
-			[
-				"auth.j",
-				"public/services/auth.js"
-			],
-			[
-				"auth",
-				"config/auth.php"
-			],
-			[
-				"loc",
-				"public/services/locations.js"
-			],
-			[
-				"login.ht",
-				"public/templates/login.html"
-			],
-			[
-				"welc",
-				"resources/views/welcome.blade.php"
+				"app\\Http\\routes.php"
 			],
 			[
 				"",
-				"public/templates/about.html"
+				"composer.json"
+			],
+			[
+				"homework",
+				"homeworks\\php-if\\task4.php"
 			]
 		],
 		"width": 0.0
@@ -465,29 +1284,37 @@
 		[
 			[
 				"",
-				"/var/www/html/crewjob/crewjob.sublime-project"
+				"C:\\Users\\User\\Downloads\\SERVER\\SERVER\\htdocs\\L-A\\L-A\\L-A.sublime-workspace"
 			]
 		],
 		"width": 380.0
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
-		"last_filter": "",
+		"height": 392.0,
+		"last_filter": "CI",
 		"selected_items":
 		[
+			[
+				"CI",
+				"CI_Input"
+			],
+			[
+				"",
+				"$Clear"
+			]
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"selected_group": 0,
 	"settings":
 	{
 	},
 	"show_minimap": true,
-	"show_open_files": true,
+	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 369.0,
+	"side_bar_width": 272.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -10,6 +10,7 @@
                 <li><a class="btn-main" href="#tab3">Линкове</a></li>
                 <li><a class="btn-main" href="#tab4">Файлове</a></li>
                 <li><a class="btn-main" href="#tab5">Смяна на парола</a></li>
+                <li><a class="btn-main" href="#tab6">Мойте проекти</a></li>
                 <span>{{ userEmail }}</span>
             </ul>
         </nav>
@@ -40,15 +41,15 @@
                         <div class="input-spacing">
                             <label>
                                 <span class="gender">Дата на раждане</span>
-                            <!-- all optional actions -->
-                            <adm-dtp options="{default: date}" ng-model='date'>
-                                <!-- fully access to 'date' and 'date_details' parameters -->
+                                <!-- all optional actions -->
+                                <adm-dtp options="{default: date}" ng-model='date'>
+                                    <!-- fully access to 'date' and 'date_details' parameters -->
 
-                                <!-- input is optional too, but must use in this format -->
-                                <input autoClose="true" ng-model='date' dtp-input type="text" value="{{ date }}"
-                                       class="input-spacing input-main" id="birth_date">
-                                <!-- attributes name are important, not tags name -->
-                            </adm-dtp>
+                                    <!-- input is optional too, but must use in this format -->
+                                    <input autoClose="true" ng-model='date' dtp-input type="text" value="{{ date }}"
+                                           class="input-spacing input-main" id="birth_date">
+                                    <!-- attributes name are important, not tags name -->
+                                </adm-dtp>
                             </label>
                         </div>
                         <textarea ng-model="description" id="user_note" placeholder="Описание "
@@ -188,38 +189,80 @@
                     <h4 class="sub-heading">Качени файлове: </h4>
                     <div class="uploaded-files-boxes">
                         <!--<div ng-if="newFile" class="uploaded-file-box">-->
-                            <!--&lt;!&ndash;<a target="_blank" ng-href="uploads/files/{{ newFile }}" class="file-box"></a>&ndash;&gt;-->
-                            <!--<h4>{{ orgFile }}</h4>-->
+                        <!--&lt;!&ndash;<a target="_blank" ng-href="uploads/files/{{ newFile }}" class="file-box"></a>&ndash;&gt;-->
+                        <!--<h4>{{ orgFile }}</h4>-->
                         <!--</div>-->
                         <br>
-                        <div ng-if="allFiles" ng-repeat="af in allFiles | orderBy:af.file_id:true" class="uploaded-file-box">
+                        <div ng-if="allFiles" ng-repeat="af in allFiles | orderBy:af.file_id:true"
+                             class="uploaded-file-box">
                             <a target="_blank" ng-href="uploads/files/{{ af.file_name }}" class="file-box"></a>
-                            <h4>{{ af.org_filename }} <br /><span ng-click="deleteFile(af.file_id)" class="option-delete-file"><i class="fa fa-trash"></i></span></h4>
+                            <h4>{{ af.org_filename }} <br/><span ng-click="deleteFile(af.file_id)"
+                                                                 class="option-delete-file"><i class="fa fa-trash"></i></span>
+                            </h4>
                         </div>
                     </div>
-                <table class="" id="list_files">
-                </table>
+                    <table class="" id="list_files">
+                    </table>
+                </div>
+                <!--/Files-->
             </div>
-            <!--/Files-->
-        </div>
             <div class="tab tab5" id="tab5">
                 <h2 class="tab-heading">Промени парола:</h2>
 
                 <form ng-submit="changePass()">
                     <!--					<input type="password" class="input-main input-spacing" placeholder="Old password">   -->
                     <div class="form-group">
-                        <input ng-model="old_pass" type="password" placeholder="Old password" class="input-main input-spacing">
+                        <input ng-model="old_pass" type="password" placeholder="Old password"
+                               class="input-main input-spacing">
                     </div>
                     <div class="form-group">
-                        <input ng-model="new_pass" type="password" placeholder="New password" class="input-main input-spacing">
+                        <input ng-model="new_pass" type="password" placeholder="New password"
+                               class="input-main input-spacing">
                     </div>
                     <div class="form-group">
-                        <input ng-model="re_new_pass" type="password" placeholder="Repeat new password" class="input-main input-spacing" />
+                        <input ng-model="re_new_pass" type="password" placeholder="Repeat new password"
+                               class="input-main input-spacing"/>
                     </div>
                     <br>
                     <input type="submit" value="ПРОМЕНИ" class="btn-main form-btn-main input-spacing">
                 </form>
             </div>
+            <div id="tab6" class="tab tab6">
+                <h2 class="tab-heading">Мойте проекти</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <!--<label for="exampleInputEmail1">Търсене:</label>-->
+                            <input ng-model="myProjectSearch" type="text" class="form-control" id="exampleInputEmail1" placeholder="Намери проект">
+                        </div>
+                    </div>
+                </div>
+                <table ng-if="myProjects.length > 0" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="sorting" ng-click="sortData('id')"># <div ng-class="getClass('id')"></div></th>
+                        <th>Име</th>
+                        <th>Описание</th>
+                        <th class="sorting" ng-click="sortData('created_at')">Дата <div ng-class="getClass('created_at')"></div></th>
+                        <th>Опции</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="mproject in myProjects | filter:myProjectSearch | orderBy:sorting:reverse">
+                        <th scope="row">{{ mproject.id }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <td><a target="_blank" ng-href="projects/{{ mproject.id }}">{{ mproject.name }}</a></td>
+                        <td>{{ mproject.description | limitText: 150: ' ...'}}</td>
+                        <td>{{ mproject.created_at }}</td>
+                        <td>
+                            <a class="btn-main form-btn-main input-spacing" target="_blank" ng-href="projects/{{ mproject.id }}/edit">Редактирай</a>
+
+                        </td>
+                        <td><a class="btn btn-danger" href="">Изтрии</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-</div>
     
