@@ -258,7 +258,7 @@
                             <a class="btn-main form-btn-main input-spacing" target="_blank" ng-href="projects/{{ mproject.id }}/edit">Редактирай</a>
 
                         </td>
-                        <td><a class="btn btn-danger" href="">Изтрии</a></td>
+                        <td><a ng-click="deleteProject(mproject.id)" class="btn btn-danger" href="">Изтрии</a></td>
                     </tr>
                     </tbody>
                 </table>

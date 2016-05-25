@@ -34,7 +34,7 @@
 							if(response.status){
 								$scope.myProjects = response.myProjects;
 							}else{
-								toastinoService.makeDangerToast('Не бяха намерени проекти!', 'long');
+								toastinoService.makeWarningToast('Не бяха намерени проекти!', 'long');
 							}
 						}).error(function(){
 						toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
@@ -210,7 +210,7 @@
 							if(response.status){
 								$scope.myProjects = response.myProjects;
 							}else{
-								toastinoService.makeDangerToast('Не бяха намерени проекти!', 'long');
+                                toastinoService.makeWarningToast('Не бяха намерени проекти!', 'long');
 							}
 						}).error(function(){
 						toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
@@ -451,6 +451,35 @@ console.log($scope.category);
 				}
 				return '';
 			}
+
+            $scope.deleteProject = function(id){
+                $('.loading').show();
+                projectServices.deleteProject(id)
+                    .success(function(response){
+                        if(response.status){
+
+                            projectServices.getAllMyProjects()
+                                .success(function(response){
+                                    if(response.status){
+                                        $('.loading').hide();
+                                        toastinoService.makeSuccessToast('Успешно изтрихте проекта!', 'long');
+                                        $scope.myProjects = response.myProjects;
+                                    }else{
+                                        $('.loading').hide();
+                                        toastinoService.makeWarningToast('Не бяха намерени проекти!', 'long');
+                                        $scope.myProjects = response.myProjects;
+                                    }
+                                }).error(function(){
+                                toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+                            });
+                        }
+
+
+                    }).error(function(reason){
+
+                });
+            };
+
 		};
 
 		app.controller('portfolioCtrl', portfolioCtrl);

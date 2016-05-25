@@ -103,6 +103,25 @@ class projectController extends Controller
     public function deleteProject(Request $request)
     {
         if ($request->session()->get('ID')) {
+
+            $prCat = DB::table('project_category_relation')
+                ->where('project_ID', '=', $request['project_ID'])
+                ->delete();
+
+            $delProjectFile = DB::table('files')
+                ->where('project_id', '=', $request['project_ID'])
+                ->get();
+            if(count($delProjectFile) > 0){
+                foreach ($delProjectFile as $item) {
+                    File::delete('uploads/project/' . $item->file_name);
+                }
+                DB::table('files')
+                    ->where('project_id', '=', $request['project_ID'])
+                    ->delete();
+            }
+
+
+
             $result = DB::table('projects')
                 ->where('user_id', '=', $request->session()->get('ID'))
                 ->where('id', '=', $request['project_ID'])

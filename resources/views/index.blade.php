@@ -27,10 +27,16 @@
 </head>
 
 <body>
-
+<div class="loading" animate="">
+    <div class="loading-bar"></div>
+    <div class="loading-bar"></div>
+    <div class="loading-bar"></div>
+    <div class="loading-bar"></div>
+</div>
 
 <div class="container">
     <div class="content">
+
         <toastino></toastino>
     </div>
 
