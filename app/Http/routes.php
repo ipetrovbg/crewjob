@@ -47,6 +47,9 @@ Route::post('/applying-for-project', 'projectController@applying');
 Route::post('/get-all-my-projects', 'projectController@getMyAll');
 Route::post('/edit-project', 'projectController@edit');
 Route::post('/delete-project-file', 'projectController@deleteFile');
+Route::post('/project-apply', 'projectController@getApply');
+Route::post('/project-staged-close', 'projectController@closeStaged');
+Route::post('/user-rate', 'userController@userRate');
 
 //Route::get('/user/:file_name', function(){
 //    return View::make('index');

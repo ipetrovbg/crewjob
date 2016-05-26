@@ -221,16 +221,6 @@
                 if (!answer) {
                     event.preventDefault();
                 } else {
-                    //projectServices.getProject($scope.projectID)
-                    //    .success(function(response){
-                    //        if(response.status){
-                    //            if(response.project){
-                    //
-                    //            }
-                    //        }
-                    //    }).error(function(reason){
-                    //    console.log(reason);
-                    //});
                     projectServices.deleteProject($scope.projectID)
                         .success(function (response) {
                             console.log(response);

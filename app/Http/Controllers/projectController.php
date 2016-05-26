@@ -151,7 +151,10 @@ class projectController extends Controller
 
     public function getLastProjects(Request $request)
     {
-        $lastProjects = DB::table('projects')->where('status', '>', '0')->skip(0)->take(6)->orderBy('id', 'desc')->get();
+        $lastProjects = DB::table('projects')
+//            ->leftJoin('project_application', 'projects.id', '=', 'project_application.project_id')
+//            ->where('project_application.status', '=', 0)
+            ->where('projects.status', '>', '0')->skip(0)->take(6)->orderBy('projects.id', 'desc')->get();
         for ($i = 0; $i < count($lastProjects); $i++) {
 
             $files = DB::table('files')
@@ -191,7 +194,10 @@ class projectController extends Controller
 
     public function getAllProjects()
     {
-        $allProjects = DB::table('projects')->where('status', '>', '0')->take(6)->orderBy('id', 'desc')->get();
+        $allProjects = DB::table('projects')
+//            ->leftJoin('project_application', 'projects.id', '=', 'project_application.project_id')
+//            ->where('project_application.status', '=', 0)
+            ->where('projects.status', '>', '0')->take(6)->orderBy('projects.id', 'desc')->get();
         if (count($allProjects) > 0) {
 
             for ($i = 0; $i < count($allProjects); $i++) {
@@ -229,7 +235,12 @@ class projectController extends Controller
 
     public function getLimitProjects(Request $request)
     {
-        $limitedProjects = DB::table('projects')->where('id', '<', $request['lastId'])->where('status', '>', '0')->take(3)->orderBy('id', 'desc')->get();
+        $limitedProjects = DB::table('projects')
+//            ->leftJoin('project_application', 'projects.id', '=', 'project_application.project_id')
+            ->where('id', '<', $request['lastId'])
+            ->where('projects.status', '>', '0')
+//            ->where('project_application.status', '=', 0)
+            ->take(3)->orderBy('projects.id', 'desc')->get();
         if (count($limitedProjects) > 0) {
             for ($i = 0; $i < count($limitedProjects); $i++) {
 
@@ -364,5 +375,43 @@ class projectController extends Controller
             return response()->json(array('auth' => false, 'status' => false), 200);
         }
 
+    }
+
+    public function getApply(Request $request)
+    {
+        if($request->session()->get('ID')){
+            $projectApply = DB::table('project_application')
+                ->select(DB::raw('project_application.rating as rating, project_application.created_at as date, users.id as uid, users.name as uname, projects.id as pid, projects.name as pname, projects.status as status, users.email as email, users.avatar as avatar'))
+                ->leftJoin('projects', 'project_application.project_id', '=', 'projects.id')
+                ->leftJoin('users', 'project_application.user_id', '=', 'users.id')
+                ->where('project_application.project_id', '=', $request['id'])
+                ->groupBy('users.id')
+                ->get();
+            return response()->json(array('auth' => true, 'status' => true, 'apply'=>$projectApply), 200);
+
+        }else{
+            return response()->json(array('auth' => false, 'status' => false), 200);
+        }
+    }
+
+    public function closeStaged(Request $request)
+    {
+        if($request->session()->get('ID')){
+            $cStaged = DB::table('project_application')
+                ->where('project_id', '=', $request['id'])
+                ->update(['status'=> 1]);
+            $updateprojectStatus = DB::table('projects')
+                ->where('id', '=', $request['id'])
+                ->update(['status' => 2]);
+            if($cStaged){
+
+
+                return response()->json(array('auth' => true, 'status' => true), 200);
+            }else{
+                return response()->json(array('auth' => true, 'status' => false), 200);
+            }
+        }else{
+            return response()->json(array('auth' => false, 'status' => false), 200);
+        }
     }
 }

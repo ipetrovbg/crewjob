@@ -246,22 +246,35 @@
                         <th class="sorting" ng-click="sortData('created_at')">Дата <div ng-class="getClass('created_at')"></div></th>
                         <th>Опции</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="mproject in myProjects | filter:myProjectSearch | orderBy:sorting:reverse">
                         <th scope="row">{{ mproject.id }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         <td><a target="_blank" ng-href="projects/{{ mproject.id }}">{{ mproject.name }}</a></td>
-                        <td>{{ mproject.description | limitText: 150: ' ...'}}</td>
+                        <td>{{ mproject.description | limitText: 50: ' ...'}}</td>
                         <td>{{ mproject.created_at }}</td>
                         <td>
                             <a class="btn-main form-btn-main input-spacing" target="_blank" ng-href="projects/{{ mproject.id }}/edit">Редактирай</a>
 
                         </td>
-                        <td><a ng-click="deleteProject(mproject.id)" class="btn btn-danger" href="">Изтрии</a></td>
+                        <td>
+                            <div>
+                                <button type="button" class="btn btn-primary" ng-click="open(mproject.id)">Кандидатствали</button>
+                            </div>
+                            <!--<button class="btn btn-primary"></button>-->
+                        </td>
+
+                        <td><a ng-click="deleteProject(mproject.id, $event)" class="btn btn-danger" href="">Изтрии</a></td>
                     </tr>
                     </tbody>
                 </table>
+
+
+
+
+
             </div>
         </div>
     </div>

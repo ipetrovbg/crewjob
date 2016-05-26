@@ -169,6 +169,25 @@ class userController extends Controller
         }
     }
 
+    public function userRate(Request $request)
+    {
+        if ($request->session()->get('ID')) {
+
+            $rate = DB::table('project_application')
+                ->where('user_id', '=', $request['uid'])
+                ->where('project_id', '=', $request['pid'])
+//                ->where('rating', '=', null)
+                ->update(['rating'=> $request['rating']]);
+            if($rate){
+                return response()->json(['auth'=> true, 'status' => true]);
+            }else{
+                return response()->json(['auth'=> true, 'status' => false]);
+            }
+        }else{
+            return response()->json(['auth'=> false, 'status' => false]);
+        }
+    }
+
 }
 
     

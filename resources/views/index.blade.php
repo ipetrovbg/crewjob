@@ -94,6 +94,8 @@
 <!-- app -->
 <script src="app/app.js"></script>
 <script src="app/ng-rating.js"></script>
+<script src="app/ui-bootstrap-custom-1.3.3.min.js"></script>
+<script src="app/ui-bootstrap-custom-tpls-1.3.3.min.js"></script>
 <!-- /app -->
 <!-- controllers -->
 <script src="controllers/homeCtrl.js"></script>
@@ -107,6 +109,8 @@
 <script src="controllers/projectViewCtrl.js"></script>
 <script src="controllers/projectsCtrl.js"></script>
 <script src="controllers/projectEditCtrl.js"></script>
+<script src="controllers/ModalApplyCtrl.js"></script>
+<script src="controllers/ModalProjectCloseCtrl.js"></script>
 <!-- /controllers -->
 <!-- services -->
 <script src="services/sha1.js"></script>
