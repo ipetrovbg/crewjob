@@ -22,7 +22,6 @@
             } else if ($cookies.get('lastTab') == '#tab4') {
                 portfolioServices.getAllFiles()
                     .success(function (response) {
-                        console.log(response);
                         $scope.allFiles = response.files;
                     })
                     .error(function (promise) {
@@ -35,10 +34,6 @@
                             $scope.myProjects = response.myProjects;
 
                             $scope.items = $scope.myProjects;
-
-                            //angular.forEach($scope.myProjects, function(v, k){
-                            //    $scope.items.push(v.id);
-                            //});
 
                             $scope.open = function (size) {
                                 $('.loading').show();
@@ -224,7 +219,6 @@
             } else if (angular.element(document).find(this).find('a').attr('href') == '#tab4') {
                 portfolioServices.getAllFiles()
                     .success(function (response) {
-                        console.log(response);
                         $scope.allFiles = response.files;
                     })
                     .error(function (promise) {
@@ -502,7 +496,7 @@
 
         $scope.deleteProject = function (id, $event) {
             $('.loading').show();
-            var answer = confirm("Сигурни ли сте, че искате да изтриете проекта?");
+            var answer = confirm("Сигурни ли сте, че искате да изтриете проекта? Това ще изтрие всичко свързано с проекта!!!");
             if (!answer) {
                 $('.loading').hide();
                 event.preventDefault();
@@ -538,7 +532,7 @@
 
 
                     }).error(function (reason) {
-
+                    $('.loading').hide();
                 });
             }
         };

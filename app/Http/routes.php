@@ -35,6 +35,7 @@ Route::post('/getAllFiles', 'FileController@getAllFiles');
 Route::post('/deleteFile', 'FileController@deleteFile');
 Route::post('/changePass', 'userController@changePass');
 Route::post('/getUser', 'userController@getUser');
+Route::post('/get-user-info', 'userController@getUserSmallInfo');
 Route::post('/create-empty-project', 'projectController@createEmptyProject');
 Route::post('/create-project', 'projectController@createProject');
 Route::post('/get-project', 'projectController@getproject');
@@ -50,6 +51,7 @@ Route::post('/delete-project-file', 'projectController@deleteFile');
 Route::post('/project-apply', 'projectController@getApply');
 Route::post('/project-staged-close', 'projectController@closeStaged');
 Route::post('/user-rate', 'userController@userRate');
+Route::post('/project-final', 'projectController@makeFinal');
 
 //Route::get('/user/:file_name', function(){
 //    return View::make('index');

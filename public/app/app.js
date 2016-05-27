@@ -7,7 +7,7 @@
         $rootScope.$on('$routeChangeSuccess', function() {
 
             if($route.current.params.user_id){
-                userServices.getUser($route.current.params.user_id)
+                userServices.getUserSmallInfo($route.current.params.user_id)
                     .success(function(response){
                         if(response.status){
                             if(response.user.name){

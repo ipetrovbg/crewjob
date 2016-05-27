@@ -66,15 +66,18 @@ class projectController extends Controller
         $project = DB::table('projects')
 //                ->where('user_id', $request->session()->get('ID'))
             ->where('id', $request['pr_ID'])
-//            ->where('status', '>', '0')
+            ->where('status', '<=', 1)
             ->first();
 
-        $categories = DB::table('project_category_relation')
-            ->leftJoin('category', 'project_category_relation.category_ID', '=', 'category.id')
-            ->where('project_category_relation.project_ID', $project->id)
-            ->get();
+
 
         if ($project) {
+
+            $categories = DB::table('project_category_relation')
+                ->leftJoin('category', 'project_category_relation.category_ID', '=', 'category.id')
+                ->where('project_category_relation.project_ID', $project->id)
+                ->get();
+
             $files = DB::table('files')
                 ->where('project_id', '=', $project->id)
                 ->get();
@@ -120,6 +123,9 @@ class projectController extends Controller
                     ->delete();
             }
 
+            $deleteApplications = DB::table('project_application')
+                ->where('project_id', '=', $request['project_ID'])
+                ->delete();
 
 
             $result = DB::table('projects')
@@ -154,7 +160,8 @@ class projectController extends Controller
         $lastProjects = DB::table('projects')
 //            ->leftJoin('project_application', 'projects.id', '=', 'project_application.project_id')
 //            ->where('project_application.status', '=', 0)
-            ->where('projects.status', '>', '0')->skip(0)->take(6)->orderBy('projects.id', 'desc')->get();
+            ->where('projects.status', '=', 1)
+            ->skip(0)->take(6)->orderBy('projects.id', 'desc')->get();
         for ($i = 0; $i < count($lastProjects); $i++) {
 
             $files = DB::table('files')
@@ -197,7 +204,8 @@ class projectController extends Controller
         $allProjects = DB::table('projects')
 //            ->leftJoin('project_application', 'projects.id', '=', 'project_application.project_id')
 //            ->where('project_application.status', '=', 0)
-            ->where('projects.status', '>', '0')->take(6)->orderBy('projects.id', 'desc')->get();
+            ->where('projects.status', '=', 1)
+            ->take(6)->orderBy('projects.id', 'desc')->get();
         if (count($allProjects) > 0) {
 
             for ($i = 0; $i < count($allProjects); $i++) {
@@ -236,10 +244,10 @@ class projectController extends Controller
     public function getLimitProjects(Request $request)
     {
         $limitedProjects = DB::table('projects')
-//            ->leftJoin('project_application', 'projects.id', '=', 'project_application.project_id')
+            ->leftJoin('project_category_relation', 'projects.id', '=', 'project_category_relation.project_ID')
             ->where('id', '<', $request['lastId'])
-            ->where('projects.status', '>', '0')
-//            ->where('project_application.status', '=', 0)
+            ->where('projects.status', '=', 1)
+            ->where('project_category_relation.category_ID', '=', $request['catId'])
             ->take(3)->orderBy('projects.id', 'desc')->get();
         if (count($limitedProjects) > 0) {
             for ($i = 0; $i < count($limitedProjects); $i++) {
@@ -276,27 +284,36 @@ class projectController extends Controller
     public function applying(Request $request)
     {
         if ($request->session()->get('ID')) {
+            $projectStatus = DB::table('projects')
+                ->where('id', '=', $request['id'])
+                ->first();
 
-            $isApply = DB::table('project_application')
-                ->where('project_id', '=', $request['id'])
-                ->where('user_id', '=', $request->session()->get('ID'))
-                ->count();
-            if ($isApply == 0) {
-                $apply = DB::table('project_application')
-                    ->insert([
-                        'project_id' => $request['id'],
-                        'user_id' => $request->session()->get('ID'),
-                        'created_at' => date('Y-m-d H:m:s'),
-                        'updated_at' => date('Y-m-d H:m:s')
-                    ]);
-                if ($apply) {
-                    return response()->json(array('auth' => true, 'status' => true, 'isApplying' => false), 200);
+            if($projectStatus->status < 2){
+                $isApply = DB::table('project_application')
+                    ->where('project_application.project_id', '=', $request['id'])
+                    ->where('project_application.user_id', '=', $request->session()->get('ID'))
+                    ->count();
+                if ($isApply == 0) {
+                    $apply = DB::table('project_application')
+                        ->insert([
+                            'project_id' => $request['id'],
+                            'user_id' => $request->session()->get('ID'),
+                            'created_at' => date('Y-m-d H:m:s'),
+                            'updated_at' => date('Y-m-d H:m:s')
+                        ]);
+                    if ($apply) {
+                        return response()->json(array('auth' => true, 'status' => true, 'isApplying' => false, 'project_status' => true), 200);
+                    } else {
+                        return response()->json(array('auth' => true, 'status' => false, 'isApplying' => false, 'project_status' => true), 200);
+                    }
                 } else {
-                    return response()->json(array('auth' => true, 'status' => false, 'isApplying' => false), 200);
+                    return response()->json(array('auth' => true, 'status' => false, 'isApplying' => true, 'project_status' => true), 200);
                 }
-            } else {
-                return response()->json(array('auth' => true, 'status' => false, 'isApplying' => true), 200);
+            }else{
+                return response()->json(array('auth' => true, 'status' => true, 'project_status' => false), 200);
             }
+
+
 
         } else {
             return response()->json(array('auth' => false, 'status' => false), 200);
@@ -306,8 +323,27 @@ class projectController extends Controller
     public function getMyAll(Request $request)
     {
         if ($request->session()->get('ID')) {
+
+
+
             $myAll = DB::table('projects')
-                ->where('user_id', '=', $request->session()->get('ID'))->get();
+                ->where('user_id', '=', $request->session()->get('ID'))
+                ->where('status', '<=', 2)
+                ->get();
+            $c = 0;
+            foreach ($myAll as $item) {
+                $pApply = DB::table('project_application')
+                    ->where('project_id', '=', $item->id)
+                    ->get();
+
+//                $myAll[$c]->apply = [];
+//
+//                array_push($myAll[$c]->apply, $pApply);
+                $myAll[$c]->apply = $pApply;
+
+                $c++;
+            }
+
             if ($myAll) {
                 return response()->json(array('auth' => true, 'status' => true, 'myProjects' => $myAll), 200);
             } else {
@@ -381,7 +417,7 @@ class projectController extends Controller
     {
         if($request->session()->get('ID')){
             $projectApply = DB::table('project_application')
-                ->select(DB::raw('project_application.rating as rating, project_application.created_at as date, users.id as uid, users.name as uname, projects.id as pid, projects.name as pname, projects.status as status, users.email as email, users.avatar as avatar'))
+                ->select(DB::raw('project_application.status as app_status, project_application.rating as rating, project_application.created_at as date, users.id as uid, users.name as uname, projects.id as pid, projects.name as pname, projects.status as status, users.email as email, users.avatar as avatar'))
                 ->leftJoin('projects', 'project_application.project_id', '=', 'projects.id')
                 ->leftJoin('users', 'project_application.user_id', '=', 'users.id')
                 ->where('project_application.project_id', '=', $request['id'])
@@ -410,6 +446,30 @@ class projectController extends Controller
             }else{
                 return response()->json(array('auth' => true, 'status' => false), 200);
             }
+        }else{
+            return response()->json(array('auth' => false, 'status' => false), 200);
+        }
+    }
+
+    public function makeFinal(Request $request)
+    {
+        if($request->session()->get('ID')){
+
+            $checkFinal = DB::table('project_application')
+                ->where('project_id', '=', $request['id'])
+                ->where('rating', '=', null)
+                ->count();
+            if($checkFinal < 1){
+                DB::table('project_application')
+                    ->where('project_id', '=', $request['id'])
+                    ->update(['status' => 2, 'updated_at' => date('Y-m-d H:m:s')]);
+                return response()->json(array('auth' => true, 'status' => true, 'final'=> true), 200);
+            }else{
+                return response()->json(array('auth' => true, 'status' => true, 'final'=> false), 200);
+            }
+
+
+
         }else{
             return response()->json(array('auth' => false, 'status' => false), 200);
         }

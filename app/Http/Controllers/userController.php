@@ -67,11 +67,11 @@ class userController extends Controller
 
     }
 
-    public function forseLogin(Request $request)
-    {
-        $request->session()->put('email', $request['email']);
-        $request->session()->put('ID', $request['ID']);
-    }
+//    public function forseLogin(Request $request)
+//    {
+//        $request->session()->put('email', $request['email']);
+//        $request->session()->put('ID', $request['ID']);
+//    }
     public function isAuth(Request $request)
     {
 
@@ -148,20 +148,100 @@ class userController extends Controller
         }
     }
 
+    public function getUserSmallInfo(Request $request)
+    {
+        $user = DB::table('users')
+            ->select(DB::raw('users.id as id, users.name as name, users.email as email'))
+            ->where('users.id', $request['userId'])->first();
+
+        if(count($user) == 1){
+            return response()->json(['status' => true, 'user' => $user]);
+        }else{
+            return response()->json(['status' => false]);
+        }
+
+    }
+
     public function getUser(Request $request)
     {
         $user = DB::table('users')
+            ->select(DB::raw('users.id as id, users.name as name, users.email as email, users.description as description, users.avatar as avatar,
+            users.created_at as created_at, users.gender as gender, users.date_of_birth as date_of_birth'))
             ->where('users.id', $request['userId'])->first();
 
         $userCategories = DB::table('users_categories')
             ->leftJoin('category', 'users_categories.category_id', '=', 'category.id')
             ->where('user_id', $request['userId'])->get();
 
+        $links = DB::table('links')
+            ->where('user_id', '=', $request['userId'])
+            ->get();
+        $fProjects = DB::table('project_application')
+            ->leftJoin('projects', 'project_application.project_id', '=', 'projects.id')
+            ->where('project_application.user_id', '=', $request['userId'])
+            ->where('project_application.status', '=', 2)
+            ->get();
+
+        $count = 0;
+        foreach ($fProjects as $fProject) {
+        $fpImage = DB::table('files')
+            ->where('project_id', '=', $fProject->project_id)
+            ->where(function ($query) {
+                $query->where('file_type', '=', 'jpg')
+                    ->orWhere('file_type', '=', 'png')
+                    ->orWhere('file_type', '=', 'gif')
+                    ->orWhere('file_type', '=', 'JPG')
+                    ->orWhere('file_type', '=', 'JPEG');
+            })
+            ->first();
+
+            $fProjects[$count]->image = [];
+            if($fpImage){
+                array_push($fProjects[$count]->image, $fpImage);
+            }
+            $count++;
+        }
+
+        $notFProject = DB::table('project_application')
+            ->leftJoin('projects', 'project_application.project_id', '=', 'projects.id')
+            ->where('project_application.user_id', '=', $request['userId'])
+            ->where('project_application.status', '=', 0)
+            ->get();
+
+
+        $count2 = 0;
+        foreach ($notFProject as $notfProject) {
+            $notFpImage = DB::table('files')
+                ->where('project_id', '=', $notfProject->project_id)
+                ->where(function ($query) {
+                    $query->where('file_type', '=', 'jpg')
+                        ->orWhere('file_type', '=', 'png')
+                        ->orWhere('file_type', '=', 'gif')
+                        ->orWhere('file_type', '=', 'JPG')
+                        ->orWhere('file_type', '=', 'JPEG');
+                })
+                ->first();
+
+            $notFProject[$count2]->image = [];
+            if($notFpImage){
+                array_push($notFProject[$count2]->image, $notFpImage);
+            }
+            $count2++;
+        }
+
+        $rating = DB::table('project_application')
+            ->select(DB::raw('(SELECT COUNT(id) as c FROM project_application WHERE user_id = '.$request['userId'].' AND status = 2) as project_count, (SELECT SUM(rating) as rat FROM project_application WHERE user_id = '.$request['userId'].') as total_rating'))
+            ->where('user_id', '=', $request['userId'])
+            ->groupBy('user_id')
+            ->get();
+
         if (count($user) == 1) {
             if (count($userCategories) > 0) {
-                return response()->json(['status' => true, 'user' => $user, 'cat' => $userCategories]);
+                return response()->json(['status' => true, 'user' => $user, 'cat' => $userCategories, 'links'=>$links,
+                    'finishedP'=>$fProjects, 'notFinishedP'=>$notFProject, 'rating'=>$rating]);
             } else {
-                return response()->json(['status' => true, 'user' => $user, 'cat' => false]);
+                return response()->json(['status' => true, 'user' => $user, 'cat' => false, 'link'=>false,
+                    'finishedP'=>$fProjects, 'notFinishedP'=>$notFProject, 'rating'=>$rating]);
             }
 
         } else {

@@ -204,7 +204,7 @@ textarea:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#
 }
 
 
-.main-content .project-box .image-holder { position: relative; margin-bottom: 12px; display: block; max-height: 122px;overflow: hidden;min-height: 122px;}
+.main-content .project-box .image-holder { position: relative; margin-bottom: 12px; display: block; max-height: 126px;overflow: hidden;min-height: 126px;}
 .main-content .project-box .image-holder:after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 12px; background: url('../img/triygalnik.png') center center; }
 .main-content .project-box .image-holder img { border-radius: 6px; width: 100%; }
 
@@ -428,7 +428,7 @@ img.box-element-5 { position: absolute; top: 40px; right: 60px; width: 140px;}
 
 .user-current-projects { text-align: center; }
 
-.project-box-holder-user { text-align: center; display: flex; align-items: center; justify-content: center;}
+.project-box-holder-user { text-align: center; display: block; /*align-items: center; justify-content: center;*/}
 .user-current-projects  .project-box { width: 20%; }
 .user-current-projects  .project-box .box-description p { font-size: 11px; left: 20px; color: #333; }
 .user-current-projects  .project-box .image-holder { margin-bottom: 0;  }

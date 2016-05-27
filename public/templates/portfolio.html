@@ -233,18 +233,24 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <!--<label for="exampleInputEmail1">Търсене:</label>-->
-                            <input ng-model="myProjectSearch" type="text" class="form-control" id="exampleInputEmail1" placeholder="Намери проект">
+                            <input ng-model="myProjectSearch" type="text" class="form-control" id="exampleInputEmail1"
+                                   placeholder="Намери проект">
                         </div>
                     </div>
                 </div>
                 <table ng-if="myProjects.length > 0" class="table table-striped">
                     <thead>
                     <tr>
-                        <th class="sorting" ng-click="sortData('id')"># <div ng-class="getClass('id')"></div></th>
+                        <th class="sorting" ng-click="sortData('id')">#
+                            <div ng-class="getClass('id')"></div>
+                        </th>
                         <th>Име</th>
                         <th>Описание</th>
-                        <th class="sorting" ng-click="sortData('created_at')">Дата <div ng-class="getClass('created_at')"></div></th>
+                        <th class="sorting" ng-click="sortData('created_at')">Дата
+                            <div ng-class="getClass('created_at')"></div>
+                        </th>
                         <th>Опции</th>
+                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -256,23 +262,56 @@
                         <td>{{ mproject.description | limitText: 50: ' ...'}}</td>
                         <td>{{ mproject.created_at }}</td>
                         <td>
-                            <a class="btn-main form-btn-main input-spacing" target="_blank" ng-href="projects/{{ mproject.id }}/edit">Редактирай</a>
-
+                            <a ng-if="mproject.status < 2" class="btn btn-success" target="_blank"
+                               ng-href="projects/{{ mproject.id }}/edit">Редактирай</a>
+                            <button ng-if="mproject.status == 2" class="btn btn-success disabled">Редактирай</button>
                         </td>
                         <td>
                             <div>
-                                <button type="button" class="btn btn-primary" ng-click="open(mproject.id)">Кандидатствали</button>
+                                <button  ng-if="mproject.apply[0].status != null" class="btn btn-primary" ng-click="open(mproject.id)">
+                                    Кандидатствали
+                                </button>
+                                <button ng-if="mproject.apply[0].status == null" class="btn btn-primary disabled">Кандидатствали</button>
+                                <!--<button ng-if="mproject.status == 2" class="btn btn-primary disabled">Кандидатствали</button>-->
                             </div>
                             <!--<button class="btn btn-primary"></button>-->
                         </td>
 
-                        <td><a ng-click="deleteProject(mproject.id, $event)" class="btn btn-danger" href="">Изтрии</a></td>
+                        <td>
+                            <button ng-click="deleteProject(mproject.id, $event)" class="btn btn-danger">Изтрии</button>
+                        </td>
+                        <td ng-if="mproject.status == 2">
+
+                            <span class="text-danger"><i class="fa fa-lock" aria-hidden="true"></i> </span>
+                            <span class="text-success" ng-if="mproject.apply[0].status == 1"><i class="fa fa-star-o" aria-hidden="true"></i></span>
+                            <span class="text-danger" ng-if="mproject.apply[0].status == 2"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply[0].status == 0"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply[0].status == null"><i class="fa fa-user-times" aria-hidden="true"></i></span>
+
+                        </td>
+                        <td ng-if="mproject.status == 1">
+
+                            <span class="text-success"><i class="fa fa-unlock" aria-hidden="true"></i> </span>
+                            <span class="text-success" ng-if="mproject.apply[0].status == 1"><i class="fa fa-star-o" aria-hidden="true"></i></span>
+                            <span class="text-danger" ng-if="mproject.apply[0].status == 2"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply[0].status == 0"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply[0].status == null"><i class="fa fa-user-times" aria-hidden="true"></i></span>
+
+                        </td>
+                        <!--<td ng-if="mproject.status == 1><p class="text-success">(отворен)</p></td>-->
+
+                        <td ng-if="mproject.status == 0">
+
+                            <span class="text-warning"><i class="fa fa-eye-slash" aria-hidden="true"></i> </span>
+                            <span class="text-success" ng-if="mproject.apply[0].status == 1"><i class="fa fa-star-o" aria-hidden="true"></i></span>
+                            <span class="text-danger" ng-if="mproject.apply[0].status == 2"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply[0].status == 0"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply[0].status == null"><i class="fa fa-user-times" aria-hidden="true"></i></span>
+
+                        </td>
                     </tr>
                     </tbody>
                 </table>
-
-
-
 
 
             </div>
