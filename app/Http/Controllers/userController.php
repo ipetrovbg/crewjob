@@ -151,7 +151,7 @@ class userController extends Controller
     public function getUserSmallInfo(Request $request)
     {
         $user = DB::table('users')
-            ->select(DB::raw('users.id as id, users.name as name, users.email as email'))
+            ->select(DB::raw('users.id as id, users.name as name, users.email as email, users.avatar as avatar'))
             ->where('users.id', $request['userId'])->first();
 
         if(count($user) == 1){

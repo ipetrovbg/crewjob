@@ -334,7 +334,7 @@ class projectController extends Controller
             foreach ($myAll as $item) {
                 $pApply = DB::table('project_application')
                     ->where('project_id', '=', $item->id)
-                    ->get();
+                    ->first();
 
 //                $myAll[$c]->apply = [];
 //

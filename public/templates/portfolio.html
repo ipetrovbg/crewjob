@@ -268,10 +268,10 @@
                         </td>
                         <td>
                             <div>
-                                <button  ng-if="mproject.apply[0].status != null" class="btn btn-primary" ng-click="open(mproject.id)">
+                                <button  ng-if="mproject.apply.status >= 0" class="btn btn-primary" ng-click="open(mproject.id)">
                                     Кандидатствали
                                 </button>
-                                <button ng-if="mproject.apply[0].status == null" class="btn btn-primary disabled">Кандидатствали</button>
+                                <button ng-if="mproject.apply.status == null" class="btn btn-primary disabled">Кандидатствали</button>
                                 <!--<button ng-if="mproject.status == 2" class="btn btn-primary disabled">Кандидатствали</button>-->
                             </div>
                             <!--<button class="btn btn-primary"></button>-->
