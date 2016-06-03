@@ -44,6 +44,7 @@ Route::post('/get-project-cat', 'projectController@getProjectCat');
 Route::post('/get-last-projects', 'projectController@getLastProjects');
 Route::post('/get-all-projects', 'projectController@getAllProjects');
 Route::post('/get-limit-projects', 'projectController@getLimitProjects');
+Route::post('/get-project-by-cat', 'projectController@getByCat');
 Route::post('/applying-for-project', 'projectController@applying');
 Route::post('/get-all-my-projects', 'projectController@getMyAll');
 Route::post('/edit-project', 'projectController@edit');
@@ -52,6 +53,10 @@ Route::post('/project-apply', 'projectController@getApply');
 Route::post('/project-staged-close', 'projectController@closeStaged');
 Route::post('/user-rate', 'userController@userRate');
 Route::post('/project-final', 'projectController@makeFinal');
+Route::post('/send-message', 'userController@sendMessage');
+Route::post('/get-all-messages', 'userController@getAllMessages');
+Route::post('/get-message', 'userController@getMessage');
+Route::post('/update-msg-status', 'userController@updateMsgStatus');
 
 //Route::get('/user/:file_name', function(){
 //    return View::make('index');

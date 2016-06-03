@@ -2,7 +2,7 @@
     var app = angular.module('crewjob');
 
     var portfolioCtrl = function ($scope, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
-                                  categoriesServices, sha1, auth, projectServices, $uibModal, $log) {
+                                  categoriesServices, sha1, auth, projectServices, $uibModal, $log, userServices) {
 
         $scope.userEmail = $cookies.get('email');
         if ($cookies.get('lastTab')) {
@@ -60,6 +60,31 @@
                             toastinoService.makeWarningToast('Не бяха намерени проекти!', 'long');
                         }
                     }).error(function () {
+                    toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+                });
+            }else if($cookies.get('lastTab') == '#tab7'){
+                $scope.active = 1;
+                userServices.getAllMessages().success(function(response){
+                    if(response.status){
+                        //$scope.userId = $cookies.get('ID');
+                        $scope.messages = {};
+                        $scope.messages.sended = [];
+                        $scope.messages.received = [];
+
+                        angular.forEach(response.messages, function(v){
+                            if(v.sender == $cookies.get('ID')){
+                                $scope.messages.sended.push(v);
+                            }else if(v.receiver == $cookies.get('ID')){
+                                $scope.messages.received.push(v);
+
+                            }
+                        });
+                        console.log($scope.messages);
+
+                    }else{
+                        toastinoService.makeWarningToast('Все още нямате съобщения!', 'long');
+                    }
+                }).error(function(){
                     toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
                 });
             }
@@ -172,7 +197,7 @@
                         toastinoService.makeDangerToast('Грешка. Позволени формати: jpg и png!', 'long');
                         return false;
                     }
-                    // console.log(item);
+                     //console.log(item);
                 }
             }]
         });
@@ -184,10 +209,12 @@
         };
 
 
-        // $scope.uploader.onBeforeUploadItem = function(item){
-
-
-        // };
+         $scope.uploader.onAfterAddingFile  = function(item){
+             if((item.file.size/1024)/1024 > 1.46){
+                 $scope.uploader.removeFromQueue(item);
+                 toastinoService.makeDangerToast('Грешка. Максималер размер 1Мб', 'long');
+             }
+         };
         $scope.fileItem = "Choose file";
 
         /* on complete uploading */
@@ -255,6 +282,31 @@
                             toastinoService.makeWarningToast('Не бяха намерени проекти!', 'long');
                         }
                     }).error(function () {
+                    toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+                });
+            }else if(angular.element(document).find(this).find('a').attr('href') == '#tab7'){ /*$cookies.get('lastTab') == '#tab7'*/
+                $scope.active = 1;
+                userServices.getAllMessages().success(function(response){
+                    if(response.status){
+                        //$scope.userId = $cookies.get('ID');
+                        $scope.messages = {};
+                        $scope.messages.sended = [];
+                        $scope.messages.received = [];
+
+                        angular.forEach(response.messages, function(v){
+                            if(v.sender == $cookies.get('ID')){
+                                $scope.messages.sended.push(v);
+                            }else if(v.receiver == $cookies.get('ID')){
+                                $scope.messages.received.push(v);
+                            }
+
+                        });
+                        console.log($scope.messages);
+
+                    }else{
+                        toastinoService.makeWarningToast('Все още нямате съобщения!', 'long');
+                    }
+                }).error(function(){
                     toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
                 });
             }
@@ -514,20 +566,6 @@
                             });
 
                             toastinoService.makeSuccessToast('Успешно изтрихте проекта!', 'long');
-                            //projectServices.getAllMyProjects()
-                            //    .success(function(response){
-                            //        if(response.status){
-                            //            $('.loading').hide();
-                            //            toastinoService.makeSuccessToast('Успешно изтрихте проекта!', 'long');
-                            //            $scope.myProjects = response.myProjects;
-                            //        }else{
-                            //            $('.loading').hide();
-                            //            toastinoService.makeWarningToast('Не бяха намерени проекти!', 'long');
-                            //            $scope.myProjects = response.myProjects;
-                            //        }
-                            //    }).error(function(){
-                            //    toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
-                            //});
                         }
 
 
@@ -535,6 +573,37 @@
                     $('.loading').hide();
                 });
             }
+        };
+
+        $scope.openMsg = function (id, author) {
+            $('.loading').show();
+            $scope.element_ID = 'selected-'+id;
+            console.log(angular.element(document).find(this));
+            var params = {
+                'id': id,
+                'author':author
+            };
+
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'templates/modal-view-message.html',
+                controller: 'ModalViewMessageCtrl',
+                size: 'lg',
+                resolve: {
+                    item: function () {
+                        return params;
+                    }
+                }
+            });
+            modalInstance.closed.then(function(){
+                $('#'+$scope.element_ID).removeClass('alert-warning');
+            });
+
+            //modalInstance.result.then(function (selectedItem) {
+            //   //console.log(1);
+            //}, function () {
+            //    //$log.info('Modal dismissed at: ' + new Date());
+            //});
         };
 
     };

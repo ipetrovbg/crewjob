@@ -116,7 +116,13 @@ class projectController extends Controller
                 ->get();
             if(count($delProjectFile) > 0){
                 foreach ($delProjectFile as $item) {
+                    $allowedTypes = ['jpg', 'JPG', 'JPEG', 'jpeg', 'png', 'gif'];
+                    if (in_array($item->file_type, $allowedTypes)) {
+                        File::delete('uploads/project/thumbs/' . $item->file_name);
+                        File::delete('uploads/project/thumbs/small/' . $item->file_name);
+                    }
                     File::delete('uploads/project/' . $item->file_name);
+
                 }
                 DB::table('files')
                     ->where('project_id', '=', $request['project_ID'])
@@ -243,12 +249,20 @@ class projectController extends Controller
 
     public function getLimitProjects(Request $request)
     {
-        $limitedProjects = DB::table('projects')
-            ->leftJoin('project_category_relation', 'projects.id', '=', 'project_category_relation.project_ID')
-            ->where('id', '<', $request['lastId'])
+        if($request['catId'] != ''){
+            $sign = '=';
+        }else{
+            $sign = '!=';
+        }
+        $limitedProjects = DB::table('project_category_relation')
+            ->leftJoin('projects', 'project_category_relation.project_ID', '=', 'projects.id')
+            ->where('project_category_relation.project_ID', '<', $request['lastId'])
             ->where('projects.status', '=', 1)
-            ->where('project_category_relation.category_ID', '=', $request['catId'])
-            ->take(3)->orderBy('projects.id', 'desc')->get();
+            ->where('project_category_relation.category_ID', $sign, $request['catId'])
+            ->take(3)
+            ->orderBy('projects.id', 'desc')
+            ->groupBy('projects.id')
+            ->get();
         if (count($limitedProjects) > 0) {
             for ($i = 0; $i < count($limitedProjects); $i++) {
 
@@ -392,6 +406,13 @@ class projectController extends Controller
                 ->where('user_id', $request->session()->get('ID'))
                 ->where('file_id', $request['id'])
                 ->first();
+
+            $allowedTypes = ['jpg', 'JPG', 'JPEG', 'jpeg', 'png', 'gif'];
+            if (in_array($fileToDelete->file_type, $allowedTypes)) {
+                File::delete('uploads/project/thumbs/' . $fileToDelete->file_name);
+                File::delete('uploads/project/thumbs/small/' . $fileToDelete->file_name);
+            }
+
             $realDeleting = File::delete('uploads/project/' . $fileToDelete->file_name);
             if($realDeleting){
                 $delete = DB::table('files')
@@ -473,5 +494,91 @@ class projectController extends Controller
         }else{
             return response()->json(array('auth' => false, 'status' => false), 200);
         }
+    }
+
+    public function getByCat(Request $request)
+    {
+        if(!$request['catID']){
+            $limitedProjects = DB::table('project_category_relation')
+                ->leftJoin('projects', 'project_category_relation.project_ID', '=', 'projects.id')
+//            ->where('project_category_relation.project_ID', '<', $request['lastId'])
+                ->where('projects.status', '=', 1)
+                ->where('project_category_relation.category_ID', '>', 0)
+                ->take(6)
+                ->orderBy('projects.id', 'desc')
+                ->groupBy('projects.id')
+                ->get();
+            if (count($limitedProjects) > 0) {
+                for ($i = 0; $i < count($limitedProjects); $i++) {
+
+                    $files = DB::table('files')
+                        ->where('project_id', '=', $limitedProjects[$i]->id)
+                        ->where(function ($query) {
+                            $query->where('file_type', '=', 'jpg')
+                                ->orWhere('file_type', '=', 'png')
+                                ->orWhere('file_type', '=', 'gif');
+                        })
+                        ->first();
+                    $limitedProjects[$i]->images = [];
+
+                    array_push($limitedProjects[$i]->images, $files);
+
+                    $user = DB::table('users')
+                        ->select('name', 'email', 'id', 'avatar')
+                        ->where('id', '=', $limitedProjects[$i]->user_id)
+                        ->first();
+                    $limitedProjects[$i]->author = $user;
+//            $lastProjects[$i]->categories = [];
+                    $categories = DB::table('project_category_relation')
+                        ->select('category.name')
+                        ->leftJoin('category', 'project_category_relation.category_ID', '=', 'category.id')
+                        ->where('project_category_relation.project_ID', '=', $limitedProjects[$i]->id)
+                        ->get();
+                    $limitedProjects[$i]->categories = $categories;
+                }
+                return response()->json(array('status' => true, 'limited_projects' => $limitedProjects), 200);
+            }
+        }else{
+            $limitedProjects = DB::table('project_category_relation')
+                ->leftJoin('projects', 'project_category_relation.project_ID', '=', 'projects.id')
+//            ->where('project_category_relation.project_ID', '<', $request['lastId'])
+                ->where('projects.status', '=', 1)
+                ->where('project_category_relation.category_ID', '=', $request['catID'])
+                ->take(6)
+                ->orderBy('projects.id', 'desc')
+                ->groupBy('projects.id')
+                ->get();
+            if (count($limitedProjects) > 0) {
+                for ($i = 0; $i < count($limitedProjects); $i++) {
+
+                    $files = DB::table('files')
+                        ->where('project_id', '=', $limitedProjects[$i]->id)
+                        ->where(function ($query) {
+                            $query->where('file_type', '=', 'jpg')
+                                ->orWhere('file_type', '=', 'png')
+                                ->orWhere('file_type', '=', 'gif');
+                        })
+                        ->first();
+                    $limitedProjects[$i]->images = [];
+
+                    array_push($limitedProjects[$i]->images, $files);
+
+                    $user = DB::table('users')
+                        ->select('name', 'email', 'id', 'avatar')
+                        ->where('id', '=', $limitedProjects[$i]->user_id)
+                        ->first();
+                    $limitedProjects[$i]->author = $user;
+//            $lastProjects[$i]->categories = [];
+                    $categories = DB::table('project_category_relation')
+                        ->select('category.name')
+                        ->leftJoin('category', 'project_category_relation.category_ID', '=', 'category.id')
+                        ->where('project_category_relation.project_ID', '=', $limitedProjects[$i]->id)
+                        ->get();
+                    $limitedProjects[$i]->categories = $categories;
+                }
+                return response()->json(array('status' => true, 'limited_projects' => $limitedProjects), 200);
+            }
+        }
+
     }
 }

@@ -16,7 +16,28 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="gamesteady-dev">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="gamesteady-live">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="lift-hr-dev">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="lifthr-live">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

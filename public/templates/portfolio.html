@@ -1,9 +1,10 @@
 <!-- navigation -->
 <navigation></navigation>
 <!-- /navigation -->
+
 <div>
     <div class="tabs-nav">
-        <nav class="shell">
+        <nav class="shell"><!--shell-->
             <ul>
                 <li class="active"><a class="btn-main" href="#tab1">Лични данни</a></li>
                 <li><a class="btn-main" href="#tab2">Категории</a></li>
@@ -11,6 +12,7 @@
                 <li><a class="btn-main" href="#tab4">Файлове</a></li>
                 <li><a class="btn-main" href="#tab5">Смяна на парола</a></li>
                 <li><a class="btn-main" href="#tab6">Мойте проекти</a></li>
+                <li><a class="btn-main" href="#tab7">Съобщения</a></li>
                 <span>{{ userEmail }}</span>
             </ul>
         </nav>
@@ -59,7 +61,7 @@
                             <span ng-if="!profileImage" class="value">Избери снимка</span>
                             <span ng-if="!profileImage" class="btn-value"></span>
                             <img ng-if="profileImage" class="img-rounded img-rounded-profile" width="205"
-                                 ng-src="uploads/profiles/{{ profileImage }}" alt="">
+                                 ng-src="uploads/profiles/thumbs/{{ profileImage }}" alt="">
                             <div ng-if="progres && progres < 100" class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                                      aria-valuemax="100" style="width:0%">
@@ -268,10 +270,13 @@
                         </td>
                         <td>
                             <div>
-                                <button  ng-if="mproject.apply.status >= 0" class="btn btn-primary" ng-click="open(mproject.id)">
+                                <button ng-if="mproject.apply.status >= 0" class="btn btn-primary"
+                                        ng-click="open(mproject.id)">
                                     Кандидатствали
                                 </button>
-                                <button ng-if="mproject.apply.status == null" class="btn btn-primary disabled">Кандидатствали</button>
+                                <button ng-if="mproject.apply.status == null" class="btn btn-primary disabled">
+                                    Кандидатствали
+                                </button>
                                 <!--<button ng-if="mproject.status == 2" class="btn btn-primary disabled">Кандидатствали</button>-->
                             </div>
                             <!--<button class="btn btn-primary"></button>-->
@@ -283,19 +288,27 @@
                         <td ng-if="mproject.status == 2">
 
                             <span class="text-danger"><i class="fa fa-lock" aria-hidden="true"></i> </span>
-                            <span class="text-success" ng-if="mproject.apply[0].status == 1"><i class="fa fa-star-o" aria-hidden="true"></i></span>
-                            <span class="text-danger" ng-if="mproject.apply[0].status == 2"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                            <span class="text-success" ng-if="mproject.apply[0].status == 0"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-                            <span class="text-success" ng-if="mproject.apply[0].status == null"><i class="fa fa-user-times" aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply.status == 1"><i class="fa fa-star-o"
+                                                                                             aria-hidden="true"></i></span>
+                            <span class="text-danger" ng-if="mproject.apply.status == 2"><i class="fa fa-lock"
+                                                                                            aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply.status == 0"><i class="fa fa-unlock"
+                                                                                             aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply.status == null"><i class="fa fa-user-times"
+                                                                                                aria-hidden="true"></i></span>
 
                         </td>
                         <td ng-if="mproject.status == 1">
 
                             <span class="text-success"><i class="fa fa-unlock" aria-hidden="true"></i> </span>
-                            <span class="text-success" ng-if="mproject.apply[0].status == 1"><i class="fa fa-star-o" aria-hidden="true"></i></span>
-                            <span class="text-danger" ng-if="mproject.apply[0].status == 2"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                            <span class="text-success" ng-if="mproject.apply[0].status == 0"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-                            <span class="text-success" ng-if="mproject.apply[0].status == null"><i class="fa fa-user-times" aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply.status == 1"><i class="fa fa-star-o"
+                                                                                             aria-hidden="true"></i></span>
+                            <span class="text-danger" ng-if="mproject.apply.status == 2"><i class="fa fa-lock"
+                                                                                            aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply.status == 0"><i class="fa fa-unlock"
+                                                                                             aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply.status == null"><i class="fa fa-user-times"
+                                                                                                aria-hidden="true"></i></span>
 
                         </td>
                         <!--<td ng-if="mproject.status == 1><p class="text-success">(отворен)</p></td>-->
@@ -303,10 +316,14 @@
                         <td ng-if="mproject.status == 0">
 
                             <span class="text-warning"><i class="fa fa-eye-slash" aria-hidden="true"></i> </span>
-                            <span class="text-success" ng-if="mproject.apply[0].status == 1"><i class="fa fa-star-o" aria-hidden="true"></i></span>
-                            <span class="text-danger" ng-if="mproject.apply[0].status == 2"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                            <span class="text-success" ng-if="mproject.apply[0].status == 0"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-                            <span class="text-success" ng-if="mproject.apply[0].status == null"><i class="fa fa-user-times" aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply.status == 1"><i class="fa fa-star-o"
+                                                                                             aria-hidden="true"></i></span>
+                            <span class="text-danger" ng-if="mproject.apply.status == 2"><i class="fa fa-lock"
+                                                                                            aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply.status == 0"><i class="fa fa-unlock"
+                                                                                             aria-hidden="true"></i></span>
+                            <span class="text-success" ng-if="mproject.apply.status == null"><i class="fa fa-user-times"
+                                                                                                aria-hidden="true"></i></span>
 
                         </td>
                     </tr>
@@ -315,6 +332,75 @@
 
 
             </div>
+
+            <div class="tab tab7" id="tab7">
+                <div class="shell">
+                    <h2 class="tab-heading">Съобщения</h2>
+                    <ul class="nav nav-tabs">
+                        <li ng-click="active = 1" ng-class="(active == 1) ? 'active': ''" role="presentation"><a
+                                href="#">Получени</a>
+                        </li><!--class="active"-->
+                        <li ng-click="active = 2" ng-class="(active == 2) ? 'active': ''" role="presentation"><a
+                                href="#">Изпратени</a>
+                        </li>
+                    </ul>
+
+                    <div ng-if="messages.received.length > 0 || messages.sended.length > 0" class="row">
+
+                        <div ng-if="active == 1" class="col-md-12">
+                            <div ng-if="messages.received.length > 0">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>От</th>
+                                        <th>Съобщение</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr id="selected-{{ received.id }}" ng-repeat="received in messages.received" ng-class="(received.receiver_status == 0) ? 'alert-warning' : ''">
+                                        <td>{{ received.sender_email }}</td>
+                                        <td>{{ received.message | limitText:90:' ...' }}</td>
+                                        <td><button ng-click="openMsg(received.id, 'receiver', 'selected-'+ received.id)" class="btn btn-primary">Виж</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div ng-if="messages.received.length < 1">
+                                <div class="alert alert-warning">Нямате получени съобщения</div>
+                            </div>
+                        </div>
+                        <div ng-if="active == 2" class="col-md-12">
+                            <div ng-if="messages.sended.length > 0">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>До</th>
+                                        <th>Съобщение</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr ng-repeat="sended in messages.sended">
+                                        <td>{{ sended.receiver_emaile }}</td>
+                                        <td>{{ sended.message | limitText:90:' ...' }}</td>
+                                        <td><button ng-click="openMsg(sended.id, 'sender')" class="btn btn-primary">Виж</button></td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div ng-if="messages.sended.length < 1">
+                                <div class="alert alert-warning"> Нямате изпратени съобщения</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     

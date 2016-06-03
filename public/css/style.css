@@ -27,8 +27,7 @@ body {
 a { color: #47b3ff; text-decoration: none; cursor: pointer; }
 a:hover { text-decoration: underline; }
 a img { border: 0; }
-img { height: auto; max-width: 100%; font-size: 0; vertical-align: middle; }
-
+img { height: auto; /*max-width: 100%;*/ font-size: 0; vertical-align: middle; }
 h1, h2, h3, h4, h5, h6 { line-height: 1.1; font-weight: normal; }
 
 h1 { }
@@ -213,8 +212,8 @@ textarea:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#
 .main-content .project-box .box-description a.project-title:hover { color:  #73bd36; }
 .main-content .project-box .box-description p { font-size: 13px; line-height: 18px; color: #777; }
 
-.main-content .project-box .user-uploaded-image { position: absolute; width: 40px; height: 40px; bottom: -20px; left: 30px; border-radius: 50%; border: 3px solid #f1f1f1; }
-.main-content .project-box .user-uploaded-image img { border-radius: 50%; }
+.main-content .project-box .user-uploaded-image { position: absolute; width: 40px; height: 40px; bottom: -20px; left: 30px; border-radius: 50%; border: 3px solid #f1f1f1;overflow: hidden;}
+.main-content .project-box .user-uploaded-image img { height: 35px; }
 
 .main-content .project-box p.project-category { font-size: 12px; color: #777; position: inherit; right: 76px;  bottom: -3px;border-top: 1px solid #dadada;}
 .main-content .project-box p.project-category a { font-weight: bold; color: #73bd36; }
@@ -377,15 +376,25 @@ img.box-element-5 { position: absolute; top: 40px; right: 60px; width: 140px;}
 
 /* Banner*/
 .project-slider .item { height: 450px; background-size: cover; background-position: center center; background-repeat: no-repeat; border-bottom: 5px solid #75bf37;  border-top: 2px solid #75bf37; }
-.avatar-project { display: inline-block; padding-right: 10px; max-width: 75px;}
-.avatar-project img { border-radius: 50%; border: 2px solid #75bf37; }
+.avatar-project {
+    border: 2px solid #75bf37;
+    border-radius: 50%;
+    display: inline-block;
+    height: 75px;
+    max-width: 75px;
+    overflow: hidden;
+}
+.avatar-project img{
+    height: 75px;
+}
+/*.avatar-project{ border-radius: 50%; border: 2px solid #75bf37; }*/
 .person-name { font-size: 16px; display: inline-block; color: #777; font-weight: bold; padding-bottom: 40px; }
 .project-description { font-size: 12px; color: #777; width: 700px; padding-bottom: 40px; }
 .project-description p { font-size: 14px; color: #777; }
 .project-description p + p { margin-top: 20px; }
 
 .project-details-categories { padding-bottom: 40px; }
-.project-details-categories img { width:auto; }
+.project-details-categories img { width:74%; }
 .project-details-categories img + img { margin-left: -16px; }
 .project-details-categories table td{
   text-align: center;
@@ -396,8 +405,8 @@ img.box-element-5 { position: absolute; top: 40px; right: 60px; width: 140px;}
 /* User options */
 
 .user-avatar { text-align: center; background: #75bf37; text-align: center; padding: 40px 0;}
-.user-avatar .main-image { width: 250px; height: 140px; border-radius: 50%; display: inline-block; position: relative;  }
-.user-avatar .main-image img { border-radius: 50%;max-width:100px;}
+.user-avatar .main-image { width: 250px; height: 140px; display: inline-block; position: relative;  }
+/*.user-avatar .main-image img { border-radius: 50%;max-width:100px;}*/
 .main-img { margin-bottom: 20px; }
 
 .user-avatar .project-rate { position: absolute; top: -15px; right: 30px; width: 65px; height: 65px; background: #fff; border-radius: 50%; }
@@ -666,7 +675,7 @@ input.tiny {
 
 
 .crewjob-view.ng-enter{
-   transition: 0.2s linear all;
+   transition: 0.1s linear all;
    opacity: 0;
    /*transform: translateY(30px);*/
 }
@@ -725,6 +734,7 @@ input.tiny {
 .img-rounded-profile{
   border-radius: 5px;
   z-index: 10;
+    width: 100%;
 }
 .option-delete-file{
     padding: 5px 10px 5px 10px;
@@ -917,3 +927,20 @@ input.tiny {
     -o-transition: all 0.1s ease-in-out;
     -webkit-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out; }
+.user-rounded-image{
+    width:75px;
+    height: 75px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius:50%;
+}
+.user-rounded-image img{
+    height: 75px;
+}
+
+form.tab-form-demo .tab-pane {
+    margin: 20px 20px;
+}
+.unreaded{
+    border: 1px solid red;
+}

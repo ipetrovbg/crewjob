@@ -52,6 +52,10 @@ return [
             'driver' => 'local',
             'root' => public_path('uploads/profiles'),
         ],
+        'local_avatar_thumb' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/profiles/thumbs/'),
+        ],
         'local_project_files' => [
             'driver' => 'local',
             'root' => public_path('uploads/project'),
@@ -59,6 +63,10 @@ return [
         'local_files' => [
             'driver' => 'local',
             'root' => public_path('uploads/files'),
+        ],
+        'local_files_thumbs' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/files/thumbs'),
         ],
         'public' => [
             'driver' => 'local',

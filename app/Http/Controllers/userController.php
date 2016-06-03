@@ -268,6 +268,97 @@ class userController extends Controller
         }
     }
 
+    public function sendMessage(Request $request)
+    {
+        if ($request->session()->get('ID')) {
+            $send = DB::table('messages')
+                ->insert(
+                    [
+                        'receiver' => $request['receiver'],
+                        'sender' => $request->session()->get('ID'),
+                        'message' => $request['message'],
+                        'sender_status' => 1,
+                        'created_at' => date('Y-m-d H:m:s'),
+                        'updated_at' => date('Y-m-d H:m:s')
+                    ]
+                );
+            if($send){
+                return response()->json(['auth'=> true, 'status' => true]);
+            }else{
+                return response()->json(['auth'=> true, 'status' => false]);
+            }
+        }else{
+            return response()->json(['auth'=> false, 'status' => false]);
+        }
+    }
+
+    public function getAllMessages(Request $request){
+        if ($request->session()->get('ID')) {
+            $messages = DB::table('messages')
+                ->where('receiver_status', '<', 2)
+                ->where('sender_status', '<', 2)
+                ->where('receiver', '=', $request->session()->get('ID'))
+                ->orWhere('sender', '=', $request->session()->get('ID'))
+                ->get();
+            $c = 0;
+            if($messages){
+                foreach ($messages as $message) {
+
+                        $sender = DB::table('users')->where('id', '=', $message->sender)->first();
+                        $messages[$c]->sender_name = $sender->name;
+                        $messages[$c]->sender_email = $sender->email;
+                        $messages[$c]->sender_avatar = $sender->avatar;
+
+                        $receiver = DB::table('users')->where('id', '=', $message->receiver)->first();
+                        $messages[$c]->receiver_name = $receiver->name;
+                        $messages[$c]->receiver_emaile = $receiver->email;
+                        $messages[$c]->receiver_avatar = $receiver->avatar;
+
+                    $c++;
+                }
+                return response()->json(['status' => true, 'messages' => $messages]);
+            }else{
+                return response()->json(['status' => false]);
+            }
+        }else{
+            return response()->json(['auth'=> false, 'status' => false]);
+        }
+    }
+
+    public function getMessage(Request $request)
+    {
+        if ($request->session()->get('ID')) {
+            $message = DB::table('messages')
+                ->where('id', '=', $request['id'])
+                ->where('receiver_status', '<', 2)
+                ->where('sender_status', '<', 2)->first();
+            if($message){
+                return response()->json(['auth'=> true, 'status' => true, 'message'=>$message]);
+            }else{
+                return response()->json(['auth'=> true, 'status' => false]);
+            }
+        }else{
+            return response()->json(['auth'=> false, 'status' => false]);
+        }
+    }
+
+    public function updateMsgStatus(Request $request)
+    {
+        if ($request->session()->get('ID')) {
+            $update = DB::table('messages')
+                ->where('id', '=', $request['id'])
+                ->where($request['author'], '=', $request->session()->get('ID'))
+                ->update([$request['author'] . '_status'=>1, 'updated_at' => date('Y-m-d H:m:s')]);
+            if($update){
+                return response()->json(['auth'=> true, 'status' => true]);
+            }else{
+                return response()->json(['auth'=> true, 'status' => false]);
+            }
+        }else{
+            return response()->json(['auth'=> false, 'status' => false]);
+        }
+    }
+
 }
 
     

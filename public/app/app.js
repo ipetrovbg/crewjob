@@ -4,6 +4,7 @@
     "ui.bootstrap"]);
 
     app.run(['$rootScope', '$route', 'userServices', 'projectServices', '$location', function($rootScope, $route, userServices, projectServices, $location) {
+        $rootScope.base_url = base_url;
         $rootScope.$on('$routeChangeSuccess', function() {
 
             if($route.current.params.user_id){
