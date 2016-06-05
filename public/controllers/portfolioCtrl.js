@@ -270,8 +270,13 @@
                                         }
                                     }
                                 });
-                                modalInstance.result.then(function (selectedItem) {
-                                    $scope.selected = selectedItem;
+                                modalInstance.closed.then(function () {
+                                    projectServices.getAllMyProjects()
+                                        .success(function (response) {
+                                            if (response.status) {
+                                                $scope.myProjects = response.myProjects;
+                                            }
+                                        });
                                 }, function () {
                                     //$log.info('Modal dismissed at: ' + new Date());
                                 });
@@ -410,7 +415,7 @@
             }
 
 
-        }
+        };
 
         /*delete link*/
         $scope.deleteLink = function (link_id) {
@@ -537,13 +542,13 @@
         $scope.sortData = function (column) {
             $scope.reverse = ($scope.sorting == column) ? !$scope.reverse : false;
             $scope.sorting = column;
-        }
+        };
         $scope.getClass = function (column) {
             if ($scope.sorting == column) {
                 return $scope.reverse ? 'arrow-down' : 'arrow-up';
             }
             return '';
-        }
+        };
 
         $scope.deleteProject = function (id, $event) {
             $('.loading').show();
