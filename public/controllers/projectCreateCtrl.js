@@ -76,6 +76,11 @@
 
                         $scope.projectFile.onAfterAddingFile = function (item) {
                             $scope.hasFile = true;
+                            if((item.file.size / 1024)/1024 > 3.5){
+                                $scope.projectFile.removeFromQueue(item);
+                                toastinoService.makeDangerToast('Грешка. Максималер размер 3.5Мб', 'long');
+
+                            }
                         };
                         $scope.projectFile.onBeforeUploadItem = function () {
                             console.log('start');
