@@ -79,7 +79,6 @@
 
                             }
                         });
-                        console.log($scope.messages);
 
                     }else{
                         toastinoService.makeWarningToast('Все още нямате съобщения!', 'long');
@@ -597,6 +596,29 @@
             });
             modalInstance.closed.then(function(){
                 $('#'+$scope.element_ID).removeClass('alert-warning');
+                userServices.getAllMessages().success(function(response){
+                    if(response.status){
+                        //$scope.userId = $cookies.get('ID');
+                        $scope.messages = {};
+                        $scope.messages.sended = [];
+                        $scope.messages.received = [];
+
+                        angular.forEach(response.messages, function(v){
+                            if(v.sender == $cookies.get('ID')){
+                                $scope.messages.sended.push(v);
+                            }else if(v.receiver == $cookies.get('ID')){
+                                $scope.messages.received.push(v);
+                            }
+
+                        });
+                        console.log($scope.messages);
+
+                    }else{
+                        toastinoService.makeWarningToast('Все още нямате съобщения!', 'long');
+                    }
+                }).error(function(){
+                    toastinoService.makeDangerToast('Нещо се обърка, моля опитайте отново!', 'long');
+                });
             });
 
             //modalInstance.result.then(function (selectedItem) {
