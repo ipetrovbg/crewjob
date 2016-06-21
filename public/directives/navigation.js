@@ -5,7 +5,7 @@
 	app.directive('navigation', function(){
 		return{
 			restrict: 'E',
-			templateUrl: 'templates/navigation.html',
+			templateUrl: '/public/templates/navigation.html',
 			controller: 'navigationCtrl'
 		}
 	});

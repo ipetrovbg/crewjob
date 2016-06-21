@@ -15,3 +15,6 @@
 
 	app.controller('homeCtrl', homeCtrl);
 }());
+
+console.log(moment(moment('20160617')._d).format('ZZ'));
+console.log(moment().format('[Днес е ] dddd'));

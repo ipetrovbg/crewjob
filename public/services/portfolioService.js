@@ -3,11 +3,8 @@
 
 		var updateProfile = function(gender, name, date, description){
 			return $http({
-				url: 'http://localhost:8000/updateProfile/',
+				url: base_url + '/updateProfile',
                 method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
                 params: {
                     gender: gender,
                     name: name,
@@ -23,7 +20,7 @@
 
 		var userDetail = function(){
 			return $http({
-				url: 'http://localhost:8000/userDetails',
+				url: base_url + '/userDetails',
                 method: 'POST'
 			}).success(function(response){
 				return response.data;
@@ -35,7 +32,7 @@
 		var updateCategory = function(categories){
 			// console.log(categories);
 			return $http({
-				url: 'http://localhost:8000/updateUserCategory',
+				url: base_url + '/updateUserCategory',
                 method: 'POST',
                 params: {
                     categories: categories
@@ -48,7 +45,7 @@
 		};
 		var putLink = function(link, note){
 			return $http({
-				url: 'http://localhost:8000/insertLink',
+				url: base_url + '/insertLink',
                 method: 'POST',
                 params: {
                     link: link,
@@ -62,7 +59,7 @@
 		};
 		var getLinks = function(){
 			return $http({
-				url: 'http://localhost:8000/getLinks',
+				url: base_url + '/getLinks',
                 method: 'POST'
 			}).success(function(response){
 				return response.data;
@@ -72,7 +69,7 @@
 		};
 		var deleteLink = function(link_id){
 			return $http({
-				url: 'http://localhost:8000/deleteLink',
+				url: base_url + '/deleteLink',
                 method: 'POST',
                  params: {
                     link_id: link_id
@@ -85,7 +82,7 @@
 		};
         var getAllFiles = function(){
             return $http({
-                url: 'http://localhost:8000/getAllFiles',
+                url: base_url + '/getAllFiles',
                 method: 'POST'
             }).success(function(response){
                 return response.data;
@@ -95,7 +92,7 @@
         };
         var deleteFile = function(file_id){
             return $http({
-                url: 'http://localhost:8000/deleteFile',
+                url: base_url + '/deleteFile',
                 method: 'POST',
                 params: {
                     file_id: file_id
@@ -108,7 +105,7 @@
         };
         var changePass = function(pass){
             return $http({
-                url: 'http://localhost:8000/changePass',
+                url: base_url + '/changePass',
                 method: 'POST',
                 params: {
                     pass: pass
@@ -132,7 +129,7 @@
             changePass: changePass
         };
 
-	}
+	};
 	var module = angular.module("crewjob");
     module.factory("portfolioServices", portfolioServices);
 

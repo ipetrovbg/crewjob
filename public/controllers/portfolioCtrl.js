@@ -3,7 +3,7 @@
 
     var portfolioCtrl = function ($scope, $location, $timeout, $cookies, portfolioServices, toastinoService, FileUploader,
                                   categoriesServices, sha1, auth, projectServices, $uibModal, $log, userServices) {
-
+        $scope.fisual = false;
         $scope.userEmail = $cookies.get('email');
         if ($cookies.get('lastTab')) {
             if ($cookies.get('lastTab') == '#tab3') {
@@ -40,7 +40,7 @@
                                 //console.log(size);
                                 var modalInstance = $uibModal.open({
                                     animation: true,
-                                    templateUrl: 'templates/modal-apply-view.html',
+                                    templateUrl: 'public/templates/modal-apply-view.html',
                                     controller: 'ModalApplyCtrl',
                                     size: size,
                                     resolve: {
@@ -178,15 +178,26 @@
                 });
         };
 
+
+
+
         /* upload profile picture */
         $scope.uploader = new FileUploader({
             url: '/upload-profile',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            autoUpload: true,
+            //autoUpload: true,
             alias: "file",
             removeAfterUpload: true,
+            formData: {
+                data: {
+                    w: null,
+                    h: null,
+                    x: null,
+                    y: null
+                }
+            },
             filters: [{
                 fn: function (item) {
                     var allowedTypes = ['image/jpeg', 'image/png'];
@@ -207,13 +218,31 @@
             $('.sr-only').text(progress + ' %');
         };
 
+        $scope.obj = {src:"", selection: [], thumbnail: false};
 
          $scope.uploader.onAfterAddingFile  = function(item){
+
+
+
              if((item.file.size/1024)/1024 > 1.46){
                  $scope.uploader.removeFromQueue(item);
                  toastinoService.makeDangerToast('Грешка. Максималер размер 1Мб', 'long');
+             }else{
+
+                 // console.log($scope.obj.src.length);
+
+                $scope.fisual = true;
+
+                 $scope.uploadThumbnail = function(){
+                     $scope.uploader.queue[0].formData.data.w = $scope.obj.selection[4];
+                     $scope.uploader.queue[0].formData.data.h = $scope.obj.selection[5];
+                     $scope.uploader.queue[0].formData.data.x = $scope.obj.selection[0];
+                     $scope.uploader.queue[0].formData.data.y = $scope.obj.selection[1];
+                     $scope.uploader.queue[0].upload();
+                 };
              }
          };
+
         $scope.fileItem = "Choose file";
 
         /* on complete uploading */
@@ -221,6 +250,7 @@
             toastinoService.makeSuccessToast('Успешно обновихте профилната си снимка!', 'long');
             $scope.fileItem = fileItem.file.name;
             // console.log(response);
+            $scope.fisual = false;
             $scope.profileImage = response.avatar;
         };
         /* /upload profile picture */
@@ -261,7 +291,7 @@
                                 //console.log(size);
                                 var modalInstance = $uibModal.open({
                                     animation: true,
-                                    templateUrl: 'templates/modal-apply-view.html',
+                                    templateUrl: 'public/templates/modal-apply-view.html',
                                     controller: 'ModalApplyCtrl',
                                     size: size,
                                     resolve: {
@@ -590,7 +620,7 @@
 
             var modalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: 'templates/modal-view-message.html',
+                templateUrl: 'public/templates/modal-view-message.html',
                 controller: 'ModalViewMessageCtrl',
                 size: 'lg',
                 resolve: {

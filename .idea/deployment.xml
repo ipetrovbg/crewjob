@@ -1,43 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="crewjob-live">
     <serverData>
-      <paths name="autoreader-dev">
+      <paths name="crewJob">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="autoreader-live">
+      <paths name="crewjob-live">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/public_html" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/public_html/storage/framework/sessions" />
+            <excludedPath local="true" path="$PROJECT_DIR$/storage/framework/sessions" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="laravel-dev">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="gamesteady-dev">
+      <paths name="mobiko">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="gamesteady-live">
+      <paths name="mobiko (1)">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="lift-hr-dev">
+      <paths name="nutri">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="lifthr-live">
+      <paths name="vrachovski">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
@@ -45,5 +56,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
   </component>
 </project>

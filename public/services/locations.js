@@ -4,7 +4,7 @@
 
 		var getUserLocations = function () {
             return $http({
-                url: 'http://localhost:8000/getUserLocations/',
+                url: base_url + '/getUserLocations',
                 method: 'POST'
             }).then(function (response) {
                 return response.data;
@@ -12,7 +12,7 @@
         };
         var insertLocation = function (t, la, lo, c) {
             return $http({
-                url: 'http://localhost:8000/insertLocation/',
+                url: base_url + '/insertLocation',
                 method: 'POST',
                 params: {
                     t: t,

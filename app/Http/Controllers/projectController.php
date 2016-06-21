@@ -118,10 +118,10 @@ class projectController extends Controller
                 foreach ($delProjectFile as $item) {
                     $allowedTypes = ['jpg', 'JPG', 'JPEG', 'jpeg', 'png', 'gif'];
                     if (in_array($item->file_type, $allowedTypes)) {
-                        File::delete('uploads/project/thumbs/' . $item->file_name);
-                        File::delete('uploads/project/thumbs/small/' . $item->file_name);
+                        File::delete('public/uploads/project/thumbs/' . $item->file_name);
+                        File::delete('public/uploads/project/thumbs/small/' . $item->file_name);
                     }
-                    File::delete('uploads/project/' . $item->file_name);
+                    File::delete('public/uploads/project/' . $item->file_name);
 
                 }
                 DB::table('files')
@@ -164,8 +164,6 @@ class projectController extends Controller
     public function getLastProjects(Request $request)
     {
         $lastProjects = DB::table('projects')
-//            ->leftJoin('project_application', 'projects.id', '=', 'project_application.project_id')
-//            ->where('project_application.status', '=', 0)
             ->where('projects.status', '=', 1)
             ->skip(0)->take(6)->orderBy('projects.id', 'desc')->get();
         for ($i = 0; $i < count($lastProjects); $i++) {
@@ -179,16 +177,12 @@ class projectController extends Controller
                 })
                 ->first();
             $lastProjects[$i]->files = [];
-//            for ($j = 0; $j < count($files); $j++) {
-//                array_push($lastProjects[$i]->files, $files[$j]);
-//            }
             array_push($lastProjects[$i]->files, $files);
             $user = DB::table('users')
                 ->select('name', 'email', 'id', 'avatar')
                 ->where('id', '=', $lastProjects[$i]->user_id)
                 ->first();
             $lastProjects[$i]->author = $user;
-//            $lastProjects[$i]->categories = [];
             $categories = DB::table('project_category_relation')
                 ->select('category.name')
                 ->leftJoin('category', 'project_category_relation.category_ID', '=', 'category.id')
@@ -208,8 +202,6 @@ class projectController extends Controller
     public function getAllProjects()
     {
         $allProjects = DB::table('projects')
-//            ->leftJoin('project_application', 'projects.id', '=', 'project_application.project_id')
-//            ->where('project_application.status', '=', 0)
             ->where('projects.status', '=', 1)
             ->take(6)->orderBy('projects.id', 'desc')->get();
         if (count($allProjects) > 0) {
@@ -409,11 +401,11 @@ class projectController extends Controller
 
             $allowedTypes = ['jpg', 'JPG', 'JPEG', 'jpeg', 'png', 'gif'];
             if (in_array($fileToDelete->file_type, $allowedTypes)) {
-                File::delete('uploads/project/thumbs/' . $fileToDelete->file_name);
-                File::delete('uploads/project/thumbs/small/' . $fileToDelete->file_name);
+                File::delete('public/uploads/project/thumbs/' . $fileToDelete->file_name);
+                File::delete('public/uploads/project/thumbs/small/' . $fileToDelete->file_name);
             }
 
-            $realDeleting = File::delete('uploads/project/' . $fileToDelete->file_name);
+            $realDeleting = File::delete('public/uploads/project/' . $fileToDelete->file_name);
             if($realDeleting){
                 $delete = DB::table('files')
                     ->where('file_id', '=', $request['id'])

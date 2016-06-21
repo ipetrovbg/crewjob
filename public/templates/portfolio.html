@@ -20,7 +20,8 @@
 
     <div class="tabs-content">
         <div class="shell">
-            <form id="tab1" ng-submit="update()" class="tab tab1 active">
+            <div id="tab1" class="tab tab1 active">
+            <form  ng-submit="update()">
                 <!--		<div id="tab1" class="tab tab1 active">  -->
                 <div class="shell">
                     <h2 class="tab-heading">Лични данни</h2>
@@ -57,11 +58,12 @@
                         <textarea ng-model="description" id="user_note" placeholder="Описание "
                                   class="input-main textarea-main input-spacing"></textarea>
                         <div class="file input-spacing">
-                            <input type="file" id="id_media" nv-file-select uploader="uploader">
+
+                            <input type="file" id="id_media" nv-file-select uploader="uploader" ng-jcrop-input="upload">
                             <span ng-if="!profileImage" class="value">Избери снимка</span>
                             <span ng-if="!profileImage" class="btn-value"></span>
                             <img ng-if="profileImage" class="img-rounded img-rounded-profile" width="205"
-                                 ng-src="uploads/profiles/thumbs/{{ profileImage }}" alt="">
+                                 ng-src="public/uploads/profiles/thumbs/{{ profileImage }}" alt="">
                             <div ng-if="progres && progres < 100" class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                                      aria-valuemax="100" style="width:0%">
@@ -71,17 +73,24 @@
                                 </div>
                             </div>
                         </div>
+                        <div ng-if="obj.src.length < 1500000" class="col-md-5">
+                            <div class="one-half column">
+                                <div ng-if="fisual" ng-jcrop="obj.src" ng-jcrop-config-name="upload" selection="obj.selection" thumbnail="obj.thumbnail"></div>
+                            </div>
+                        </div>
 
                         <input type="submit" value="Обнови" class="btn-main form-btn-main input-spacing">
+
                     </div>
                 </div>
 
-                <img class="box-element-5" src="img/KUB-003.png">
-                <img class="box-element-3" src="img/KUB-003.png">
-                <img class="box-element-4" src="img/KUB-004.png">
+                <img class="box-element-5" ng-src="{{ base_url }}/public/img/KUB-003.png">
+                <img class="box-element-3" ng-src="{{ base_url }}/public/img/KUB-003.png">
+                <img class="box-element-4" ng-src="{{ base_url }}/public/img/KUB-004.png">
                 <!-- </div> -->
             </form>
-
+            <input type="submit" value="Качи" ng-click="uploadThumbnail()" class="btn-main form-btn-main input-spacing">
+            </div>
             <div class="tab tab2" id="tab2">
                 <div class="shell">
                     <h2 class="tab-heading">Категории</h2>
@@ -91,7 +100,7 @@
                         <div class="categories-row clearfix">
                             <a ng-repeat="c in categories | limitTo : 4 : 0" data-id="{{ c.id }}"
                                ng-class="(c.has) ? 'active' : ''" class="categories-box" href="#">
-                                <img src="img/001-g.png">
+                                <img src="{{ base_url }}/public/img/001-g.png">
                                 <h4>{{ c.name }}</h4>
                                 <p>{{ c.description }}</p>
                             </a>
@@ -100,7 +109,7 @@
                         <div class="categories-row clearfix">
                             <a ng-repeat="c in categories | limitTo : 8 : 4" data-id="{{ c.id }}"
                                ng-class="(c.has) ? 'active' : ''" class="categories-box" href="#">
-                                <img src="img/001-g.png">
+                                <img src="{{ base_url }}/public/img/001-g.png">
                                 <h4>{{ c.name }}</h4>
                                 <p>{{ c.description }}</p>
                             </a>
@@ -111,7 +120,7 @@
                     </div>
                 </div>
 
-                <img class="box-element-1" src="img/KVADRATI-02.png">
+                <img class="box-element-1" src="{{ base_url }}/public/img/KVADRATI-02.png">
             </div>
 
             <!-- Links -->
@@ -153,7 +162,7 @@
                     </div>
                 </div>
 
-                <img class="box-element-1" src="img/KVADRATI-01.png">
+                <img class="box-element-1" src="{{ base_url }}/public/img/KVADRATI-01.png">
             </div>
             <!-- /Links -->
 
@@ -197,7 +206,7 @@
                         <br>
                         <div ng-if="allFiles" ng-repeat="af in allFiles | orderBy:af.file_id:true"
                              class="uploaded-file-box">
-                            <a target="_blank" ng-href="uploads/files/{{ af.file_name }}" class="file-box"></a>
+                            <a target="_blank" ng-href="public/uploads/files/{{ af.file_name }}" class="file-box"></a>
                             <h4>{{ af.org_filename }} <br/><span ng-click="deleteFile(af.file_id)"
                                                                  class="option-delete-file"><i class="fa fa-trash"></i></span>
                             </h4>

@@ -3,7 +3,7 @@
     var auth = function ($http) {
         var hasEmail = function (email) {
             return $http({
-                url: 'http://localhost:8000/getEmail/',
+                url: base_url + '/get-email',
                 method: 'POST',
                 params: {
                     email: email
@@ -15,7 +15,7 @@
 
         var registration = function (email, password) {
             return $http({
-                url: 'http://localhost:8000/register',
+                url: base_url + '/register',
                 method: 'POST',
                 params: {
                     email: email,
@@ -31,7 +31,7 @@
         };
         var login = function (email, password) {
             return $http({
-                url: 'http://localhost:8000/login',
+                url: base_url + '/login',
                 method: 'POST',
                 params: {
                     email: email,
@@ -43,28 +43,10 @@
                 return promise;
             });
         };
-
-        var forseLogin = function (email, id) {
-            return $http({
-                url: 'http://localhost:8000/forseLogin',
-                method: 'POST',
-                params: {
-                    email: email,
-                    id: id
-                },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            }).success(function (response) {
-                return response.data;
-            }).error(function(promise) {
-                return promise;
-            });
-        };
         
         var isAuth = function(){
           return $http({
-              url: 'http://localhost:8000/isAuth',
+              url: base_url + '/isAuth',
               method: 'POST'
           }).then(function(response){
               return response.data;
@@ -73,7 +55,7 @@
         
         var logout = function(){
             return $http({
-                url: 'http://localhost:8000/logout',
+                url: base_url + '/logout',
                 method: 'POST'
             }).then(function(response){
                 return response.data;
@@ -86,8 +68,7 @@
             isEmail: isEmail,
             login: login,
             isAuth: isAuth,
-            logout: logout,
-            forseLogin: forseLogin
+            logout: logout
         };
     };
 

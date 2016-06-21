@@ -28,7 +28,7 @@
 				<h4 class="sub-heading input-spacing">Категории*:</h4>
 				<div ng-if="categories" class="user-categories-create-project clearfix">
 		            <div ng-click="getCat(c.id)" ng-repeat="c in categories" data-cat_id="{{ c.id }}" class="categories-box-row-create-project">
-		                <img ng-src="img/{{ c.icon }}">
+		                <img ng-src="public/img/{{ c.icon }}">
 		                <p><small>{{ c.name }}</small></p>
 		            </div>
 		        </div>
@@ -65,6 +65,6 @@
 			</form>
 		</div>
 
-		<img src="img/KVADRATI-01.png" class="box-element-1">
+		<img src="public/img/KVADRATI-01.png" class="box-element-1">
 	</div>
 </div>

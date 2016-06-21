@@ -163,7 +163,7 @@ textarea:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#
 .header .logo { float: left; }
 .header .logo img { width: 152px;  }
 
-.header ul { list-style-type: none; float: right; }
+.header ul { list-style-type: none; float: right;margin-bottom: 0px}
 .header ul li { display: inline-block; vertical-align: top; }
 .header ul li + li { margin-left: 20px; }
 .header ul li a { font-size: 14px; line-height: 62px; text-transform: uppercase; font-weight: bold; text-decoration: none; color: #444; transition: background .3s ease, color .3s ease;}
@@ -203,8 +203,8 @@ textarea:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#
 }
 
 
-.main-content .project-box .image-holder { position: relative; margin-bottom: 12px; display: block; max-height: 126px;overflow: hidden;min-height: 126px;}
-.main-content .project-box .image-holder:after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 12px; background: url('../img/triygalnik.png') center center; }
+.main-content .project-box .image-holder { position: relative; margin-bottom: 12px; display: block; max-height: 123px;overflow: hidden;min-height: 123px;}
+.main-content .project-box .image-holder:after { content: ''; position: absolute; left: 0; right: 0; bottom: 0px; height: 12px; background: url('../img/triygalnik.png') center center; }
 .main-content .project-box .image-holder img { border-radius: 6px; width: 100%; }
 
 .main-content .project-box .box-description { padding: 10px 14px; min-height: 234px; }
@@ -943,4 +943,11 @@ form.tab-form-demo .tab-pane {
 }
 .unreaded{
     border: 1px solid red;
+}
+.one-half.column{
+    width:100%;
+}
+.ng-jcrop-image-wrapper{
+    float: left;
+    max-width: 50%;
 }

@@ -3,7 +3,7 @@
 
 		var getAll = function(){
 			return $http({
-				url: 'http://localhost:8000/categories',
+				url: base_url + '/categories',
                 method: 'POST'
 			}).success(function(response){
 				return response.data;

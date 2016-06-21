@@ -11,8 +11,7 @@ class userController extends Controller
 
     public function getEmail(Request $request)
     {
-
-
+//        print_r($request['email']);
         $userEmail = DB::table('users')
             ->where('email', $request['email'])
             ->count();
@@ -22,7 +21,7 @@ class userController extends Controller
         } else {
             return response()->json(['hasUser' => 1]);
         }
-        // return response()->json(['hasUser' => $userEmail]);
+
     }
 
     public function register(Request $request)
@@ -99,7 +98,7 @@ class userController extends Controller
                 ->update(['name' => htmlspecialchars($request['name']),
                     'gender' => $request['gender'],
                     'date_of_birth' => $request['date'],
-                    'description' => htmlspecialchars($request['description'])]);
+                    'description' => $request['description']]);
 
 
             if ($response) {
